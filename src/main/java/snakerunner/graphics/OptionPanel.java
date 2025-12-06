@@ -30,6 +30,8 @@ public class OptionPanel extends BasePanel {
         checkbox = new JCheckBox();
         label = new JLabel(SOUND);
 
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         styleButton(apply);
         styleButton(back);
         

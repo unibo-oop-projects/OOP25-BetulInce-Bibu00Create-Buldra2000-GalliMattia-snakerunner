@@ -1,6 +1,7 @@
 package snakerunner.graphics;
 
 import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
 public class MenuPanel extends BasePanel {
@@ -19,6 +20,8 @@ public class MenuPanel extends BasePanel {
         start = new JButton(START);
         option = new JButton(OPTION);
         exit = new JButton(EXIT);
+
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
         styleButton(start);
         styleButton(option);

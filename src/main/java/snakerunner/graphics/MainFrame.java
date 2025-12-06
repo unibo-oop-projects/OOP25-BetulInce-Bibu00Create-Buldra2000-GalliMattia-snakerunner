@@ -9,13 +9,13 @@ public class MainFrame extends JFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
-    private final OptionPanel optionPanel = new OptionPanel();
+    private final GamePanel gamePanel = new GamePanel();
 
     public MainFrame(){
         super(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        add(optionPanel, BorderLayout.CENTER);
+        add(gamePanel, BorderLayout.CENTER);
         setDimensionFrame();
     }
 

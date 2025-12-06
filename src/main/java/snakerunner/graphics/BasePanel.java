@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,7 +20,6 @@ public abstract class BasePanel extends JPanel {
     public BasePanel(){
         super();
         setBackground(defaultBackground);
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     //Create the title of the panels
