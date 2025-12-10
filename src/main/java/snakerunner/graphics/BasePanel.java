@@ -22,6 +22,9 @@ public abstract class BasePanel extends JPanel {
         setBackground(defaultBackground);
     }
 
+    //Add Listener to button
+    protected abstract void addActionListeners();
+
     //Create the title of the panels
     protected JLabel createTitle(String text){
         JLabel title = new JLabel(text);
@@ -32,9 +35,10 @@ public abstract class BasePanel extends JPanel {
 
     protected JButton styleButton(JButton button){
         button.setFocusPainted(false);
+        button.setOpaque(true);
         button.setBorderPainted(true);
+        button.setContentAreaFilled(false);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         return button;
     }
-    
 }

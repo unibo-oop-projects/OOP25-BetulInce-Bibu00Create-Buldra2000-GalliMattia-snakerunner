@@ -1,14 +1,14 @@
 package snakerunner.controller;
 
-import snakerunner.graphics.MainFrame;
+import snakerunner.graphics.MainFrameImpl;
 import snakerunner.graphics.MenuPanel;
 
 public class MenuController implements Controller {
 
-    private final MainFrame mainFrame;
+    private final MainFrameImpl mainFrame;
     private final MenuPanel menuPanel;
 
-    public MenuController(MainFrame mainFrame,MenuPanel menuPanel){
+    public MenuController(MainFrameImpl mainFrame,MenuPanel menuPanel){
         this.mainFrame = mainFrame;
         this.menuPanel = menuPanel;
     }
@@ -16,7 +16,7 @@ public class MenuController implements Controller {
     @Override
     public void init() {
         menuPanel.getStartButton().addActionListener(null);
-        menuPanel.getOptionButton().addActionListener(null);
+        menuPanel.getTutorialButton().addActionListener(null);
         menuPanel.getExitButton().addActionListener(null);
     }
 

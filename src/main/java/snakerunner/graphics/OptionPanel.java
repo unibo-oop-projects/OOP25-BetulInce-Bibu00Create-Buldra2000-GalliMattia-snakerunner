@@ -52,8 +52,7 @@ public class OptionPanel extends BasePanel {
         add(apply);
         add(back);
 
-        getApply().addActionListener(e -> applyButton());
-        getBack().addActionListener(e -> backButton());
+        addActionListeners();
     }
 
     public JButton getApply() {
@@ -74,5 +73,10 @@ public class OptionPanel extends BasePanel {
 
     public void backButton(){
         System.out.println("Back button pressed");
+    }
+
+    protected void addActionListeners(){
+        getApply().addActionListener(e -> applyButton());
+        getBack().addActionListener(e -> backButton());
     }
 }

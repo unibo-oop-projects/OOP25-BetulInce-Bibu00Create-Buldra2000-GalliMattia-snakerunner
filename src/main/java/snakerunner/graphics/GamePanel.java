@@ -53,8 +53,7 @@ public class GamePanel extends BasePanel {
         wPanel.add(life);
         sPanel.add(score);
 
-        getPause().addActionListener(e -> pauseButton());
-        getRestart().addActionListener(e -> resumeButton());
+        addActionListeners();
     }
 
     public JButton getPause() {
@@ -71,5 +70,10 @@ public class GamePanel extends BasePanel {
 
     public void resumeButton(){
         System.out.println("Restart button pressed");
+    }
+
+    protected void addActionListeners(){
+        getPause().addActionListener(e -> pauseButton());
+        getRestart().addActionListener(e -> resumeButton());
     }
 }
