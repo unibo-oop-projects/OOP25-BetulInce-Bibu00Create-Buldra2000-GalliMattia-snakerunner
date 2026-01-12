@@ -1,5 +1,5 @@
 package snakerunner.model;
 
-public class Serpente {
+public class Snake {
     
 }

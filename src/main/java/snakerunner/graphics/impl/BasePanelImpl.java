@@ -35,9 +35,6 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
         add(Box.createVerticalStrut(s_height));
     }
 
-    @Override
-    public abstract void setLayoutPanel();
-
     //Create the title of the panels
     protected JLabel createTitle(String text){
         JLabel title = new JLabel(text);
@@ -59,7 +56,6 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(button);
         return button;
     }
 }

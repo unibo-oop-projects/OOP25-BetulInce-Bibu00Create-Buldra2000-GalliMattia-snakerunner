@@ -2,23 +2,19 @@ package snakerunner.controller.impl;
 
 import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
-import snakerunner.graphics.panel.GamePanel;
 
 public class ControllerImpl implements Controller {
 
     private final MainFrame mainFrame;
-    private final GamePanel gamePanel;
 
-
-    public ControllerImpl(MainFrame mainFrame, GamePanel gamePanel) {
+    public ControllerImpl(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        this.gamePanel = gamePanel;
     }
 
     @Override
     public void init() {
-        mainFrame.display();
         mainFrame.showMenu();
+        mainFrame.display();
     }
 
     @Override

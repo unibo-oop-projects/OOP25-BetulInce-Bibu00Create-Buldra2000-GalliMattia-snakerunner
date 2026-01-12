@@ -39,6 +39,10 @@ public class OptionPanel extends BasePanelImpl {
         add(Box.createVerticalGlue());
         apply = createButton(APPLY);
         back = createButton(BACK);
+
+        add(apply);
+        add(back);
+
         this.addActionListeners();
     }
 
@@ -70,9 +74,11 @@ public class OptionPanel extends BasePanelImpl {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
+    @Override
     public void addActionListeners(){
-        getApply().addActionListener(null); //TODO
+        System.out.println("OptionPanel : Adding action listeners to OptionPanel buttons");
+        getApply().addActionListener(e -> {});
         getBack().addActionListener(e -> mainFrame.showMenu());
-        getCheckbox().addActionListener(null); //TODO
+        getCheckbox().addActionListener(e -> {});
     }
 }

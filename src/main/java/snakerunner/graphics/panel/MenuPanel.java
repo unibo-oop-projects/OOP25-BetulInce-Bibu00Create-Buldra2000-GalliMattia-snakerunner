@@ -21,33 +21,42 @@ public class MenuPanel extends BasePanelImpl {
     public MenuPanel(MainFrame mainFrame){
         super();
         this.mainFrame = mainFrame;
+
+        setLayoutPanel();
+
         start = createButton(START);
         option = createButton(OPTION);
         exit = createButton(EXIT);
+
+        add(start);
+        add(option);
+        add(exit);
+
         this.addActionListeners();
     }
 
-    public JButton getStartButton() {
+    private JButton getStartButton() {
         return start;
     }
 
-    public JButton getOptionButton() {
+    private JButton getOptionButton() {
         return option;
     }
 
-    public JButton getExitButton() {
+    private JButton getExitButton() {
         return exit;
-    }
-
-    public void addActionListeners() {
-        System.out.println("Adding action listeners to MenuPanel buttons");
-        getStartButton().addActionListener(e -> mainFrame.showGame());
-        getOptionButton().addActionListener(e -> mainFrame.showOption());
-        getExitButton().addActionListener(e -> System.exit(0));
     }
 
     @Override
     public void setLayoutPanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    }
+
+    @Override
+    public void addActionListeners() {
+        System.out.println("MenuPanel : Adding action listeners to MenuPanel buttons");
+        getStartButton().addActionListener(e -> mainFrame.showGame());
+        getOptionButton().addActionListener(e -> mainFrame.showOption());
+        getExitButton().addActionListener(e -> System.exit(0));
     }
 }

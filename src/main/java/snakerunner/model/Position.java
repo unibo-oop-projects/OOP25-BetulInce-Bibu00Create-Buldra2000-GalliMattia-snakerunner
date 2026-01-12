@@ -1,5 +1,5 @@
 package snakerunner.model;
 
-public class Posizione {
+public class Position {
     
 }

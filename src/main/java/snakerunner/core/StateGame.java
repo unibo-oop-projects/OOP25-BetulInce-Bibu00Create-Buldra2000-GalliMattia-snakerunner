@@ -1,5 +1,5 @@
 package snakerunner.core;
 
-public class StatoGioco {
+public class StateGame {
     //MENU, IN_GAME, PAUSE, GAME_OVER
 }

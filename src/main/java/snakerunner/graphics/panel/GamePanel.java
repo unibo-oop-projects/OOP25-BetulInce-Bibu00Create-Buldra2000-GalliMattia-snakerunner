@@ -28,6 +28,7 @@ public class GamePanel extends BasePanelImpl {
     private final JLabel timer;
     private final JLabel life;
     private final JLabel score;
+    private final JLabel level;
 
     public GamePanel(MainFrame mainFrame){
         super();
@@ -38,6 +39,7 @@ public class GamePanel extends BasePanelImpl {
         ePanel = new JPanel();
         wPanel = new JPanel();
         life = createLabel("Lives remaining: 3");
+        level = createLabel("Level 1");
         timer = createLabel("0:00");
         score = createLabel("Score : 0");
 
@@ -59,6 +61,7 @@ public class GamePanel extends BasePanelImpl {
         add(wPanel, BorderLayout.WEST);
 
         nPanel.add(timer);
+        nPanel.add(level);
         ePanel.add(pause);
         ePanel.add(restart);
         wPanel.add(life);
@@ -68,11 +71,11 @@ public class GamePanel extends BasePanelImpl {
         this.addActionListeners();
     }
 
-    public JButton getPause() {
+    private JButton getPause() {
         return pause;
     }
 
-    public JButton getRestart() {
+    private JButton getRestart() {
         return restart;
     }
 
@@ -85,9 +88,11 @@ public class GamePanel extends BasePanelImpl {
         setLayout(new BorderLayout());
     }
 
+    @Override
     public void addActionListeners(){
-        getPause().addActionListener(null); //TODO
-        getRestart().addActionListener(null); //TODO
+        System.out.println("GamePanel : Adding action listeners to GamePanel buttons");
+        getPause().addActionListener(e -> {});
+        getRestart().addActionListener(e -> {});
         getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
     }
 }
