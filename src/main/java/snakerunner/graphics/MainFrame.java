@@ -1,5 +1,7 @@
 package snakerunner.graphics;
 
+import snakerunner.controller.Controller;
+
 public interface MainFrame {
 
     public void display();
@@ -13,4 +15,9 @@ public interface MainFrame {
 
     public void showOption();
 
+    public void setController(Controller controller);
+
+    public void startGameLoop();
+
+    public void stopGameLoop();
 }

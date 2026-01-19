@@ -9,14 +9,15 @@ public class ControllerImpl implements Controller {
     private final GameModel gameModel;
 
     public ControllerImpl(MainFrame mainFrame, GameModel gameModel) {
-        this.mainFrame = mainFrame;
-        this.gameModel = gameModel;
+        this.mainFrame = mainFrame; //view
+        this.gameModel = gameModel; //model
     }
 
     @Override
     public void init() {
         mainFrame.showMenu();
         mainFrame.display();
+        mainFrame.startGameLoop();
     }
 
     @Override
@@ -25,8 +26,13 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void update() {
+    public void updateGame() {
         //un tick di gioco
         gameModel.update();
+
+        if (gameModel.isGameOver()) {
+            System.out.println("Controller: Game Over!");
+            mainFrame.showMenu();
+        }
     }
 }
