@@ -76,6 +76,7 @@ public class GameModelImpl implements GameModel {
     @Override
     public void nextLevel() {
         this.currentLevel = levelManager.nextLevel();
+        // WIN OR DEATH CONDITION
     }
 
     @Override
@@ -86,5 +87,5 @@ public class GameModelImpl implements GameModel {
     @Override
     public void stopTimer() {
         timer.stop();
-    }  
+    }    
 }
