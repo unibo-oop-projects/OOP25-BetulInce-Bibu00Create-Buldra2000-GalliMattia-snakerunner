@@ -17,12 +17,13 @@ public class ControllerImpl implements Controller {
     public void init() {
         mainFrame.showMenu();
         mainFrame.display();
-        mainFrame.startGameLoop();
     }
 
     @Override
     public void start() {
         // Implementation to start the game loop
+        mainFrame.startGameLoop();
+        //gameModel.loadLevel(level);
     }
 
     @Override
