@@ -41,6 +41,8 @@ public class ControllerImpl implements Controller {
 
         gameModel.stopTimer();
         System.out.println("StateGame.PAUSED , StopTimer");
+        mainFrame.startGameLoop();
+        //gameModel.loadLevel(level);
     }
 
     @Override
