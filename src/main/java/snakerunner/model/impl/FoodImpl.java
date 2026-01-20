@@ -1,9 +1,10 @@
 package snakerunner.model.impl;
 
+import snakerunner.model.Food;
 import snakerunner.model.FoodEffect;
 import snakerunner.model.Snake;
 
-public class FoodImpl {
+public class FoodImpl implements Food{
     //position
     private FoodEffect effect;
 
@@ -12,6 +13,7 @@ public class FoodImpl {
         this.effect = effect;
     }
 
+    @Override
     public void consume(Snake snake) {
         effect.apply(snake);
     }
