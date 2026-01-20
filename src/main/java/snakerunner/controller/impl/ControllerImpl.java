@@ -44,6 +44,8 @@ public class ControllerImpl implements Controller {
         state = StateGame.RUNNING;
         gameModel.startTimer();
         System.out.println("StateGame.RESUME , StartTimer");
+        mainFrame.startGameLoop();
+        //gameModel.loadLevel(level);
     }
 
     @Override
