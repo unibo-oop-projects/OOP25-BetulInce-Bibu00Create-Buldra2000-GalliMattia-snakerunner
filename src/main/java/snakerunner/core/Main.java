@@ -17,6 +17,7 @@ public class Main {
             GameModel gameModel = new GameModelImpl();
             
             Controller controller = new ControllerImpl(mainFrame, gameModel);
+            mainFrame.setController(controller);
             controller.init();
         });
     }

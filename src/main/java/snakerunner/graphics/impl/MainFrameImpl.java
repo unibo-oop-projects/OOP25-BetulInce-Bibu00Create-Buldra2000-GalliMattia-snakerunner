@@ -59,6 +59,9 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setContentPane(gamePanel);
         revalidate();
         repaint();
+
+        controller.start();
+        System.out.println("Controller.start()");
     }
 
     @Override
@@ -80,6 +83,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         timer = new Timer(200, e -> {
             controller.updateGame(); 
             //repaint();
+            gamePanel.updateTimer(controller.getModel().getTimeLeft());
         });
         timer.start();
     }

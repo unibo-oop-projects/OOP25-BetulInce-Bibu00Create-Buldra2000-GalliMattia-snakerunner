@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import snakerunner.graphics.MainFrame;
+import snakerunner.graphics.hud.TimerView;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class GamePanel extends BasePanelImpl {
@@ -15,6 +16,7 @@ public class GamePanel extends BasePanelImpl {
     private static final String RESTART = "Restart";
     private static final String BACK = "Back to Menu";
 
+    private TimerView timerView;
     private MainFrame mainFrame;
 
     private final JPanel nPanel;
@@ -25,7 +27,6 @@ public class GamePanel extends BasePanelImpl {
     private final JButton pause;
     private final JButton restart;
     private final JButton back;
-    private final JLabel timer;
     private final JLabel life;
     private final JLabel score;
     private final JLabel level;
@@ -38,9 +39,11 @@ public class GamePanel extends BasePanelImpl {
         gameBoardPanel = new GameBoardPanel();
         ePanel = new JPanel();
         wPanel = new JPanel();
+
+        timerView = new TimerView();
+
         life = createLabel("Lives remaining: 3");
         level = createLabel("Level 1");
-        timer = createLabel("0:00");
         score = createLabel("Score : 0");
 
         setLayoutPanel();
@@ -60,7 +63,7 @@ public class GamePanel extends BasePanelImpl {
         add(ePanel, BorderLayout.EAST);
         add(wPanel, BorderLayout.WEST);
 
-        nPanel.add(timer);
+        nPanel.add(timerView);
         nPanel.add(level);
         ePanel.add(pause);
         ePanel.add(restart);
@@ -94,5 +97,9 @@ public class GamePanel extends BasePanelImpl {
         getPause().addActionListener(e -> {});
         getRestart().addActionListener(e -> {});
         getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
+    }
+
+    public void updateTimer(int timeLeft){
+        timerView.setTimeLeft(timeLeft);
     }
 }
