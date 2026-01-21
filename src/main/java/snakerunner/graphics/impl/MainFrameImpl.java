@@ -37,8 +37,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setVisible(true);
     }
 
-    @Override
-    public void setDimensionFrame(){
+    private void setDimensionFrame(){
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)(screensize.width * PROPORTION);
         int height = (int)(screensize.height * PROPORTION);
@@ -94,5 +93,4 @@ public class MainFrameImpl extends JFrame implements MainFrame {
             timer.stop();
         }
     }
-
 }
