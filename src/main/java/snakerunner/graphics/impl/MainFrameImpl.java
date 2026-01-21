@@ -42,17 +42,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setVisible(true);
     }
 
-    /*
-    private void setIcon(){
-        URL iconURL = getClass().getResource("/icon.png");
-        System.out.println("Icon URL: " + iconURL);
-        ImageIcon icon = new ImageIcon(iconURL);
-        setIconImage(icon.getImage());
-    }
-    */
-    
-
-    public void setDimensionFrame(){
+    private void setDimensionFrame(){
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)(screensize.width * PROPORTION);
         int height = (int)(screensize.height * PROPORTION);
@@ -104,20 +94,5 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     if (timer != null) {
             timer.stop();
         }
-    }
-
-    @Override
-    public void setSoundEnabled(boolean isEnable) {
-        controller.setSoundEnable(isEnable);
-    }
-
-    @Override
-    public void pause() {
-        controller.pause();
-    }
-
-    @Override
-    public void resume(){
-        controller.resume();
     }
 }
