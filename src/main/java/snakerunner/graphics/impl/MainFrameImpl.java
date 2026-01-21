@@ -73,6 +73,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         repaint();
 
         controller.start();
+        System.out.println("Controller.start()");
     }
 
     @Override

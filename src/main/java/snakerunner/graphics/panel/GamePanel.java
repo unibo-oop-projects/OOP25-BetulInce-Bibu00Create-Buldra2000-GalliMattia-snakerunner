@@ -8,10 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import snakerunner.graphics.MainFrame;
-import snakerunner.graphics.hud.impl.LevelView;
-import snakerunner.graphics.hud.impl.LifeView;
-import snakerunner.graphics.hud.impl.ScoreView;
-import snakerunner.graphics.hud.impl.TimerView;
+import snakerunner.graphics.hud.TimerView;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class GamePanel extends BasePanelImpl {
@@ -21,10 +18,6 @@ public class GamePanel extends BasePanelImpl {
     private static final String BACK = "Back to Menu";
 
     private TimerView timerView;
-    private ScoreView scoreView;
-    private LevelView levelView;
-    private LifeView lifeView;
-
     private MainFrame mainFrame;
 
     private final JPanel nPanel;
@@ -35,6 +28,9 @@ public class GamePanel extends BasePanelImpl {
     private final JButton pause;
     private final JButton resume;
     private final JButton back;
+    private final JLabel life;
+    private final JLabel score;
+    private final JLabel level;
 
     public GamePanel(MainFrame mainFrame){
         super();
@@ -45,11 +41,11 @@ public class GamePanel extends BasePanelImpl {
         ePanel = new JPanel();
         wPanel = new JPanel();
 
-        //HUD
         timerView = new TimerView();
-        scoreView = new ScoreView();
-        levelView = new LevelView();
-        lifeView = new LifeView();
+
+        life = createLabel("Lives remaining: 3");
+        level = createLabel("Level 1");
+        score = createLabel("Score : 0");
 
         setLayoutPanel();
 
@@ -69,7 +65,7 @@ public class GamePanel extends BasePanelImpl {
         add(sPanel, BorderLayout.SOUTH);
 
         nPanel.add(timerView);
-        nPanel.add(levelView);
+        nPanel.add(level);
         ePanel.add(pause);
         ePanel.add(resume);
         wPanel.add(lifeView);
@@ -110,6 +106,6 @@ public class GamePanel extends BasePanelImpl {
     }
 
     public void updateTimer(int timeLeft){
-        timerView.setValue(timeLeft);
+        timerView.setTimeLeft(timeLeft);
     }
 }

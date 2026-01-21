@@ -46,6 +46,8 @@ public class ControllerImpl implements Controller {
         System.out.println("StateGame.RESUME , StartTimer");
         mainFrame.startGameLoop();
         //gameModel.loadLevel(level);
+        gameModel.startTimer();
+        
     }
 
     @Override
@@ -67,10 +69,5 @@ public class ControllerImpl implements Controller {
     @Override
     public GameModel getModel(){
         return gameModel;
-    }
-
-    @Override
-    public void setSoundEnable(boolean isEnable){
-        System.out.println("Controller: setSoundEnable()");
     }
 }

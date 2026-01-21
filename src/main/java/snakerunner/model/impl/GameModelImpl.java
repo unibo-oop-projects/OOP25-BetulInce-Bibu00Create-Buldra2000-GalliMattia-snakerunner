@@ -37,12 +37,32 @@ public class GameModelImpl implements GameModel {
     private Snake snake;
     private LevelManager levelManager;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private Level currentLevel;
     private Snake snake;
 >>>>>>> c57c0f0 (added method for load a level and reset a level)
 =======
 >>>>>>> 24f76ac (added new method in Game model)
+=======
+    private static final int START_TIME = 180;
+    private static final int DELAY = 1000;
+    private int timeLeft;
+    private Timer timer;
+
+    public GameModelImpl() {
+        timer = new javax.swing.Timer(DELAY, e -> updateTimer());
+        timeLeft = START_TIME;
+    }
+
+    private void updateTimer(){
+        timeLeft--;
+
+        if(timeLeft<=0){
+            timer.stop();
+        }
+    }
+>>>>>>> 9c0b08f (added package hud, add TimerView, fix ControllerImpl & GameModelImpl)
 
     @Override
     public void update() {
@@ -61,11 +81,15 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void startTimer(){
+<<<<<<< HEAD
         if(timer.isRunning()){
             timer.stop();
         } else {
         timer.start();
         }
+=======
+        timer.start();
+>>>>>>> 9c0b08f (added package hud, add TimerView, fix ControllerImpl & GameModelImpl)
     }
 
     @Override
@@ -132,5 +156,12 @@ public class GameModelImpl implements GameModel {
     public void nextLevel() {
         this.currentLevel = levelManager.nextLevel();
     }
+
+    @Override
+    public int getTimeLeft() {
+        return timeLeft;
+    }
+
+    
     
 }
