@@ -1,6 +1,7 @@
 package snakerunner.graphics.hud;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -19,7 +20,7 @@ public class TimerView extends JPanel {
 
     public TimerView(){
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(WIDTH, HEIGHT));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 
     public void setTimeLeft(int timeLeft){

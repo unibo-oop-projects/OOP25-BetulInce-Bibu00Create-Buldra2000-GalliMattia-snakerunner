@@ -1,6 +1,7 @@
 package snakerunner.graphics.hud;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -18,7 +19,7 @@ public class ScoreView extends JPanel{
 
     public ScoreView(){
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(WIDTH, HEIGHT));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
     
     public void setScore(int score){
