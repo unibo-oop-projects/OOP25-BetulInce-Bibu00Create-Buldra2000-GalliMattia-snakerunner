@@ -14,8 +14,6 @@ public interface MainFrame {
 
     public void pause();
 
-    public void resume();
-
     public void setController(Controller controller);
 
     public void startGameLoop();

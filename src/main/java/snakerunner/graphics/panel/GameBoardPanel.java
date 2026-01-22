@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -12,7 +13,7 @@ public class GameBoardPanel extends JPanel {
     private static final int CELL = 10;
 
     private Point apple;
-    private java.util.List<Point> snakeBody = new ArrayList<>();
+    private List<Point> snakeBody = new ArrayList<>();
 
 
     public GameBoardPanel(){
