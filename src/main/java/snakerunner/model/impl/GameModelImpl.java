@@ -40,11 +40,7 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void startTimer(){
-        if(timer.isRunning()){
-            timer.stop();
-        } else {
         timer.start();
-        }
     }
 
     @Override

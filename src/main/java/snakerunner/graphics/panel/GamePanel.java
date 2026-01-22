@@ -17,7 +17,7 @@ import snakerunner.graphics.impl.BasePanelImpl;
 public class GamePanel extends BasePanelImpl {
 
     private static final String PAUSE = "Pause";
-    private static final String RESTART = "Restart";
+    private static final String RESUME = "Resume";
     private static final String BACK = "Back to Menu";
 
     private TimerView timerView;
@@ -33,7 +33,7 @@ public class GamePanel extends BasePanelImpl {
     private final JPanel ePanel;
     private final JPanel wPanel;
     private final JButton pause;
-    private final JButton restart;
+    private final JButton resume;
     private final JButton back;
 
     public GamePanel(MainFrame mainFrame){
@@ -53,7 +53,7 @@ public class GamePanel extends BasePanelImpl {
         setLayoutPanel();
 
         pause = createButton(PAUSE);
-        restart = createButton(RESTART);
+        resume = createButton(RESUME);
         back = createButton(BACK);
 
         nPanel.setOpaque(false);
@@ -70,7 +70,7 @@ public class GamePanel extends BasePanelImpl {
         nPanel.add(timerView);
         nPanel.add(levelView);
         ePanel.add(pause);
-        ePanel.add(restart);
+        ePanel.add(resume);
         wPanel.add(lifeView);
         
         sPanel.setLayout(new BoxLayout(sPanel, BoxLayout.X_AXIS));
@@ -89,8 +89,8 @@ public class GamePanel extends BasePanelImpl {
         return pause;
     }
 
-    private JButton getRestart() {
-        return restart;
+    private JButton getResume() {
+        return resume;
     }
 
     private JButton getBacktoMenu(){
@@ -106,7 +106,7 @@ public class GamePanel extends BasePanelImpl {
     public void addActionListeners(){
         System.out.println("GamePanel : Adding action listeners to GamePanel buttons");
         getPause().addActionListener(e -> mainFrame.pause());
-        getRestart().addActionListener(e -> {});
+        getResume().addActionListener(e -> mainFrame.resume());
         getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
     }
 

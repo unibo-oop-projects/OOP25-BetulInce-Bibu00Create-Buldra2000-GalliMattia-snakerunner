@@ -100,4 +100,9 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     public void pause() {
         controller.pause();
     }
+
+    @Override
+    public void resume(){
+        controller.resume();
+    }
 }

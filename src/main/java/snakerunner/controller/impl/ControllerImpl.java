@@ -33,13 +33,16 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void pause(){
-
-        if(state == StateGame.RUNNING){
-            state = StateGame.PAUSED;
-        }
-
+        state = StateGame.PAUSED;
         gameModel.stopTimer();
         System.out.println("StateGame.PAUSED , StopTimer");
+    }
+
+    @Override
+    public void resume(){
+        state = StateGame.RUNNING;
+        gameModel.startTimer();
+        System.out.println("StateGame.RESUME , StartTimer");
     }
 
     @Override
