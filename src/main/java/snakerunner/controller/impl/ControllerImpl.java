@@ -26,6 +26,12 @@ public class ControllerImpl implements Controller {
         //gameModel.loadLevel(level);
         gameModel.startTimer();
         
+        
+    }
+
+    @Override
+    public void pause(){
+        gameModel.stopTimer();
     }
 
     @Override

@@ -15,7 +15,9 @@ public interface GameModel {
     public void nextLevel();
     public void startTimer();
 
-     public int getTimeLeft();
+    public void stopTimer();
+
+    public int getTimeLeft();
 
     public boolean isGameOver();
 }

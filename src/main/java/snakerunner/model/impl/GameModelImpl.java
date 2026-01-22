@@ -17,7 +17,7 @@ public class GameModelImpl implements GameModel {
     private Timer timer;
 
     public GameModelImpl() {
-        timer = new javax.swing.Timer(DELAY, e -> updateTimer());
+        timer = new Timer(DELAY, e -> updateTimer());
         timeLeft = START_TIME;
     }
 
@@ -80,6 +80,11 @@ public class GameModelImpl implements GameModel {
     @Override
     public int getTimeLeft() {
         return timeLeft;
+    }
+
+    @Override
+    public void stopTimer() {
+        timer.stop();
     }
 
     
