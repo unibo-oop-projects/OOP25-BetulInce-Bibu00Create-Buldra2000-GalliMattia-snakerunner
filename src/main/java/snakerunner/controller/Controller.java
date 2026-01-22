@@ -19,4 +19,6 @@ public interface Controller {
     public GameModel getModel();
 
     public void updateGame();
+
+    public void setSoundEnable(boolean isEnable);
 }
