@@ -25,6 +25,12 @@ public class ControllerImpl implements Controller {
         // Implementation to start the game loop
         gameModel.startTimer();
         
+        
+    }
+
+    @Override
+    public void pause(){
+        gameModel.stopTimer();
     }
 
     @Override

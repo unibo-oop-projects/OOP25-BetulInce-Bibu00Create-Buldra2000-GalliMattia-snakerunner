@@ -12,6 +12,8 @@ public interface MainFrame {
 
     public void showOption();
 
+    public void pause();
+
     public void setController(Controller controller);
 
     public void startGameLoop();

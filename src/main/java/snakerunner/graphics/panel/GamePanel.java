@@ -105,7 +105,7 @@ public class GamePanel extends BasePanelImpl {
     @Override
     public void addActionListeners(){
         System.out.println("GamePanel : Adding action listeners to GamePanel buttons");
-        getPause().addActionListener(e -> {});
+        getPause().addActionListener(e -> mainFrame.pause());
         getRestart().addActionListener(e -> {});
         getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
     }

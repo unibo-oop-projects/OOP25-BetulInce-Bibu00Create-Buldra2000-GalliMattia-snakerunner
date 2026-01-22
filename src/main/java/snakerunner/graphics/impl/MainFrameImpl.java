@@ -64,6 +64,11 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     }
 
     @Override
+    public void pause(){
+        controller.pause();
+    }
+
+    @Override
     public void showOption() {
         System.out.println("MainFrame : showOption()");
         setContentPane(optionPanel);
