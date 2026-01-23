@@ -1,16 +1,25 @@
 package snakerunner.model;
 
-public class Obstacle {
+public class Obstacle extends Entity{
     
     //Obstacle's position
-    private Position position;
+    public Obstacle(int x, int y){
+        this.x=x;
+        this.y=y;
+    }
+ 
+    //Obstacle generation
+    public void generate(){
 
-    public Obstacle(Position position){
-
-        this.position= position;
     }
 
-    public Position getPosition(){
-        return position;
-    }
+//Checking 
+    public boolean isHit(){
+
+    return false;       
+
+    
 }
+  
+}
+ 
