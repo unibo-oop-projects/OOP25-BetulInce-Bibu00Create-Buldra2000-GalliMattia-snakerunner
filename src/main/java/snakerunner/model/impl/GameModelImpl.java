@@ -1,5 +1,6 @@
 package snakerunner.model.impl;
 
+import snakerunner.model.Food;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelManager;
@@ -9,6 +10,7 @@ public class GameModelImpl implements GameModel {
 
     private Level currentLevel;
     private Snake snake;
+    private Food food;
     private LevelManager levelManager;
 
     public GameModelImpl() {
@@ -19,7 +21,7 @@ public class GameModelImpl implements GameModel {
         // Every game update logic goes here and updates the game state accordingly.
         
         //snake.move();
-        checkCollisions();
+        //checkCollisions();
         
     }
 
@@ -49,12 +51,28 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void resetLevel() {
-        //snake = new Snake()
+        //this.snake = new SnakeImpl();
+        //this.food = new FoodImpl();
     }
 
     @Override
     public void nextLevel() {
         this.currentLevel = levelManager.nextLevel();
         // WIN OR DEATH CONDITION
+    }
+
+    @Override
+    public Snake getSnake() {
+        return this.snake;
+    }
+
+    @Override
+    public Food getFood() {
+        return this.food;
+    }
+
+    @Override
+    public Level getLevel() {
+        return this.currentLevel;
     }
 }
