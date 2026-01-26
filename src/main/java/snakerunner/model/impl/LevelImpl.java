@@ -5,15 +5,16 @@ import java.util.Set;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Grid;
 import snakerunner.model.Level;
+import snakerunner.model.LevelData;
 
 public class LevelImpl implements Level{
     // GRANDEZZA LIVELLO
     private final Grid grid;
     private final Set<Point2D<Integer, Integer>> obstacles;
 
-    public LevelImpl(Grid grid, Set<Point2D<Integer, Integer>> obstacles) {
-        this.grid = grid;
-        this.obstacles = obstacles;
+    public LevelImpl(LevelData data) {
+        this.grid = new GridImpl(20, 20);
+        this.obstacles = data.getObstacles();
     }
 
     @Override
