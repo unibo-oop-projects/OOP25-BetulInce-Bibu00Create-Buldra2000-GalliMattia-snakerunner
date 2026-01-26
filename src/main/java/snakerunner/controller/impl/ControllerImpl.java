@@ -28,7 +28,7 @@ public class ControllerImpl implements Controller {
         mainFrame.startGameLoop();
         //gameModel.loadLevel(level);
         state = StateGame.RUNNING;
-        gameModel.startTimer();
+        mainFrame.startTimer();
         System.out.println("StateGame.RUNNING , StartTimer");
     }
 
@@ -39,7 +39,7 @@ public class ControllerImpl implements Controller {
             state = StateGame.PAUSED;
         }
 
-        gameModel.stopTimer();
+        mainFrame.stopTimer();
         System.out.println("StateGame.PAUSED , StopTimer");
         mainFrame.startGameLoop();
         //gameModel.loadLevel(level);
@@ -64,6 +64,11 @@ public class ControllerImpl implements Controller {
     @Override
     public GameModel getModel(){
         return gameModel;
+    }
+
+    @Override
+    public MainFrame getView() {
+        return mainFrame;
     }
 
     @Override

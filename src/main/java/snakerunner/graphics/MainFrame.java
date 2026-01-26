@@ -19,4 +19,10 @@ public interface MainFrame {
     public void startGameLoop();
 
     public void stopGameLoop();
+
+    public void startTimer();
+
+    public void stopTimer();
+
+    public int getTimeLeft();
 }

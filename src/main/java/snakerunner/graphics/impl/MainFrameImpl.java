@@ -2,8 +2,10 @@ package snakerunner.graphics.impl;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.Timer;
+
 import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
@@ -15,10 +17,13 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
-    
+    private static final int START_TIME = 180;
+    private static final int DELAY = 1000;
+
     // Controller
     private Controller controller;
     private Timer timer;
+    private int timeLeft;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
@@ -30,6 +35,16 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         optionPanel = PanelFactory.createOptionPanel(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setDimensionFrame();
+        timer = new Timer(DELAY, e -> updateTimer());
+        timeLeft = START_TIME;
+    }
+
+     private void updateTimer(){
+        timeLeft--;
+
+        if(timeLeft<=0){
+            timer.stop();
+        }
     }
 
     @Override
@@ -87,7 +102,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         timer = new Timer(200, e -> {
             controller.updateGame(); 
             //repaint();
-            gamePanel.updateTimer(controller.getModel().getTimeLeft());
+            gamePanel.updateTimer(getTimeLeft());
         });
         timer.start();
     }
@@ -97,5 +112,20 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     if (timer != null) {
             timer.stop();
         }
+    }
+
+    @Override
+    public void startTimer() {
+        timer.start();
+    }
+
+    @Override
+    public void stopTimer() {
+        timer.stop();
+    }
+
+    @Override
+    public int getTimeLeft() {
+        return timeLeft;
     }
 }
