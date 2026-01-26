@@ -1,17 +1,26 @@
 package snakerunner.model.impl;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+import snakerunner.commons.Point2D;
 import snakerunner.model.Food;
+import snakerunner.model.FoodEffect;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
-import snakerunner.model.LevelManager;
+import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
 
 public class GameModelImpl implements GameModel {
 
+    //Prova
+    private static final FoodEffect FoodEffect = null;
+
     private Level currentLevel;
     private Snake snake;
-    private Food food;
-    private LevelManager levelManager;
+    private Queue<Food> foods;
+    //private LevelManager levelManager;
 
     public GameModelImpl() {
     }
@@ -44,9 +53,11 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public void loadLevel(Level level) {
-        this.currentLevel = level;
-        resetLevel();
+    public void loadLevel(LevelData data) {
+        this.currentLevel = new LevelImpl(data);
+        spawnSnake();
+        spawnFoods(data.getFoodPositions());
+
     }
 
     @Override
@@ -57,7 +68,7 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void nextLevel() {
-        this.currentLevel = levelManager.nextLevel();
+        //this.currentLevel = levelManager.nextLevel();
         // WIN OR DEATH CONDITION
     }
 
@@ -67,12 +78,19 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public Food getFood() {
-        return this.food;
-    }
-
-    @Override
     public Level getLevel() {
         return this.currentLevel;
+    }
+
+    private void spawnSnake() {
+        //this.snake = new SnakeImpl();
+    }
+
+    private void spawnFoods(List<Point2D<Integer, Integer>> foodPositions) {
+        foods = new LinkedList<>();
+        
+        for (Point2D<Integer, Integer> p : foodPositions) {
+            foods.add(new FoodImpl(FoodEffect, p));
+        }
     }
 }
