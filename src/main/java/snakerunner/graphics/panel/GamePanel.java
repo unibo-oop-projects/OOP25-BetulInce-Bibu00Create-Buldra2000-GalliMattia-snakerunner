@@ -8,10 +8,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import snakerunner.graphics.MainFrame;
-import snakerunner.graphics.hud.LevelView;
-import snakerunner.graphics.hud.LifeView;
-import snakerunner.graphics.hud.ScoreView;
-import snakerunner.graphics.hud.TimerView;
+import snakerunner.graphics.hud.impl.LevelView;
+import snakerunner.graphics.hud.impl.LifeView;
+import snakerunner.graphics.hud.impl.ScoreView;
+import snakerunner.graphics.hud.impl.TimerView;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class GamePanel extends BasePanelImpl {
@@ -109,6 +109,6 @@ public class GamePanel extends BasePanelImpl {
     }
 
     public void updateTimer(int timeLeft){
-        timerView.setTimeLeft(timeLeft);
+        timerView.setValue(timeLeft);
     }
 }
