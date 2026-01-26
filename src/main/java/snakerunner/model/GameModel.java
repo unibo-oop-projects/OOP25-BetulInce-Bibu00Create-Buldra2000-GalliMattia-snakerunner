@@ -8,9 +8,13 @@ public interface GameModel {
 
     public boolean isGameOver();
 
-    public void loadLevel(Level level);
+    public void loadLevel(LevelData data);
 
     public void resetLevel();
 
     public void nextLevel();
+
+    public Snake getSnake();
+
+    public Level getLevel();
 }
