@@ -26,7 +26,7 @@ public class ControllerImpl implements Controller {
     @Override
     public void start() {
         // Implementation to start the game loop
-        mainFrame.startGameLoop();
+        mainFrame.startGameLoop(this::updateGame);
         //gameModel.loadLevel(level);
         state = StateGame.RUNNING;
         mainFrame.startTimer();
@@ -42,17 +42,17 @@ public class ControllerImpl implements Controller {
 
         mainFrame.stopTimer();
         System.out.println("StateGame.PAUSED , StopTimer");
-        mainFrame.startGameLoop();
+        mainFrame.startGameLoop(this::updateGame);
         //gameModel.loadLevel(level);
     }
 
+    //tick di gioco 
     @Override
     public void updateGame() {
         if (state != StateGame.RUNNING){
             return;
         }
 
-        //un tick di gioco
         gameModel.update();
 
         if (gameModel.isGameOver()) {
@@ -60,6 +60,8 @@ public class ControllerImpl implements Controller {
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
         }
+
+        //view Render
     }
 
     @Override

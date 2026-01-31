@@ -16,7 +16,7 @@ public interface MainFrame {
 
     public void setController(Controller controller);
 
-    public void startGameLoop();
+    public void startGameLoop(Runnable onTick);
 
     public void stopGameLoop();
 
