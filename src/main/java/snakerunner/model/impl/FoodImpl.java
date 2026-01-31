@@ -6,8 +6,8 @@ import snakerunner.model.FoodEffect;
 import snakerunner.model.Snake;
 
 public class FoodImpl implements Food{
-    private FoodEffect effect;
-    private Point2D<Integer, Integer> position;
+    private final FoodEffect effect;
+    private final Point2D<Integer, Integer> position;
 
     public FoodImpl(FoodEffect effect, Point2D<Integer, Integer> position){
         this.position = position;

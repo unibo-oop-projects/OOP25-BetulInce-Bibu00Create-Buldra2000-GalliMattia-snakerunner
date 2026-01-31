@@ -1,10 +1,17 @@
 package snakerunner.controller.impl;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
 import snakerunner.controller.Controller;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
+import snakerunner.model.impl.LevelLoader;
 
 public class ControllerImpl implements Controller {
     private StateGame state;
@@ -81,7 +88,25 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void loadLevel(LevelData data) {
-        gameModel.loadLevel(data);
+    public void loadLevelFromFile(String filePath) {
+        // Legge il file dal classpath (resources)
+        try (InputStream is = LevelLoader.class
+                .getClassLoader()
+                .getResourceAsStream(filePath)) {
+
+            if (is == null) {
+                throw new IllegalArgumentException("File livello non trovato: " + filePath);
+            }
+
+            List<String> lines = new BufferedReader(new InputStreamReader(is))
+                    .lines()
+                    .toList();
+
+            LevelData level = LevelLoader.load(lines);
+            gameModel.loadLevel(level);
+
+        } catch (IOException e) {
+            throw new RuntimeException("Errore caricamento livello", e);
+        }
     }
 }

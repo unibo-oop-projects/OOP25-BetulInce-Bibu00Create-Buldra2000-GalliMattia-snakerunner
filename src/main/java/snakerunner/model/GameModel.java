@@ -14,8 +14,6 @@ public interface GameModel {
 
     public void resetLevel();
 
-    public void nextLevel();
-
     public Snake getSnake();
 
     //GETTER PER LA VIEW / DEBUG
