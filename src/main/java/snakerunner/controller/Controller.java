@@ -16,8 +16,6 @@ public interface Controller {
 
     public void pause();
 
-    public void resume();
-
     public GameModel getModel();
 
     public void updateGame();

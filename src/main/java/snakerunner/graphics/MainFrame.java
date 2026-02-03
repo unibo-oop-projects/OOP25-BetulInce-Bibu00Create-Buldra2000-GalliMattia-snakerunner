@@ -12,11 +12,9 @@ public interface MainFrame {
 
     void showOption();
 
-    void pause();
+    public void pause();
 
-    void resume();
-
-    void setController(Controller controller);
+    public void setController(Controller controller);
 
     void startGameLoop();
 

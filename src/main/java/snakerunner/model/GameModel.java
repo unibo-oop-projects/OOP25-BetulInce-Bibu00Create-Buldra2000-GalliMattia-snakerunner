@@ -4,23 +4,21 @@ public interface GameModel {
     
     void update();
 
-    void checkCollisions();
+    public void checkCollisions();
 
-    void startTimer();
+    public void loadLevel(Level level);
 
-    void stopTimer();
+    public Level getLevel();
 
-    int getTimeLeft();
+    public void resetLevel();
 
-    boolean isGameOver();
+    public void nextLevel();
 
-    void loadLevel(Level level);
+    public void startTimer();
 
-    void resetLevel();
+    public void stopTimer();
 
-    void nextLevel();
+    public int getTimeLeft();
 
-    boolean hasWon();
-
-    boolean hasLost();
+    public boolean isGameOver();
 }

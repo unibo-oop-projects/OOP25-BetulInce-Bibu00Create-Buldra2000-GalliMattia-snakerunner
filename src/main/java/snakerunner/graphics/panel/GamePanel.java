@@ -1,17 +1,17 @@
 package snakerunner.graphics.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import snakerunner.graphics.MainFrame;
-import snakerunner.graphics.hud.impl.LevelView;
-import snakerunner.graphics.hud.impl.LifeView;
-import snakerunner.graphics.hud.impl.ScoreView;
-import snakerunner.graphics.hud.impl.TimerView;
+import snakerunner.graphics.hud.LevelView;
+import snakerunner.graphics.hud.LifeView;
+import snakerunner.graphics.hud.ScoreView;
+import snakerunner.graphics.hud.TimerView;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class GamePanel extends BasePanelImpl {
@@ -45,7 +45,6 @@ public class GamePanel extends BasePanelImpl {
         ePanel = new JPanel();
         wPanel = new JPanel();
 
-        //HUD
         timerView = new TimerView();
         scoreView = new ScoreView();
         levelView = new LevelView();
@@ -76,8 +75,10 @@ public class GamePanel extends BasePanelImpl {
         
         sPanel.setLayout(new BoxLayout(sPanel, BoxLayout.X_AXIS));
 
+        scoreView.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        back.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         sPanel.add(scoreView);
-        sPanel.add(Box.createHorizontalGlue());
         sPanel.add(back);
 
 
@@ -105,11 +106,11 @@ public class GamePanel extends BasePanelImpl {
     public void addActionListeners(){
         System.out.println("GamePanel : Adding action listeners to GamePanel buttons");
         getPause().addActionListener(e -> mainFrame.pause());
-        getResume().addActionListener(e -> mainFrame.resume());
+        getResume().addActionListener(e -> {});
         getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
     }
 
     public void updateTimer(int timeLeft){
-        timerView.setValue(timeLeft);
+        timerView.setTimeLeft(timeLeft);
     }
 }

@@ -1,6 +1,7 @@
 package snakerunner.model;
 
 import java.util.Set;
+
 import snakerunner.commons.Point2D;
 
 public interface Level {

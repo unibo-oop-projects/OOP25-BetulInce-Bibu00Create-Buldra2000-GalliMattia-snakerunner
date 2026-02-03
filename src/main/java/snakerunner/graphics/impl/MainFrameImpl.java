@@ -50,7 +50,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     }
     */
 
-    public void setDimensionFrame(){
+    private void setDimensionFrame(){
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)(screensize.width * PROPORTION);
         int height = (int)(screensize.height * PROPORTION);
@@ -71,6 +71,12 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         repaint();
 
         controller.start();
+        System.out.println("Controller.start()");
+    }
+
+    @Override
+    public void pause(){
+        controller.pause();
     }
 
     @Override
@@ -105,29 +111,16 @@ public class MainFrameImpl extends JFrame implements MainFrame {
 
     @Override
     public void setSoundEnabled(boolean isEnable) {
-        controller.setSoundEnable(isEnable);
+        // TODO
     }
 
     @Override
-    public void pause() {
-        controller.pause();
+    public void won() {
+        System.out.println("you won");
     }
 
     @Override
-    public void resume(){
-        controller.resume();
+    public void lose() {
+        System.out.println("you lost");
     }
-
-    @Override
-    public void won(){
-        JOptionPane.showMessageDialog(this, "You Won!");
-        System.exit(0);
-    }
-
-    @Override
-    public void lose(){
-        JOptionPane.showMessageDialog(this, "You Lose!");
-        System.exit(0);
-    }
-
 }

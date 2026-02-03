@@ -45,6 +45,22 @@ public class ControllerImpl implements Controller {
         state = StateGame.RUNNING;
         gameModel.startTimer();
         System.out.println("StateGame.RESUME , StartTimer");
+        mainFrame.startGameLoop();
+        //gameModel.loadLevel(level);
+        state = StateGame.RUNNING;
+        gameModel.startTimer();
+        System.out.println("StateGame.RUNNING , StartTimer");
+    }
+
+    @Override
+    public void pause(){
+
+        if(state == StateGame.RUNNING){
+            state = StateGame.PAUSED;
+        }
+
+        gameModel.stopTimer();
+        System.out.println("StateGame.PAUSED , StopTimer");
     }
 
     @Override
@@ -70,6 +86,6 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void setSoundEnable(boolean isEnable){
-        System.out.println("Controller: setSoundEnable()");
+        //TODO
     }
 }
