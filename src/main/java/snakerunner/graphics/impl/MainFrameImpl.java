@@ -90,7 +90,16 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         timer = new Timer(200, e -> {
             controller.updateGame(); 
             //repaint();
+
             gamePanel.updateTimer(controller.getModel().getTimeLeft());
+
+            //Getting obstacles
+            java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obs= controller.getModel().getObstacles();
+            
+            gamePanel.updateObstacles(obs);
+
+           repaint();
+
         });
         timer.start();
     }

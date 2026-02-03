@@ -111,5 +111,10 @@ public class GamePanel extends BasePanelImpl {
 
     public void updateTimer(int timeLeft){
         timerView.setValue(timeLeft);
+
+    }
+    //Passing the objects to draw them
+    public void updateObstacles(java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obstacles){
+        gameBoardPanel.setObstacles(obstacles);
     }
 }

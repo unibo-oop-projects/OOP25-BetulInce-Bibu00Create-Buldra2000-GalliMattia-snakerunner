@@ -1,10 +1,15 @@
 package snakerunner.model.impl;
 
+import java.util.Set;
+
 import javax.swing.Timer;
+
+import snakerunner.commons.Point2D;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelManager;
 import snakerunner.model.Snake;
+import snakerunner.model.Obstacle; //Added obstacles
 
 public class GameModelImpl implements GameModel {
 
@@ -13,10 +18,25 @@ public class GameModelImpl implements GameModel {
     private int timeLeft;
     private Timer timer;
 
+    private Level currentLevel;
+    private Snake snake;
+    private LevelManager levelManager;
+    private Set<Point2D<Integer, Integer>> obstacles; //Adding obstacles
+
+
     public GameModelImpl() {
         timer = new Timer(DELAY, e -> updateTimer());
         timeLeft = START_TIME;
+        //Added obstacle generation
+        this.obstacles= Obstacle.generatePresetVerticalPipes();
     }
+    
+@Override
+//Adding obstacles in order to allow the view to view them
+    public Set<Point2D<Integer, Integer>> getObstacles(){
+        return obstacles;
+    }
+
 
     private void updateTimer(){
         timeLeft--;
@@ -25,10 +45,7 @@ public class GameModelImpl implements GameModel {
             timer.stop();
         }
     }
-    private Level currentLevel;
-    private Snake snake;
-    private LevelManager levelManager;
-
+   
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.

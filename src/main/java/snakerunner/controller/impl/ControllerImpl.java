@@ -27,6 +27,7 @@ public class ControllerImpl implements Controller {
         // Implementation to start the game loop
         state = StateGame.RUNNING;
         gameModel.startTimer();
+        mainFrame.startGameLoop(); //Added
         System.out.println("StateGame.RUNNING , StartTimer");
     }
 

@@ -23,9 +23,27 @@ public class GameBoardPanel extends JPanel {
         setBackground(Color.GRAY);
     }
 
+    private java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obstacles;
+
+    public void setObstacles(java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obstacles){
+    this.obstacles= obstacles;
+    }
+
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
+
+
+        //Drawing obstacles
+        //If obstacles are ≠ null
+        if (obstacles != null) {
+
+        g.setColor(Color.ORANGE);//We set the color to orange 
+        for(snakerunner.commons.Point2D<Integer,Integer> p : obstacles){
+            g.fillRect(p.getX() * CELL, p.getY() * CELL, CELL, CELL); //Moltiplication * CELL because of cell dimension
+        }
+        }
 
         g.setColor(Color.GREEN);
         for(Position p : snakeBody){

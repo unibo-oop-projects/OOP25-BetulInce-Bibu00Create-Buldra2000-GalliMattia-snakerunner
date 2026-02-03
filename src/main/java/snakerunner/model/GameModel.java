@@ -19,4 +19,7 @@ public interface GameModel {
     public void resetLevel();
 
     public void nextLevel();
+
+    //Added
+    public java.util.Set<snakerunner.commons.Point2D<Integer,Integer>> getObstacles();
 }
