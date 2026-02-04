@@ -17,9 +17,9 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
-
     private Controller controller;
     private Timer timer;
+    private int timeLeft;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
@@ -32,6 +32,16 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         optionPanel = PanelFactory.createOptionPanel(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setDimensionFrame();
+        timer = new Timer(DELAY, e -> updateTimer());
+        timeLeft = START_TIME;
+    }
+
+     private void updateTimer(){
+        timeLeft--;
+
+        if(timeLeft<=0){
+            timer.stop();
+        }
     }
 
     @Override
@@ -81,13 +91,9 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     }
 
     @Override
-    public void startGameLoop() {
-        //Game Loop 
-        timer = new Timer(200, e -> {
-            controller.updateGame(); 
-            //repaint();
-            gamePanel.updateTimer(controller.getModel().getTimeLeft());
-        });
+    public void startGameLoop(Runnable onTick) {
+        timer = new Timer(200, e -> onTick.run()); 
+        gamePanel.updateTimer(getTimeLeft());
         timer.start();
     }
 

@@ -1,11 +1,15 @@
 package snakerunner.model.impl;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
-import snakerunner.model.Food;
+import snakerunner.commons.Point2D;
+import snakerunner.model.Collectible;
 import snakerunner.model.FoodEffect;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
+import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
 
 public class GameModelImpl implements GameModel {
@@ -15,7 +19,7 @@ public class GameModelImpl implements GameModel {
 
     private Level currentLevel;
     private Snake snake;
-    private List<Food> foods;
+    private List<Collectible> foods;
     //private LevelManager levelManager;
 
     public GameModelImpl() {
@@ -48,6 +52,16 @@ public class GameModelImpl implements GameModel {
        return false;
     }
 
+    @Override
+    public void loadLevel(LevelData data) {
+        this.currentLevel = new LevelImpl(data);
+        System.out.println("Spawn Snake...");
+        spawnSnake();
+        System.out.println("Spawn Foods...");
+        spawnFoods(data.getFoodPositions());
+
+        debugPrintLevel();
+    }
 
     @Override
     public void resetLevel() {
@@ -56,32 +70,45 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public void loadLevel(Level level) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'loadLevel'");
+    public Snake getSnake() {
+        return this.snake;
     }
 
     @Override
-    public void nextLevel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nextLevel'");
+    public List<Collectible> getFoods() {
+        return Collections.unmodifiableList(foods);    
     }
 
     @Override
-    public void startTimer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startTimer'");
+    public Level getLevel() {
+        return this.currentLevel;
     }
 
-    @Override
-    public void stopTimer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'stopTimer'");
+    private void spawnSnake() {
+        //this.snake = new SnakeImpl();
     }
 
-    @Override
-    public int getTimeLeft() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTimeLeft'");
+    private void spawnFoods(List<Point2D<Integer, Integer>> foodPositions) {
+        foods = new LinkedList<>();
+        
+        for (Point2D<Integer, Integer> p : foodPositions) {
+            foods.add((Collectible) new FoodImpl(FoodEffect, p));
+        }
+    }
+
+    private void debugPrintLevel() {
+        System.out.println("=== LEVEL DEBUG ===");
+
+        System.out.println("Walls:");
+        for (Point2D<Integer, Integer> p : currentLevel.getObstacles()) {
+            System.out.println("  wall at " + p);
+        }
+
+        System.out.println("Fruits:");
+        for (Collectible f : foods) {
+            System.out.println("  fruit at " + f.getPosition());
+        }
+
+        System.out.println("===================");
     }
 }

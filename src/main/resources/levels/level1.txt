@@ -1,0 +1,14 @@
+# Livello 1 - SnakeRunner
+
+[Obstacles]
+5,3
+5,4
+5,5
+10,10
+11,10
+12,10
+
+[Food]
+2,2
+8,6
+14,4
