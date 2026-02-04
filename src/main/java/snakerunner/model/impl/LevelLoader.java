@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import snakerunner.commons.Point2D;
+import snakerunner.model.Collectible;
 import snakerunner.model.LevelData;
 
 public final class LevelLoader {
@@ -16,7 +17,7 @@ public final class LevelLoader {
     public static LevelData load(List<String> lines) throws IOException {
         
         Set<Point2D<Integer, Integer>> obstacles = new HashSet<>();
-        List<Point2D<Integer, Integer>> foodPositions = new ArrayList<>();
+        List<Collectible> collectibles = new ArrayList<>();
 
         String section = null;
 
@@ -32,13 +33,13 @@ public final class LevelLoader {
                 continue;
             }
 
-            if (line.equalsIgnoreCase("[Food]")) {
-                section = "food";
+            if (line.equalsIgnoreCase("[Collectibles]")) {
+                section = "collectibles";
                 continue;
             }
 
             if (section == null) {
-                continue; // ignora righe fuori sezione
+                continue; 
             }
 
             String[] parts = line.split(",");
@@ -49,11 +50,21 @@ public final class LevelLoader {
 
             if (section.equals("obstacles")) {
                 obstacles.add(p);
-            } else if (section.equals("food")) {
-                foodPositions.add(p);
+            } else if (section.equals("collectibles")) {
+                String type = parts[2].trim().toUpperCase();
+
+                switch (type) {
+                    case "FOOD" -> collectibles.add(new FoodImpl(p));
+
+                    case "CLOCK" -> collectibles.add(new Clock(p));
+                    
+                    case "KEY" -> collectibles.add(new Key(p));
+                        
+                    default -> throw new IOException("Unknown collectible type: " + type);
+                }
             }
         }
 
-        return new LevelDataImpl(obstacles, foodPositions);
+        return new LevelDataImpl(obstacles, collectibles);
     }
 }
