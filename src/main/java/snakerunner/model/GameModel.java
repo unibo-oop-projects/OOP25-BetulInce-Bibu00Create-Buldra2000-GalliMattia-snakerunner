@@ -1,22 +1,33 @@
 package snakerunner.model;
 
+import java.util.List;
+
 public interface GameModel {
     
     public void update();
 
     public void checkCollisions();
 
-    public void loadLevel(Level level);
+    public boolean isGameOver();
+
+    public void loadLevel(LevelData data);
 
     public void resetLevel();
 
     public void nextLevel();
 
-    public void startTimer();
+    public Snake getSnake();
 
-    public void stopTimer();
+    //GETTER for the VIEW / DEBUG
+    public List<Food> getFoods();
 
-    public int getTimeLeft();
+    public Level getLevel();
 
-    public boolean isGameOver();
+    public void moveSnakeUp();
+
+    public void moveSnakeDown();
+
+    public void moveSnakeLeft();
+
+    public void moveSnakeRight();
 }
