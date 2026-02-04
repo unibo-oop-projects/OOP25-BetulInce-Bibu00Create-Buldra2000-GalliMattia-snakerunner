@@ -34,7 +34,7 @@ public class ControllerImpl implements Controller {
     public void start() {
         // Implementation to start the game loop
         state = StateGame.RUNNING;
-        gameModel.startTimer();
+        mainFrame.startGameLoop(this::updateGame);
         System.out.println("StateGame.RUNNING , StartTimer");
     }
 
@@ -45,7 +45,6 @@ public class ControllerImpl implements Controller {
             state = StateGame.PAUSED;
         }
 
-        gameModel.stopTimer();
         System.out.println("StateGame.PAUSED , StopTimer");
     }
 
