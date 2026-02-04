@@ -24,9 +24,10 @@ public interface Controller {
 
     void resume();
 
-
     //GamePanel
     void onPause();
+
+    void onOption();
 
     void onResume();
 

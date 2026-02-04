@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import snakerunner.audio.AudioPlayer;
-import snakerunner.graphics.MainFrame;
+import snakerunner.controller.Controller;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class OptionPanel extends BasePanelImpl {
@@ -19,16 +19,16 @@ public class OptionPanel extends BasePanelImpl {
     private static final String BACK = "Back";
     private static final String SOUND = "Sound On / Off";
 
-    private MainFrame mainFrame;
+    private Controller controller;
 
     private final JButton apply;
     private final JButton back;
     private final JCheckBox checkbox;
     private final JLabel label;
 
-    public OptionPanel(MainFrame mainFrame){
+    public OptionPanel(Controller controller){
         super();
-        this.mainFrame = mainFrame;
+        this.controller = controller;
         checkbox = new JCheckBox();
         label = new JLabel(SOUND);
 
@@ -66,8 +66,8 @@ public class OptionPanel extends BasePanelImpl {
     @Override
     public void addActionListeners(){
         System.out.println("OptionPanel : Adding action listeners to OptionPanel buttons");
-        apply.addActionListener(e -> mainFrame.showMenu());
-        back.addActionListener(e -> mainFrame.showMenu());
+        apply.addActionListener(e -> controller.onBackToMenu());
+        back.addActionListener(e -> controller.onBackToMenu());
         checkbox.addActionListener(e -> {
             boolean enable = checkbox.isSelected();
             AudioPlayer.setSoundEnabled(enable);

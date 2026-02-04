@@ -1,7 +1,6 @@
 package snakerunner.graphics.panel;
 
 import snakerunner.controller.Controller;
-import snakerunner.graphics.MainFrame;
 
 public class PanelFactory {
 
@@ -9,11 +8,11 @@ public class PanelFactory {
         return new GamePanel(controller);
     }
 
-    public static MenuPanel createMenuPanel(MainFrame mainFrame, Controller controller) {
-        return new MenuPanel(mainFrame, controller);
+    public static MenuPanel createMenuPanel(Controller controller) {
+        return new MenuPanel(controller);
     }
 
-    public static OptionPanel createOptionPanel(MainFrame mainFrame) {
-        return new OptionPanel(mainFrame);
+    public static OptionPanel createOptionPanel(Controller controller) {
+        return new OptionPanel(controller);
     }
 }

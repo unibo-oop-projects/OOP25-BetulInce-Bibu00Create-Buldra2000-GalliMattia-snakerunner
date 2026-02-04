@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import snakerunner.controller.Controller;
-import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class MenuPanel extends BasePanelImpl {
@@ -14,16 +13,14 @@ public class MenuPanel extends BasePanelImpl {
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";
 
-    private MainFrame mainFrame;
     private Controller controller;
 
     private final JButton start;
     private final JButton option;
     private final JButton exit;
 
-    public MenuPanel(MainFrame mainFrame, Controller controller){
+    public MenuPanel(Controller controller){
         super();
-        this.mainFrame = mainFrame;
         this.controller = controller;
 
         setLayoutPanel();
@@ -48,10 +45,10 @@ public class MenuPanel extends BasePanelImpl {
     public void addActionListeners() {
         System.out.println("MenuPanel : Adding action listeners to MenuPanel buttons");
         start.addActionListener(e -> controller.start());
-        option.addActionListener(e -> mainFrame.showOption());
+        option.addActionListener(e -> controller.onOption());
         exit.addActionListener(e -> {
                 int n = JOptionPane.showConfirmDialog(
-                    (JFrame) mainFrame,
+                    (JFrame) new JFrame(),
                     "Are you sure to quit?",
                     "Quit?",
                     JOptionPane.YES_NO_OPTION 
