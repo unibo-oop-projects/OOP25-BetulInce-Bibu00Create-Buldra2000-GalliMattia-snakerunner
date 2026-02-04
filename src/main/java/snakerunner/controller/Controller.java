@@ -1,9 +1,11 @@
 package snakerunner.controller;
 
+import snakerunner.graphics.MainFrame;
 import snakerunner.model.GameModel;
+import snakerunner.model.LevelData;
 
 //LinkedBlockingQueue -> thread safe
-//Il controller non deve vedere Swing
+//controller must not see Swing
 
 public interface Controller {
 
@@ -18,8 +20,13 @@ public interface Controller {
 
     public GameModel getModel();
 
+    public MainFrame getView();
+
     public void updateGame();
 
     public void setSoundEnable(boolean isEnable);
 
+    public  void loadLevel(LevelData data);
+
+    public void inputKeyPressed(int keyCode);
 }
