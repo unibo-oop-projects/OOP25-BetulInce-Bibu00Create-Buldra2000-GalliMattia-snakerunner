@@ -58,18 +58,6 @@ public class OptionPanel extends BasePanelImpl {
         return soundPanel;
     }
 
-    private JButton getApply() {
-        return apply;
-    }
-
-    private JButton getBack() {
-        return back;
-    }
-
-    private JCheckBox getCheckbox() {
-        return checkbox;
-    }
-
     @Override
     public void setLayoutPanel(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -78,10 +66,10 @@ public class OptionPanel extends BasePanelImpl {
     @Override
     public void addActionListeners(){
         System.out.println("OptionPanel : Adding action listeners to OptionPanel buttons");
-        getApply().addActionListener(e -> mainFrame.showMenu());
-        getBack().addActionListener(e -> mainFrame.showMenu());
-        getCheckbox().addActionListener(e -> {
-            boolean enable = getCheckbox().isSelected();
+        apply.addActionListener(e -> mainFrame.showMenu());
+        back.addActionListener(e -> mainFrame.showMenu());
+        checkbox.addActionListener(e -> {
+            boolean enable = checkbox.isSelected();
             AudioPlayer.setSoundEnabled(enable);
             System.out.println("OptionPanel: setSoundEnabled():" + enable);
         });

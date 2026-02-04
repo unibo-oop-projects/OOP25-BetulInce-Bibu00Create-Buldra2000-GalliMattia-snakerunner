@@ -6,23 +6,17 @@ import java.awt.Toolkit;
 //import java.net.URL;
 //import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
-import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
-import snakerunner.graphics.panel.PanelFactory;
 
 public class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
 
-    private Controller controller;
-    private Timer timer;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
@@ -30,9 +24,6 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     public MainFrameImpl() {
         super(TITLE);
         //setIcon();
-        menuPanel = PanelFactory.createMenuPanel(this);
-        gamePanel = PanelFactory.createGamePanel(this);
-        optionPanel = PanelFactory.createOptionPanel(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setDimensionFrame();
     }
@@ -69,14 +60,6 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setContentPane(gamePanel);
         revalidate();
         repaint();
-
-        controller.start();
-        System.out.println("Controller.start()");
-    }
-
-    @Override
-    public void pause(){
-        controller.pause();
     }
 
     @Override
@@ -86,32 +69,20 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         repaint();
     }
 
+    
     @Override
-    public void setController(Controller controller) {
-        this.controller = controller;
+    public void setMenuPanel(MenuPanel menuPanel) {
+        this.menuPanel = menuPanel;
     }
 
     @Override
-    public void startGameLoop() {
-        //Game Loop 
-        timer = new Timer(200, e -> {
-            controller.updateGame(); 
-            //repaint();
-            gamePanel.updateTimer(controller.getModel().getTimeLeft());
-        });
-        timer.start();
+    public void setGamePanel(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
     }
 
     @Override
-    public void stopGameLoop() {
-    if (timer != null) {
-            timer.stop();
-        }
-    }
-
-    @Override
-    public void setSoundEnabled(boolean isEnable) {
-        // TODO
+    public void setOptionPanel(OptionPanel optionPanel) {
+        this.optionPanel = optionPanel;
     }
 
     @Override

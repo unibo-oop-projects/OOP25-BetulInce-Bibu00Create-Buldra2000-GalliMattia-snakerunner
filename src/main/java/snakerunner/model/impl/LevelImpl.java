@@ -20,9 +20,9 @@ public class LevelImpl implements Level{
 
     public LevelImpl(Grid grid, Set<Point2D<Integer, Integer>> obstacles) {
         this.grid = grid;
-        this.baseSpeed = baseSpeed;
-        this.ItemCount = itemCount;
-        this.levelDuration = levelDuration;
+        this.baseSpeed = 0;
+        this.ItemCount = 0;
+        this.levelDuration = 0;
         this.obstacles = obstacles;
     }
 

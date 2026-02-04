@@ -21,8 +21,7 @@ public class ScoreView extends BaseView{
         setMaximumSize(getPreferredSize());
     }
     
-    @Override
-    public void setValue(int score){
+    public void setScore(int score){
         this.score = score;
         repaint();
     }

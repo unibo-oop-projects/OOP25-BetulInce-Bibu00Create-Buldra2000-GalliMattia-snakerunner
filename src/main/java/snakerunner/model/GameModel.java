@@ -21,4 +21,8 @@ public interface GameModel {
     public int getTimeLeft();
 
     public boolean isGameOver();
+
+    boolean hasWon();
+
+    boolean hasLost();
 }

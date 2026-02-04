@@ -12,13 +12,23 @@ public interface Controller {
     /**
      * Starts the game loop.
      */
-    public void start();
+    void start();
 
-    public void pause();
+    void pause();
 
-    public GameModel getModel();
+    GameModel getModel();
 
-    public void updateGame();
+    void updateGame();
 
-    public void setSoundEnable(boolean isEnable);
+    void setSoundEnable(boolean isEnable);
+
+    void resume();
+
+
+    //GamePanel
+    void onPause();
+
+    void onResume();
+
+    void onBackToMenu();
 }

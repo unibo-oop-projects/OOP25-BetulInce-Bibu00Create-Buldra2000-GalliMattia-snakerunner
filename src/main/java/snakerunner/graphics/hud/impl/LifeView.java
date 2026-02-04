@@ -20,8 +20,7 @@ public class LifeView extends BaseView{
         super(WIDTH, HEIGHT);
     }
 
-    @Override
-    public void setValue(int life){
+    public void setLife(int life){
         this.life = life;
         repaint();
     }

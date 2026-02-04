@@ -21,8 +21,7 @@ public class TimerView extends BaseView {
         super(WIDTH, HEIGHT);
     }
 
-    @Override
-    public void setValue(int timeLeft){
+    public void setTimeLeft(int timeLeft){
         this.timeLeft = timeLeft;
         repaint();
     }
@@ -43,6 +42,4 @@ public class TimerView extends BaseView {
         g.setColor(Color.BLACK);
         g.drawString(timerText, X, Y);
     }
-
-
 }

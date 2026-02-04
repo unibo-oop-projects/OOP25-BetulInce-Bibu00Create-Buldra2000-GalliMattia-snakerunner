@@ -13,11 +13,10 @@ public class Main {
         System.out.println("Hello Snake Runner!");
 
         SwingUtilities.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrameImpl();
             GameModel gameModel = new GameModelImpl();
-            
+            MainFrame mainFrame = new MainFrameImpl();
             Controller controller = new ControllerImpl(mainFrame, gameModel);
-            mainFrame.setController(controller);
+            
             controller.init();
         });
     }
