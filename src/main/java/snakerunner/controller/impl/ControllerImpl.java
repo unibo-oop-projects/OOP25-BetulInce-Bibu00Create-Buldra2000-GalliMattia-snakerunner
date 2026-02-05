@@ -12,6 +12,10 @@ import java.util.logging.Logger;
 import snakerunner.controller.Controller;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
+import snakerunner.graphics.panel.GamePanel;
+import snakerunner.graphics.panel.MenuPanel;
+import snakerunner.graphics.panel.OptionPanel;
+import snakerunner.graphics.panel.PanelFactory;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
 import snakerunner.model.impl.LevelLoader;
@@ -21,6 +25,9 @@ public class ControllerImpl implements Controller {
     private static final Logger LOGGER = Logger.getLogger(ControllerImpl.class.getName()); 
 
     private StateGame state;
+    private MenuPanel menuPanel;
+    private OptionPanel optionPanel;
+    private GamePanel gamePanel;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
 
@@ -32,8 +39,24 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void init() {
+        menuPanel = PanelFactory.createMenuPanel(this);
+        optionPanel = PanelFactory.createOptionPanel(this);
+        gamePanel = PanelFactory.createGamePanel(this);
+
+        mainFrame.setPanels(menuPanel, gamePanel, optionPanel);
+
         mainFrame.showMenu();
         mainFrame.display();
+    }
+
+    @Override
+    public void onStart(){
+        mainFrame.showGame();
+    }
+
+    @Override
+    public void onOption(){
+        mainFrame.showOption();
     }
 
     @Override
@@ -61,12 +84,16 @@ public class ControllerImpl implements Controller {
         gameModel.update();
 
         if (gameModel.isGameOver()) {
-            mainFrame.stopGameLoop();
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
         }
 
         //view Render
+    }
+
+    @Override
+    public void onBackMenu(){
+        mainFrame.showMenu();
     }
 
     @Override
@@ -110,4 +137,10 @@ public class ControllerImpl implements Controller {
             throw new IllegalStateException(errorMsg, e);
         }
     }
+
+    @Override
+    public void exit(){
+        System.exit(0);
+    }
+
 }

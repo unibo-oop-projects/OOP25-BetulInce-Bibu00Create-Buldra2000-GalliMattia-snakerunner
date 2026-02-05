@@ -19,8 +19,7 @@ public class ScoreView extends BaseView{
         super(WIDTH, HEIGHT);
         init();
     }
-
-    @SuppressWarnings({"method-call-in-constructor", "OverridableMethodCallDuringObjectConstruction", "OverridableMethodCallInConstructor"})
+    
     private void init(){
         setMaximumSize(getPreferredSize());
     }

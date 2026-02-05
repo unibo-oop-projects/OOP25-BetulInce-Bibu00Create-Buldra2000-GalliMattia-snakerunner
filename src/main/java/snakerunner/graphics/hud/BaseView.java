@@ -12,7 +12,6 @@ public abstract class BaseView extends JLabel{
         init(width,height);
     }
 
-    @SuppressWarnings("all")
     private void init(final int width, final int height){
         setOpaque(false);
         setPreferredSize(new Dimension(width, height));

@@ -4,7 +4,8 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import snakerunner.graphics.MainFrame;
+
+import snakerunner.controller.Controller;
 import snakerunner.graphics.hud.LevelView;
 import snakerunner.graphics.hud.LifeView;
 import snakerunner.graphics.hud.ScoreView;
@@ -23,7 +24,7 @@ public class GamePanel extends BasePanelImpl {
     private final LevelView levelView;
     private final LifeView lifeView;
 
-    private final MainFrame mainFrame;
+    private final Controller controller;
 
     private final JPanel nPanel;
     private final JPanel sPanel;
@@ -34,9 +35,9 @@ public class GamePanel extends BasePanelImpl {
     private final JButton resume;
     private final JButton back;
 
-    public GamePanel(final MainFrame mainFrame){
+    public GamePanel(final Controller controller){
         super();
-        this.mainFrame = mainFrame;
+        this.controller = controller;
         nPanel = new JPanel();
         sPanel = new JPanel();
         gameBoardPanel = new GameBoardPanel();
@@ -83,18 +84,6 @@ public class GamePanel extends BasePanelImpl {
         this.addActionListeners();
     }
 
-    private JButton getPause() {
-        return pause;
-    }
-
-    private JButton getResume() {
-        return resume;
-    }
-
-    private JButton getBacktoMenu(){
-        return back;
-    }
-
     @Override
     public void setLayoutPanel() {
         setLayout(new BorderLayout());
@@ -102,9 +91,9 @@ public class GamePanel extends BasePanelImpl {
 
     @Override
     public void addActionListeners(){
-        getPause().addActionListener(e -> mainFrame.pause());
-        getResume().addActionListener(e -> {});
-        getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
+        pause.addActionListener(e -> controller.pause());
+        resume.addActionListener(e -> {});
+        back.addActionListener(e -> controller.onBackMenu());
     }
 
     public void updateTimer(final int timeLeft){
