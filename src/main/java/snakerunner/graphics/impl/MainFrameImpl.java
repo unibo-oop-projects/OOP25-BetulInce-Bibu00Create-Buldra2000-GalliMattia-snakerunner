@@ -84,6 +84,5 @@ public class MainFrameImpl extends JFrame implements MainFrame {
             "You Lose!",
             "Lose",
             JOptionPane.INFORMATION_MESSAGE
-        );
-    }
+        );    }
 }
