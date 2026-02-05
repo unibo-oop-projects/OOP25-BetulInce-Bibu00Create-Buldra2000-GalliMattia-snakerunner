@@ -7,7 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import snakerunner.graphics.MainFrame;
+import snakerunner.controller.Controller;
 import snakerunner.graphics.hud.LevelView;
 import snakerunner.graphics.hud.LifeView;
 import snakerunner.graphics.hud.ScoreView;
@@ -25,7 +25,7 @@ public class GamePanel extends BasePanelImpl {
     private LevelView levelView;
     private LifeView lifeView;
 
-    private MainFrame mainFrame;
+    private Controller controller;
 
     private final JPanel nPanel;
     private final JPanel sPanel;
@@ -36,12 +36,12 @@ public class GamePanel extends BasePanelImpl {
     private final JButton resume;
     private final JButton back;
 
-    public GamePanel(MainFrame mainFrame){
+    public GamePanel(Controller controller){
         super();
-        this.mainFrame = mainFrame;
+        this.controller = controller;
         nPanel = new JPanel();
         sPanel = new JPanel();
-        gameBoardPanel = new GameBoardPanel();
+        gameBoardPanel = new GameBoardPanel(controller);
         ePanel = new JPanel();
         wPanel = new JPanel();
 
@@ -81,20 +81,7 @@ public class GamePanel extends BasePanelImpl {
         sPanel.add(scoreView);
         sPanel.add(back);
 
-
         this.addActionListeners();
-    }
-
-    private JButton getPause() {
-        return pause;
-    }
-
-    private JButton getResume() {
-        return resume;
-    }
-
-    private JButton getBacktoMenu(){
-        return back;
     }
 
     @Override
@@ -104,13 +91,28 @@ public class GamePanel extends BasePanelImpl {
 
     @Override
     public void addActionListeners(){
-        System.out.println("GamePanel : Adding action listeners to GamePanel buttons");
-        getPause().addActionListener(e -> mainFrame.pause());
-        getResume().addActionListener(e -> {});
-        getBacktoMenu().addActionListener(e -> mainFrame.showMenu());
+        pause.addActionListener(e -> controller.pause());
+        resume.addActionListener(e -> controller.resume());
+        back.addActionListener(e -> controller.onBackMenu());
     }
 
-    public void updateTimer(int timeLeft){
-        timerView.setTimeLeft(timeLeft);
+
+    
+    public void updateTimer(final int timeLeft){
+        //timerView.setValue(timeLeft);
+        
+        repaint();
+
     }
+    //Commented because it was causing merge conflicts
+    /*public void updateObstacles(java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obstacles){
+        gameBoardPanel.setObstacles(obstacles);
+        repaint();
+    }*/
+
+    public TimerView getTimerView() {
+        return timerView;
+    }
+
+    
 }

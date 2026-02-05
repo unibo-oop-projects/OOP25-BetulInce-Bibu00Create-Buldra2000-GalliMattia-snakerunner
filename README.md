@@ -7,3 +7,4 @@ This game is an imitation of the game 'Snake Runner'. When the application is st
 - **Exit:** Closes the game.
  
 **Enjoy SnakeRunner!**
+

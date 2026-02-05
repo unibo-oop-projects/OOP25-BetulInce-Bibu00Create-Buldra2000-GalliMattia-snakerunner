@@ -20,4 +20,10 @@ public interface GameModel {
     public List<Collectible> getCollectibles();
 
     public Level getLevel();
+
+    
+    //public Level nextLevel();
+
+    //Adding obstacles
+    public java.util.Set<snakerunner.commons.Point2D<Integer,Integer>> getObstacles();
 }
