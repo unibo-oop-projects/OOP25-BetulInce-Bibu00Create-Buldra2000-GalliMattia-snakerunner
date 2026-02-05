@@ -1,6 +1,5 @@
 package snakerunner.graphics;
 
-import snakerunner.controller.Controller;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
@@ -17,11 +16,9 @@ public interface MainFrame {
 
     void showOption();
 
-    void pause();
-    void setMenuPanel(MenuPanel menuPanel);
-
-    void setController(Controller controller);
-
     void setSoundEnabled(boolean isEnable);
+
+    void won();
+
     void lose();
 }

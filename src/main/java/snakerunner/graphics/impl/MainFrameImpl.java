@@ -3,7 +3,6 @@ package snakerunner.graphics.impl;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
-import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
@@ -14,30 +13,21 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     private static final long serialVersionUID = 1L;
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
-    private Controller controller;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
 
     public MainFrameImpl() {
         super(TITLE);
-        //setIcon();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setDimensionFrame();
+        setResizable(false);
     }
 
     @Override
     public void display() {
         setVisible(true);
     }
-    /*
-    private void setIcon(){
-        URL iconURL = getClass().getResource("/icon.png");
-        System.out.println("Icon URL: " + iconURL);
-        ImageIcon icon = new ImageIcon(iconURL);
-        setIconImage(icon.getImage());
-    }
-    */
 
     private void setDimensionFrame(){
         final Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -65,13 +55,6 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setContentPane(gamePanel);
         revalidate();
         repaint();
-
-        controller.start();
-    }
-
-    @Override
-    public void pause(){
-        controller.pause();
     }
 
     @Override
@@ -81,26 +64,24 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         repaint();
     }
 
-    
     @Override
-    public void setMenuPanel(MenuPanel menuPanel) {
-        this.menuPanel = menuPanel;
-    }
-
-    @Override
-    public void setController(final Controller controller) {
-        this.controller = controller;
+    public void won(){
+        /**
+         * TODO
+         */
     }
 
     @Override
     public void lose() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'lose'");
+        /**
+         * TODO
+         */
     }
 
     @Override
     public void setSoundEnabled(boolean isEnable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setSoundEnabled'");
+        /**
+         * TODO
+         */
     }
 }

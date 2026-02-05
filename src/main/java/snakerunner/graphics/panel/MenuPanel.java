@@ -43,7 +43,7 @@ public class MenuPanel extends BasePanelImpl {
 
     @Override
     public void addActionListeners() {
-        start.addActionListener(e -> controller.onStart());
+        start.addActionListener(e -> controller.start());
         option.addActionListener(e -> controller.onOption());
         exit.addActionListener(e -> controller.exit());
     }

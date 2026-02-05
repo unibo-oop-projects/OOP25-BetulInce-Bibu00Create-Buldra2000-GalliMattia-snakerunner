@@ -6,18 +6,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.Timer;
-
+import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
+import snakerunner.graphics.panel.GameBoardPanel;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
 import snakerunner.graphics.panel.PanelFactory;
+import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
 import snakerunner.model.impl.LevelLoader;
@@ -30,6 +32,7 @@ public class ControllerImpl implements Controller {
     private MenuPanel menuPanel;
     private OptionPanel optionPanel;
     private GamePanel gamePanel;
+    private GameBoardPanel gameBoardPanel;
     private Timer gameLoopTimer;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
@@ -42,7 +45,10 @@ public class ControllerImpl implements Controller {
     }
 
     private void initGameLoop(){
-        gameLoopTimer = new Timer(16, e -> updateGame());
+        gameLoopTimer = new Timer(16, e -> {
+            updateGame();
+            gameBoardPanel.repaint();
+        });
     }
 
     //Creation components
@@ -56,11 +62,6 @@ public class ControllerImpl implements Controller {
 
         mainFrame.showMenu();
         mainFrame.display();
-    }
-
-    @Override
-    public void onStart(){
-        mainFrame.showGame();
     }
 
     @Override
@@ -92,8 +93,7 @@ public class ControllerImpl implements Controller {
         }
 
         gameModel.update();
-
-        updateHUD();
+        gameModel.checkCollisions();
 
         if (gameModel.isGameOver()) {
             state = StateGame.GAME_OVER;
@@ -101,6 +101,21 @@ public class ControllerImpl implements Controller {
         }
 
         //view Render
+        updateHUD();
+        
+    }
+
+    @Override
+    public Set<Point2D<Integer, Integer>> getObstacles(){
+        return gameModel.getLevel().getObstacles();
+    }
+
+    @Override
+    public List<Point2D<Integer, Integer>> getCollectibles(){
+        return gameModel.getCollectibles()
+            .stream()
+            .map(Collectible::getPosition)
+            .toList();
     }
 
     @Override
@@ -149,8 +164,11 @@ public class ControllerImpl implements Controller {
             throw new IllegalStateException(errorMsg, e);
         }
     }
+    
 
-    private void updateHUD(){}
+    private void updateHUD(){
+        //TODO
+    }
 
     @Override
     public void exit(){
@@ -174,11 +192,4 @@ public class ControllerImpl implements Controller {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'onResume'");
     }
-
-    @Override
-    public void onBackToMenu() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onBackToMenu'");
-    }
-
 }

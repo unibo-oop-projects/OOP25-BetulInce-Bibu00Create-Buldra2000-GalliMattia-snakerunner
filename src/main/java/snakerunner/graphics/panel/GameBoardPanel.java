@@ -6,20 +6,30 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import snakerunner.commons.Point2D;
+import snakerunner.controller.Controller;
+
 public class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private static final int CELL = 10;
+    private static final int CELL = 15;
 
-    private int rows = 60;
-    private int cols = 60;
+    private final Controller controller;
 
-    public GameBoardPanel(){
+    private int rows = this.getWidth();
+    private int cols = this.getWidth();
+
+    public GameBoardPanel(Controller controller){
+        this.controller = controller;
         setOpaque(true);
         setBackground(Color.GRAY);
         setPreferredSize(new Dimension(cols * CELL, rows * CELL));
     }
 
+    /**
+     * Draw all Components
+     * @param g Graphics g
+     */
     @Override
     protected void paintComponent(final Graphics g){
         super.paintComponent(g);
@@ -27,9 +37,13 @@ public class GameBoardPanel extends JPanel {
         drawGrid(g);
         drawSnake(g);
         drawObstacle(g);
-        //Food
+        drawCollectibles(g);
     }
 
+    /**
+     * Draw Grid
+     * @param g Graphics g
+     */
     private void drawGrid(Graphics g){
         g.setColor(Color.BLACK);
 
@@ -45,7 +59,37 @@ public class GameBoardPanel extends JPanel {
         }
     }
 
+    /**
+     * Draw snake
+     * @param g
+     */
     private void drawSnake(Graphics g){}
-    private void drawObstacle(Graphics g){}
 
+
+
+    /**
+     * Draw obstacle
+     * @param g
+     */
+    private void drawObstacle(Graphics g){
+        g.setColor(Color.RED);
+
+        for(Point2D<Integer, Integer> p : controller.getObstacles()){
+            final int x = p.getX();
+            final int y = p.getY();
+
+            g.fillRect( x * CELL, y * CELL, CELL, CELL);
+        }
+    }
+
+    /**
+     * Draw collectibles
+     * @param g
+     */
+    private void drawCollectibles(Graphics g){
+        for(Point2D<Integer, Integer> p : controller.getCollectibles()){
+            g.setColor(Color.YELLOW);
+            g.fillOval(p.getX() * CELL, p.getY() * CELL, CELL, CELL);
+        }
+    }
 }

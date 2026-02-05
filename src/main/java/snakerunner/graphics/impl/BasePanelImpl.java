@@ -32,7 +32,6 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
         initPanel();
     }
 
-    @SuppressWarnings({"method-call-in-constructor", "OverridableMethodCallDuringObjectConstruction", "OverridableMethodCallInConstructor"})
     private void initPanel(){
         setBackground(defaultBackground);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

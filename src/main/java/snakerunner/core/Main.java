@@ -17,8 +17,6 @@ public final class Main {
         final MainFrame mainFrame = new MainFrameImpl();
         final GameModel gameModel = new GameModelImpl();
         final Controller controller = new ControllerImpl(mainFrame, gameModel);
-
-        mainFrame.setController(controller);
         
         controller.loadLevelFromFile("levels/level1.txt");
         controller.init();

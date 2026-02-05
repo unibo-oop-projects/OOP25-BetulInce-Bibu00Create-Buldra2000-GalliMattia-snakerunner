@@ -1,5 +1,10 @@
 package snakerunner.controller;
 
+import java.awt.Point;
+import java.util.List;
+import java.util.Set;
+
+import snakerunner.commons.Point2D;
 import snakerunner.graphics.MainFrame;
 import snakerunner.model.GameModel;
 
@@ -15,22 +20,21 @@ public interface Controller {
      */
     void start();
 
-    void onStart();
-
     void onOption();
 
     void pause();
 
     GameModel getModel();
 
+    Set<Point2D<Integer, Integer>> getObstacles();
+
+    List<Point2D<Integer, Integer>> getCollectibles();
+
     void resume();
 
-    //GamePanel
     void onPause();
 
     void onResume();
-
-    void onBackToMenu();
 
     MainFrame getView();
 
