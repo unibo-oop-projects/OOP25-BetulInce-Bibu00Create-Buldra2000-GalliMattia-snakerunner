@@ -47,6 +47,12 @@ public interface Controller {
     List<Collectible> getCollectibles();
 
     /**
+     * Get Level from Model (Controller - Model)
+     * @return
+     */
+    int getLevel();
+
+    /**
      * Resume game
      */
     void resume();

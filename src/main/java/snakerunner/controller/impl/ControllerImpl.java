@@ -32,6 +32,7 @@ public class ControllerImpl implements Controller {
     private final GameModel gameModel;
 
     private int timeLeft;
+    private int currentLevel = 1;
 
     public ControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame; //view
@@ -58,6 +59,7 @@ public class ControllerImpl implements Controller {
         mainFrame.display();
 
         timerView = gamePanel.getTimerView();
+        
     }
 
     @Override
@@ -67,7 +69,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void start() {
-        timeLeft = 60;
+        timeLeft = 5;
         timerView.setTimeLeft(timeLeft);
         gameLoopTimer.start();
         mainFrame.showGame();
@@ -95,6 +97,13 @@ public class ControllerImpl implements Controller {
         gameModel.checkCollisions();
         timeLeft--;
 
+        if(timeLeft == 0) {
+            state = StateGame.GAME_OVER;
+            gameLoopTimer.stop();
+            mainFrame.lose();
+            mainFrame.showMenu();
+        }
+
         if (gameModel.isGameOver()) {
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
@@ -112,6 +121,11 @@ public class ControllerImpl implements Controller {
     @Override
     public List<Collectible> getCollectibles() {
         return gameModel.getCollectibles();
+    }
+
+    @Override
+    public int getLevel() {
+        return this.currentLevel;
     }
 
     @Override
