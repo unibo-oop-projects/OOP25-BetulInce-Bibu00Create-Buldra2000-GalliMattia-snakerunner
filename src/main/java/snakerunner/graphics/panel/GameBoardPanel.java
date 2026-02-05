@@ -26,7 +26,7 @@ public class GameBoardPanel extends JPanel {
      * @param g Graphics g
      */
     @Override
-    protected void paintComponent(final Graphics g){
+    protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
         drawGrid(g);

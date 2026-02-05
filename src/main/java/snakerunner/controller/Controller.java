@@ -50,7 +50,7 @@ public interface Controller {
      */
     void resume();
 
-    MainFrame getView();
+    public MainFrame getView();
 
     /**
      * Update gameLoop

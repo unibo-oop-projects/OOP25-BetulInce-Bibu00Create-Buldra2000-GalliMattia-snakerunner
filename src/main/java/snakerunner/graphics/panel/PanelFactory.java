@@ -1,20 +1,18 @@
 package snakerunner.graphics.panel;
 
-import snakerunner.controller.Controller;
+import snakerunner.graphics.MainFrame;
 
-public final class PanelFactory {
+public class PanelFactory {
 
-    private PanelFactory(){}
-
-    public static GamePanel createGamePanel(final Controller controller) {
-        return new GamePanel(controller);
+    public static GamePanel createGamePanel(MainFrame mainFrame) {
+        return new GamePanel(mainFrame);
     }
 
-    public static MenuPanel createMenuPanel(final Controller controller) {
-        return new MenuPanel(controller);
+    public static MenuPanel createMenuPanel(MainFrame mainFrame) {
+        return new MenuPanel(mainFrame);
     }
 
-    public static OptionPanel createOptionPanel(final Controller controller) {
-        return new OptionPanel(controller);
+    public static OptionPanel createOptionPanel(MainFrame mainFrame) {
+        return new OptionPanel(mainFrame);
     }
 }

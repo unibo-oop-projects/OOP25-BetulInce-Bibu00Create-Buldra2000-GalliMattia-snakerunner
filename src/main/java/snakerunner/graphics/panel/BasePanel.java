@@ -2,8 +2,8 @@ package snakerunner.graphics.panel;
 
 public interface BasePanel {
 
-    void setLayoutPanel();
+    public abstract void setLayoutPanel();
 
-    void addActionListeners();
+    public abstract void addActionListeners();
 
 }

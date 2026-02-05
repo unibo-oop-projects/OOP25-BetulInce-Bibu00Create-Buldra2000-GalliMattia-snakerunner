@@ -1,13 +1,12 @@
-package snakerunner.graphics.hud;
+package snakerunner.graphics.hud.impl;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+import snakerunner.graphics.hud.BaseView;
 
 /*LifeView is a HUD component and is used to show the remaining life in GamePanel*/
-public class LifeView extends JPanel{
+public class LifeView extends BaseView{
 
     private static final String LIFE_TEXT = "Life : %1d";
     private static final int X = 5;
@@ -18,11 +17,11 @@ public class LifeView extends JPanel{
     private int life;
 
     public LifeView(){
-        setOpaque(false);
-         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        super(WIDTH, HEIGHT);
     }
 
-    public void setLife(int life){
+    @Override
+    public void setValue(int life){
         this.life = life;
         repaint();
     }

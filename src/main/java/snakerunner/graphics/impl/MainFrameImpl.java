@@ -2,6 +2,7 @@ package snakerunner.graphics.impl;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -9,10 +10,10 @@ import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
+import snakerunner.graphics.panel.PanelFactory;
 
 public class MainFrameImpl extends JFrame implements MainFrame {
-
-    private static final long serialVersionUID = 1L;
+    
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
     private MenuPanel menuPanel;
@@ -32,17 +33,10 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     }
 
     private void setDimensionFrame(){
-        final Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-        final int width = (int)(screensize.width * PROPORTION);
-        final int height = (int)(screensize.height * PROPORTION);
+        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int)(screensize.width * PROPORTION);
+        int height = (int)(screensize.height * PROPORTION);
         setSize(width,height);
-    }
-
-    @Override
-    public void setPanels(final MenuPanel menuPanel, final GamePanel gamePanel, final OptionPanel optionPanel){
-        this.menuPanel = menuPanel;
-        this.gamePanel = gamePanel;
-        this.optionPanel = optionPanel;
     }
 
     @Override

@@ -7,14 +7,8 @@ import javax.swing.JLabel;
 //Base Graphics for HUD element
 public abstract class BaseView extends JLabel implements BaseHUD{
 
-    private static final long serialVersionUID = 1L;
-
-    public BaseView(final int width, final int height){
-        init(width,height);
-    }
-
-    private void init(final int width, final int height){
+    public BaseView(int WIDTH, int HEIGHT){
         setOpaque(false);
-        setPreferredSize(new Dimension(width, height));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 }

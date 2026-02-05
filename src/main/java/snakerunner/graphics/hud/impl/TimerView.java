@@ -1,13 +1,12 @@
-package snakerunner.graphics.hud;
+package snakerunner.graphics.hud.impl;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+import snakerunner.graphics.hud.BaseView;
 
 /*TimerView is a HUD component and is used to show the remaining game time in GamePanel*/
-public class TimerView extends JPanel {
+public class TimerView extends BaseView {
     
     private static final int WIDTH = 60;
     private static final int HEIGHT = 30;
@@ -19,11 +18,11 @@ public class TimerView extends JPanel {
     private int timeLeft;
 
     public TimerView(){
-        setOpaque(false);
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        super(WIDTH, HEIGHT);
     }
 
-    public void setTimeLeft(int timeLeft){
+    @Override
+    public void setValue(int timeLeft){
         this.timeLeft = timeLeft;
         repaint();
     }

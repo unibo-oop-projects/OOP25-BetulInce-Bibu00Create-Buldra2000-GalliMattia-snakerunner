@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -25,9 +24,6 @@ import snakerunner.model.LevelData;
 import snakerunner.model.impl.LevelLoader;
 
 public class ControllerImpl implements Controller {
-
-    private static final Logger LOGGER = Logger.getLogger(ControllerImpl.class.getName()); 
-
     private StateGame state;
     private MenuPanel menuPanel;
     private OptionPanel optionPanel;
@@ -85,6 +81,8 @@ public class ControllerImpl implements Controller {
         if(state == StateGame.RUNNING){
             state = StateGame.PAUSED;
         }
+
+        System.out.println("StateGame.PAUSED , StopTimer");
     }
 
 
@@ -100,6 +98,8 @@ public class ControllerImpl implements Controller {
         timeLeft--;
 
         if (gameModel.isGameOver()) {
+            System.out.println("Controller: Game Over!");
+            mainFrame.stopGameLoop();
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
         }
@@ -145,22 +145,18 @@ public class ControllerImpl implements Controller {
                 .getResourceAsStream(filePath)) {
 
             if (is == null) {
-                final String errorMsg = "File not found: " + filePath;
-                LOGGER.log(Level.SEVERE, errorMsg);
-                throw new IllegalArgumentException(errorMsg);
+                throw new IllegalArgumentException("File livello non trovato: " + filePath);
             }
 
-            final List<String> lines = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))
+            List<String> lines = new BufferedReader(new InputStreamReader(is))
                     .lines()
                     .toList();
 
-            final LevelData level = LevelLoader.load(lines);
+            LevelData level = LevelLoader.load(lines);
             gameModel.loadLevel(level);
 
         } catch (IOException e) {
-            final String errorMsg = "Error file load" + filePath;
-            LOGGER.log(Level.SEVERE, errorMsg, e);
-            throw new IllegalStateException(errorMsg, e);
+            throw new RuntimeException("Errore caricamento livello", e);
         }
     }
     

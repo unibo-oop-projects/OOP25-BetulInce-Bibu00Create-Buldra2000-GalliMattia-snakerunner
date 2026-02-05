@@ -1,13 +1,12 @@
-package snakerunner.graphics.hud;
+package snakerunner.graphics.hud.impl;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+import snakerunner.graphics.hud.BaseView;
 
 /*TimerView is a HUD component and is used to show level in GamePanel*/
-public class LevelView extends JPanel{
+public class LevelView extends BaseView{
 
     private static final String LEVEL_TEXT = "Level : %1d";
     private static final int WIDTH = 60;
@@ -18,11 +17,11 @@ public class LevelView extends JPanel{
     private int level;
 
     public LevelView(){
-        setOpaque(false);
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        super(WIDTH, HEIGHT);
     }
 
-    public void setLevel(int level){
+    @Override
+    public void setValue(int level){
         this.level = level;
         repaint();
     }

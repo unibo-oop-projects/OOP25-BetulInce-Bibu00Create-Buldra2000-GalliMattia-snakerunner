@@ -10,7 +10,7 @@ class AudioPlayerTest {
 
     /* Test getters return true/false */
     @Test
-    void soundEnabledGettersTest() {
+    void SoundEnabledGettersTest() {
         AudioPlayer.setSoundEnabled(true);
         assertTrue(AudioPlayer.isSoundEnable());
         
