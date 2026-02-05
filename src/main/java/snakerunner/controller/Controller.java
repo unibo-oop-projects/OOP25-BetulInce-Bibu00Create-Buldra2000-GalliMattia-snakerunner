@@ -11,6 +11,9 @@ import snakerunner.model.GameModel;
 
 public interface Controller {
 
+    /**
+     * Set Panel
+     */
     void init();
 
     /**
@@ -42,15 +45,31 @@ public interface Controller {
      */
     List<Point2D<Integer, Integer>> getCollectibles();
 
+    /**
+     * Resume game
+     */
     void resume();
 
     MainFrame getView();
 
+    /**
+     * Update gameLoop
+     */
     void updateGame();
 
+    /**
+     * Load level from file
+     * @param filepath path file levels
+     */
     void loadLevelFromFile(String filepath);
 
+    /**
+     * Back to menu (Controller - View)
+     */
     void onBackMenu();
 
+    /**
+     * Exit to the application
+     */
     void exit();
 }

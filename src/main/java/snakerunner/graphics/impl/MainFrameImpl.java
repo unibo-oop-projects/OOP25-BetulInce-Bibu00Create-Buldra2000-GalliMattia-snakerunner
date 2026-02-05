@@ -3,6 +3,8 @@ package snakerunner.graphics.impl;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
@@ -66,22 +68,21 @@ public class MainFrameImpl extends JFrame implements MainFrame {
 
     @Override
     public void won(){
-        /**
-         * TODO
-         */
+        JOptionPane.showMessageDialog(
+        this,
+        "You Won!",
+        "Victory",
+        JOptionPane.INFORMATION_MESSAGE
+    );
     }
 
     @Override
     public void lose() {
-        /**
-         * TODO
-         */
-    }
-
-    @Override
-    public void setSoundEnabled(boolean isEnable) {
-        /**
-         * TODO
-         */
+        JOptionPane.showMessageDialog(
+            this, 
+            "You Lose!",
+            "Lose",
+            JOptionPane.INFORMATION_MESSAGE
+        );
     }
 }
