@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Timer;
 import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
@@ -33,7 +31,7 @@ public class ControllerImpl implements Controller {
     private final MainFrame mainFrame;
     private final GameModel gameModel;
 
-    private int timeLeft = 180;
+    private int timeLeft;
 
     public ControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame; //view
@@ -69,20 +67,20 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void start() {
+        timeLeft = 60;
+        timerView.setTimeLeft(timeLeft);
         gameLoopTimer.start();
         mainFrame.showGame();
         // Implementation to start the game loop
         state = StateGame.RUNNING;
-        timerView.setValue(timeLeft);
     }
 
     @Override
     public void pause(){
         if(state == StateGame.RUNNING){
             state = StateGame.PAUSED;
+            gameLoopTimer.stop();
         }
-
-        System.out.println("StateGame.PAUSED , StopTimer");
     }
 
 
@@ -99,14 +97,12 @@ public class ControllerImpl implements Controller {
 
         if (gameModel.isGameOver()) {
             System.out.println("Controller: Game Over!");
-            mainFrame.stopGameLoop();
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
         }
 
         //view Render
         updateHUD();
-        
     }
 
     @Override
@@ -162,7 +158,7 @@ public class ControllerImpl implements Controller {
     
 
     private void updateHUD(){
-        timerView.setValue(timeLeft);
+        timerView.setTimeLeft(timeLeft);
     }
 
     @Override

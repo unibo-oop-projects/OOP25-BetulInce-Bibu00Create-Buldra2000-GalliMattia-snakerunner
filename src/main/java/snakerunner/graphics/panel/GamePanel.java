@@ -7,7 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import snakerunner.graphics.MainFrame;
+import snakerunner.controller.Controller;
 import snakerunner.graphics.hud.LevelView;
 import snakerunner.graphics.hud.LifeView;
 import snakerunner.graphics.hud.ScoreView;
@@ -25,7 +25,7 @@ public class GamePanel extends BasePanelImpl {
     private LevelView levelView;
     private LifeView lifeView;
 
-    private MainFrame mainFrame;
+    private Controller controller;
 
     private final JPanel nPanel;
     private final JPanel sPanel;
@@ -36,9 +36,9 @@ public class GamePanel extends BasePanelImpl {
     private final JButton resume;
     private final JButton back;
 
-    public GamePanel(MainFrame mainFrame){
+    public GamePanel(Controller controller){
         super();
-        this.mainFrame = mainFrame;
+        this.controller = controller;
         nPanel = new JPanel();
         sPanel = new JPanel();
         gameBoardPanel = new GameBoardPanel(controller);
@@ -84,18 +84,6 @@ public class GamePanel extends BasePanelImpl {
         this.addActionListeners();
     }
 
-    private JButton getPause() {
-        return pause;
-    }
-
-    private JButton getResume() {
-        return resume;
-    }
-
-    private JButton getBacktoMenu(){
-        return back;
-    }
-
     @Override
     public void setLayoutPanel() {
         setLayout(new BorderLayout());
@@ -109,7 +97,7 @@ public class GamePanel extends BasePanelImpl {
     }
 
     public void updateTimer(final int timeLeft){
-        timerView.setValue(timeLeft);
+        //timerView.setValue(timeLeft);
         repaint();
     }
 

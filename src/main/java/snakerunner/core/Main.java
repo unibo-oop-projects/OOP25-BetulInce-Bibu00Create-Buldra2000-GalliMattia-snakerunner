@@ -18,7 +18,6 @@ public final class Main {
         final GameModel gameModel = new GameModelImpl();
         final Controller controller = new ControllerImpl(mainFrame, gameModel);
         
-        controller.loadLevelFromFile("levels/level1.txt");
         controller.init();
     }
 }

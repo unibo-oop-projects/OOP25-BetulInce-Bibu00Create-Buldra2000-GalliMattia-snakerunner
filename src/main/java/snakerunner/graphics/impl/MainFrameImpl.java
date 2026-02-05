@@ -32,6 +32,13 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         setVisible(true);
     }
 
+    @Override
+    public void setPanels(MenuPanel menuPanel, GamePanel gamePanel, OptionPanel optionPanel) {
+       this.menuPanel = menuPanel;
+       this.gamePanel = gamePanel;
+       this.optionPanel = optionPanel;
+    }
+
     private void setDimensionFrame(){
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)(screensize.width * PROPORTION);
