@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import snakerunner.commons.Point2D;
 import snakerunner.graphics.MainFrame;
+import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 
 //LinkedBlockingQueue -> thread safe
@@ -40,12 +41,10 @@ public interface Controller {
      */
     Set<Point2D<Integer, Integer>> getObstacles();
 
-    /**
-     * Get Collectibles from Model (Controller  Model)
-     * 
-     * @return
-     */
-    List<Point2D<Integer, Integer>> getCollectibles();
+    /** 
+     * Get Collectibles from Model (Controller - Model)
+    */
+    List<Collectible> getCollectibles();
 
     /**
      * Resume game

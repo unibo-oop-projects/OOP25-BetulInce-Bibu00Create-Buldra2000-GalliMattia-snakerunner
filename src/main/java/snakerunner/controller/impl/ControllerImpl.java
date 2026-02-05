@@ -110,11 +110,8 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public List<Point2D<Integer, Integer>> getCollectibles() {
-        return gameModel.getCollectibles()
-            .stream()
-            .map(Collectible::getPosition)
-            .toList();
+    public List<Collectible> getCollectibles() {
+        return gameModel.getCollectibles();
     }
 
     @Override
@@ -167,7 +164,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void resume() {
-        if (state == StateGame.PAUSED) {
+        if(state == StateGame.PAUSED) {
             state = StateGame.RUNNING;
         }
         gameLoopTimer.restart();

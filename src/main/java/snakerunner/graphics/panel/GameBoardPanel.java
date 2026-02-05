@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
+import snakerunner.model.Collectible;
 
 public class GameBoardPanel extends JPanel {
 
@@ -89,9 +90,32 @@ public class GameBoardPanel extends JPanel {
      * @param g
      */
     private void drawCollectibles(final Graphics g) {
-        for (final Point2D<Integer, Integer> p : controller.getCollectibles()) {
-            g.setColor(Color.YELLOW);
-            g.fillOval(p.getX() * CELL, p.getY() * CELL, CELL, CELL);
+       for (final Collectible collectible : controller.getCollectibles()) {
+        final Point2D<Integer, Integer> p = collectible.getPosition();
+        final int x = p.getX() * CELL;
+        final int y = p.getY() * CELL;
+
+        switch (collectible.getType()) {
+            case FOOD:
+                g.setColor(Color.PINK);
+                g.fillOval(x, y, CELL, CELL);
+                break;
+
+            case CLOCK:
+                g.setColor(Color.BLUE);
+                g.fillOval(x, y, CELL, CELL);
+                break;
+
+            case KEY:
+                g.setColor(Color.ORANGE);
+                g.fillOval(x, y, CELL, CELL);
+                break;
+        
+            default:
+                g.setColor(Color.YELLOW);
+                g.fillOval(x, y, CELL, CELL);
+                break;
         }
+       }
     }
 }
