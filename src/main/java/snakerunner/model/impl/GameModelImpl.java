@@ -44,7 +44,11 @@ public class GameModelImpl implements GameModel {
     @Override
     public void checkCollisions() {
         // TODO Auto-generated method stub
+        //Should we check for a collision in case the snake hits itself?
 
+        //Collision with walls
+        //gameOver= true;
+        //Collision with collectibles
     }
 
     @Override
