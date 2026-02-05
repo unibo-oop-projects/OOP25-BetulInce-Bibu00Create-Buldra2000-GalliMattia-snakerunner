@@ -8,17 +8,16 @@ import snakerunner.graphics.impl.MainFrameImpl;
 import snakerunner.model.GameModel;
 import snakerunner.model.impl.GameModelImpl;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello Snake Runner!");
+public final class Main {
 
-        MainFrame mainFrame = new MainFrameImpl();
-        GameModel gameModel = new GameModelImpl();
-        Controller controller = new ControllerImpl(mainFrame, gameModel);
+    private Main(){}
 
-        mainFrame.setController(controller);
+    public static void main(final String[] args) {
+
+        final MainFrame mainFrame = new MainFrameImpl();
+        final GameModel gameModel = new GameModelImpl();
+        final Controller controller = new ControllerImpl(mainFrame, gameModel);
         
-        controller.loadLevelFromFile("levels/level1.txt");
         controller.init();
     }
 }

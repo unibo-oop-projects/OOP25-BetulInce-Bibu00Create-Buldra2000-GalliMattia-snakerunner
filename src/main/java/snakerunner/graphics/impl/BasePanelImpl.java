@@ -28,6 +28,10 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
     protected final int s_height = 150;
 
     public BasePanelImpl(){
+        initPanel();
+    }
+
+    private void initPanel(){
         setBackground(defaultBackground);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(Box.createVerticalStrut(f_height));

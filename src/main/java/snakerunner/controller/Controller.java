@@ -1,5 +1,8 @@
 package snakerunner.controller;
 
+import java.util.List;
+import java.util.Set;
+import snakerunner.commons.Point2D;
 import snakerunner.graphics.MainFrame;
 import snakerunner.model.GameModel;
 
@@ -8,22 +11,65 @@ import snakerunner.model.GameModel;
 
 public interface Controller {
 
-    public void init();
+    /**
+     * Set Panel
+     */
+    void init();
 
     /**
      * Starts the game loop.
      */
-    public void start();
+    void start();
 
-    public void pause();
+    /**
+     * Show OptionPanel (Controller - View)
+     */
+    void onOption();
 
-    public GameModel getModel();
+    /**
+     * Pause Game (Model - Controller - View)
+     */
+    void pause();
+
+    GameModel getModel();
+
+    /**
+     * Get obstacles from Model (Controller - Model)
+     * @return
+     */
+    Set<Point2D<Integer, Integer>> getObstacles();
+
+    /**
+     * Get Collectibles from Model (Controller  Model)
+     * @return
+     */
+    List<Point2D<Integer, Integer>> getCollectibles();
+
+    /**
+     * Resume game
+     */
+    void resume();
 
     public MainFrame getView();
 
-    public void updateGame();
+    /**
+     * Update gameLoop
+     */
+    void updateGame();
 
-    public void setSoundEnable(boolean isEnable);
+    /**
+     * Load level from file
+     * @param filepath path file levels
+     */
+    void loadLevelFromFile(String filepath);
 
-    public void loadLevelFromFile(String filepath);
+    /**
+     * Back to menu (Controller - View)
+     */
+    void onBackMenu();
+
+    /**
+     * Exit to the application
+     */
+    void exit();
 }
