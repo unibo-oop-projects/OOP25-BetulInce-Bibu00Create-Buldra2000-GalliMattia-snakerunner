@@ -136,12 +136,7 @@ public class ControllerImpl implements Controller {
     public MainFrame getView() {
         return mainFrame;
     }
-
-    @Override
-    public void setSoundEnable(boolean isEnable){
-        //TODO
-    }
-
+    
     @Override
     public void loadLevelFromFile(String filePath) {
         
