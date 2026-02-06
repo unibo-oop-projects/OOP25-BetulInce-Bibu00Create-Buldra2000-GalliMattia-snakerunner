@@ -14,7 +14,7 @@ public class Clock implements Collectible{
 
     @Override
     public void consume(GameModel model) {
-        // model.slowDownSnake();
+        model.applySlowEffect();
     }
 
     @Override
