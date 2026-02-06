@@ -2,7 +2,9 @@ package snakerunner.graphics.panel;
 
 import snakerunner.controller.Controller;
 
-public class PanelFactory {
+public final class PanelFactory {
+
+    private PanelFactory(){}
 
     public static GamePanel createGamePanel(final Controller controller) {
         return new GamePanel(controller);

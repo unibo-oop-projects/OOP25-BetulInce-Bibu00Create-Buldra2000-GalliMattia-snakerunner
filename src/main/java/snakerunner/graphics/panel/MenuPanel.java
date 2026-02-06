@@ -6,8 +6,9 @@ import javax.swing.JButton;
 import snakerunner.controller.Controller;
 import snakerunner.graphics.impl.BasePanelImpl;
 
-public class MenuPanel extends BasePanelImpl {
+public final class MenuPanel extends BasePanelImpl {
 
+    private static final long serialVersionUID = 1L;
     private static final String START = "Start";
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";

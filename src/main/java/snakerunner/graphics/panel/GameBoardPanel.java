@@ -9,7 +9,7 @@ import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
 import snakerunner.model.Collectible;
 
-public class GameBoardPanel extends JPanel {
+public final class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int CELL = 15;

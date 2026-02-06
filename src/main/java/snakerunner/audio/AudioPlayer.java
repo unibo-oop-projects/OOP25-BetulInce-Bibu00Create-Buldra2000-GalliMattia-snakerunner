@@ -6,12 +6,11 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineEvent.Type;
 
-public class AudioPlayer {
+public final class AudioPlayer {
 
-    private static final String ERROR = "Error playing sound.";
     private static boolean soundEnable = true;
 
-    public AudioPlayer(){} //Empty constructor
+    private AudioPlayer(){} //Empty constructor
 
     public static void setSoundEnabled(final boolean enable) {
         soundEnable = enable;
@@ -47,7 +46,6 @@ public class AudioPlayer {
                 });
 
             } catch (Exception e) {
-                System.out.println(ERROR);
                 e.printStackTrace();
         }
     }

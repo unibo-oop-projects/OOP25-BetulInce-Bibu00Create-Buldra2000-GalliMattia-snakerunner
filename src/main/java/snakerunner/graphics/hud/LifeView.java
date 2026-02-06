@@ -7,8 +7,9 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /*LifeView is a HUD component and is used to show the remaining life in GamePanel*/
-public class LifeView extends JPanel {
+public final class LifeView extends JPanel {
 
+    private static final long serialVersionUID = 1L;
     private static final String LIFE_TEXT = "Life : %1d";
     private static final int X = 5;
     private static final int Y = 15;
@@ -28,7 +29,7 @@ public class LifeView extends JPanel {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
 
         final String lifeText = String.format(LIFE_TEXT, life);

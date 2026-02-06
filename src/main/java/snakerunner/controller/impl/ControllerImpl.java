@@ -85,6 +85,13 @@ public class ControllerImpl implements Controller {
         }
     }
 
+    @Override
+    public void resume() {
+        if (state == StateGame.PAUSED) {
+            state = StateGame.RUNNING;
+            gameLoopTimer.restart();
+        }
+    }
 
     //tick di gioco 
     @Override
@@ -174,13 +181,5 @@ public class ControllerImpl implements Controller {
     @Override
     public void exit() {
         System.exit(0);
-    }
-
-    @Override
-    public void resume() {
-        if(state == StateGame.PAUSED) {
-            state = StateGame.RUNNING;
-        }
-        gameLoopTimer.restart();
     }
 }

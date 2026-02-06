@@ -1,9 +1,7 @@
 package snakerunner.graphics.impl;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,13 +17,13 @@ import snakerunner.graphics.panel.BasePanel;
 //Remember to add the background, fonts, and anything else they might have in common.
 public abstract class BasePanelImpl extends JPanel implements BasePanel {
 
+    private static final long serialVersionUID = 1L;
     private static final String TITLE = "Snake Runner";
-    
     protected final Color defaultBackground = new Color(100,238,100);
     protected final Color brown = new Color(139, 69, 19);
     protected final Font arial = new Font("Arial", Font.BOLD, 32);
-    protected final int f_height = 50;
-    protected final int s_height = 150;
+    protected static final int F_HEIGHT = 50;
+    protected static final int S_HEIGHT= 150;
 
     public BasePanelImpl() {
         initPanel();
@@ -34,16 +32,16 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
     private void initPanel() {
         setBackground(defaultBackground);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        add(Box.createVerticalStrut(f_height));
+        add(Box.createVerticalStrut(F_HEIGHT));
         add(createTitle(TITLE));
-        add(Box.createVerticalStrut(s_height));
+        add(Box.createVerticalStrut(S_HEIGHT));
     }
 
     //Create the title of the panels
     protected JLabel createTitle(final String text) {
         final JLabel title = new JLabel(text);
         title.setFont(arial);
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        title.setAlignmentX(CENTER_ALIGNMENT);
         return title;
     }
 

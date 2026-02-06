@@ -9,6 +9,8 @@ import javax.swing.JLabel;
  */
 public abstract class BaseView extends JLabel implements BaseHUD {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * 
      * @param WIDTH

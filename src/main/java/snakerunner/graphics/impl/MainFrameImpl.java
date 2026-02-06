@@ -9,8 +9,9 @@ import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
 
-public class MainFrameImpl extends JFrame implements MainFrame {
+public final class MainFrameImpl extends JFrame implements MainFrame {
     
+    private static final long serialVersionUID = 1L;
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
     private MenuPanel menuPanel;
@@ -30,16 +31,16 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     }
 
     @Override
-    public void setPanels(MenuPanel menuPanel, GamePanel gamePanel, OptionPanel optionPanel) {
+    public void setPanels(final MenuPanel menuPanel, final GamePanel gamePanel, final OptionPanel optionPanel) {
        this.menuPanel = menuPanel;
        this.gamePanel = gamePanel;
        this.optionPanel = optionPanel;
     }
 
-    private void setDimensionFrame(){
-        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int)(screensize.width * PROPORTION);
-        int height = (int)(screensize.height * PROPORTION);
+    private void setDimensionFrame() {
+        final Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        final int width = (int)(screensize.width * PROPORTION);
+        final int height = (int)(screensize.height * PROPORTION);
         setSize(width,height);
     }
 
@@ -69,7 +70,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         JOptionPane.showMessageDialog(
         this,
         "You Won!",
-        "Victory",
+        "Snake Runner",
         JOptionPane.INFORMATION_MESSAGE
     );
     }
@@ -79,7 +80,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         JOptionPane.showMessageDialog(
             this, 
             "You Lose!",
-            "Lose",
+            "Snake Runner",
             JOptionPane.INFORMATION_MESSAGE
         );
     }

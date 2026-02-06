@@ -1,7 +1,8 @@
 package snakerunner.graphics.hud;
 
+@FunctionalInterface
 public interface BaseHUD {
     
-    public void setValue(int value);
+    void setValue(int value);
 
 }

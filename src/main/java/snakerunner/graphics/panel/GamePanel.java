@@ -1,8 +1,6 @@
 package snakerunner.graphics.panel;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -13,16 +11,17 @@ import snakerunner.graphics.hud.ScoreView;
 import snakerunner.graphics.hud.TimerView;
 import snakerunner.graphics.impl.BasePanelImpl;
 
-public class GamePanel extends BasePanelImpl {
+public final class GamePanel extends BasePanelImpl {
 
+    private static final long serialVersionUID = 1L;
     private static final String PAUSE = "Pause";
     private static final String RESUME = "Resume";
     private static final String BACK = "Back to Menu";
 
-    private TimerView timerView;
-    private ScoreView scoreView;
-    private LevelView levelView;
-    private LifeView lifeView;
+    private final TimerView timerView;
+    private final ScoreView scoreView;
+    private final LevelView levelView;
+    private final LifeView lifeView;
 
     private final Controller controller;
 

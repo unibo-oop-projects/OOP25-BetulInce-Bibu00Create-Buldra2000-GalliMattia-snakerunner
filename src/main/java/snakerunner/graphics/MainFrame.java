@@ -27,7 +27,7 @@ public interface MainFrame {
      * @param gamePanel Set GamePanel
      * @param optionPanel Set OptionPanel
      */
-    void setPanels(final MenuPanel menuPanel, final GamePanel gamePanel, final OptionPanel optionPanel);
+    void setPanels(MenuPanel menuPanel, GamePanel gamePanel, OptionPanel optionPanel);
 
     /**
      * Show OptionPanel

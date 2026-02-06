@@ -7,8 +7,9 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /*TimerView is a HUD component and is used to show the remaining game time in GamePanel*/
-public class TimerView extends JPanel {
+public final class TimerView extends JPanel {
     
+    private static final long serialVersionUID = 1L;
     private static final int WIDTH = 60;
     private static final int HEIGHT = 30;
     private static final int TIME = 60;
