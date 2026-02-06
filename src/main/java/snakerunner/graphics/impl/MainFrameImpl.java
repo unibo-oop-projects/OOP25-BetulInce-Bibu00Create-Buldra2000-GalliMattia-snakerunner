@@ -2,10 +2,12 @@ package snakerunner.graphics.impl;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
+import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
@@ -15,6 +17,7 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
+    private Controller controller;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
@@ -88,9 +91,9 @@ public class MainFrameImpl extends JFrame implements MainFrame {
         );
     }
 
+    @Override
     public void startGameLoop(int delay) {
         timer = new Timer(delay, e -> controller.updateGame()); 
-        gamePanel.updateTimer(getTimeLeft());
     }
 
     @Override
