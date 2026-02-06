@@ -13,11 +13,11 @@ public abstract class BaseView extends JLabel implements BaseHUD {
 
     /**
      * 
-     * @param WIDTH
-     * @param HEIGHT
+     * @param width
+     * @param height
      */
-    public BaseView(final int WIDTH, final int HEIGHT) {
+    public BaseView(final int width, final int height) {
         setOpaque(false);
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setPreferredSize(new Dimension(width, height));
     }
 }

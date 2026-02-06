@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Set;
 import javax.swing.Timer;
@@ -22,17 +23,15 @@ import snakerunner.model.LevelData;
 import snakerunner.model.impl.LevelLoader;
 
 public class ControllerImpl implements Controller {
+
     private StateGame state;
-    private MenuPanel menuPanel;
-    private OptionPanel optionPanel;
-    private GamePanel gamePanel;
     private Timer gameLoopTimer;
     private TimerView timerView;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
 
     private int timeLeft;
-    private int currentLevel = 1;
+    private final int currentLevel = 1;
 
     public ControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame; //view
@@ -50,9 +49,9 @@ public class ControllerImpl implements Controller {
     //Creation components
     @Override
     public void init() {
-        menuPanel = PanelFactory.createMenuPanel(this);
-        optionPanel = PanelFactory.createOptionPanel(this);
-        gamePanel = PanelFactory.createGamePanel(this);
+        final MenuPanel menuPanel = PanelFactory.createMenuPanel(this);
+        final OptionPanel optionPanel = PanelFactory.createOptionPanel(this);
+        final GamePanel gamePanel = PanelFactory.createGamePanel(this);
 
         mainFrame.setPanels(menuPanel, gamePanel, optionPanel);
         mainFrame.showMenu();
@@ -161,7 +160,7 @@ public class ControllerImpl implements Controller {
                 throw new IllegalArgumentException("File livello non trovato: " + filePath);
             }
 
-            final List<String> lines = new BufferedReader(new InputStreamReader(is))
+            final List<String> lines = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))
                     .lines()
                     .toList();
 

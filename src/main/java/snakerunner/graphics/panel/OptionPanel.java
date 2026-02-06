@@ -38,7 +38,7 @@ public final class OptionPanel extends BasePanelImpl {
         this.addActionListeners();
     }
 
-    private JPanel setSoundPanel() {
+    private void setSoundPanel() {
         final JPanel soundPanel = new JPanel();
         soundPanel.setLayout(new BoxLayout(soundPanel, BoxLayout.X_AXIS));
         soundPanel.setAlignmentX(CENTER_ALIGNMENT);
@@ -46,7 +46,6 @@ public final class OptionPanel extends BasePanelImpl {
         soundPanel.add(label);
         soundPanel.add(checkbox);
         add(soundPanel);
-        return soundPanel;
     }
 
     @Override
