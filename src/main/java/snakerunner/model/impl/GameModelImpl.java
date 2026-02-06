@@ -16,7 +16,7 @@ public class GameModelImpl implements GameModel {
     private Snake snake;
     private List<Collectible> collectibles;
     private boolean levelCompleted;
-    //private LevelManager levelManager;
+    private int score;
 
     public GameModelImpl() {
     }
@@ -84,6 +84,16 @@ public class GameModelImpl implements GameModel {
     @Override
     public boolean isLevelCompleted() {
         return this.levelCompleted;
+    }
+
+    @Override
+    public void addScore(int points) {
+        score += points;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
     }
 
     private void debugPrintLevel() {

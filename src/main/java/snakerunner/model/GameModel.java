@@ -20,4 +20,8 @@ public interface GameModel {
     public Level getLevel();
 
     public boolean isLevelCompleted();
+
+    public void addScore(int points);
+
+    public int getScore();
 }
