@@ -94,12 +94,14 @@ public class MainFrameImpl extends JFrame implements MainFrame {
     @Override
     public void startGameLoop(int delay) {
         timer = new Timer(delay, e -> controller.updateGame()); 
+        timer.start();
     }
 
     @Override
     public void stopGameLoop() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'stopGameLoop'");
+    if (timer != null) {
+            timer.stop();
+        }
     }
 
     @Override
