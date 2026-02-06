@@ -5,9 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.Timer; //This is not used at the moment we could delete it
-
-import snakerunner.commons.Point2D;
+import snakerunner.commons.Point2D; //This is not used at the moment we could delete it
 import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
@@ -41,8 +39,7 @@ public class GameModelImpl implements GameModel {
         // Every game update logic goes here and updates the game state accordingly.
         //snake.move();
 
-    @Override
-    public void checkCollisions() {
+        checkCollisions();
         // TODO Auto-generated method stub
         //Should we check for a collision in case the snake hits itself?
 
