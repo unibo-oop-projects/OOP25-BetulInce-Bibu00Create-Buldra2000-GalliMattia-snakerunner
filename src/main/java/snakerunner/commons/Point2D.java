@@ -2,6 +2,7 @@ package snakerunner.commons;
 
 /**
  * A generic class representing a point in 2D space with coordinates of type X and Y.
+ * 
  * @param <X> The type of the X-coordinate.
  * @param <Y> The type of the Y-coordinate.
  */
@@ -11,6 +12,7 @@ public class Point2D<X, Y> {
 
     /**
      * Constructs a new Point2D with the specified X and Y coordinates.
+     * 
      * @param x The X-coordinate.
      * @param y The Y-coordinate.
      */
@@ -21,6 +23,7 @@ public class Point2D<X, Y> {
 
     /**
      * Gets the X-coordinate of this point.
+     * 
      * @return The X-coordinate.
      */
     public X getX() {
@@ -29,6 +32,7 @@ public class Point2D<X, Y> {
 
     /**
      * Gets the Y-coordinate of this point.
+     * 
      * @return The Y-coordinate.
      */
     public Y getY() {
@@ -37,6 +41,7 @@ public class Point2D<X, Y> {
 
     /**
      * Sets the X-coordinate of this point.
+     * 
      * @param x The new X-coordinate.
      */
     public void setX(final X x) {
@@ -45,6 +50,7 @@ public class Point2D<X, Y> {
 
     /**
      * Sets the Y-coordinate of this point.
+     * 
      * @param y The new Y-coordinate.
      */
     public void setY(final Y y) {
@@ -53,6 +59,7 @@ public class Point2D<X, Y> {
 
     /**
      * Sets the X and Y coordinates of this point.
+     * 
      * @param x The new X-coordinate.
      * @param y The new Y-coordinate.
      */
@@ -63,6 +70,7 @@ public class Point2D<X, Y> {
 
     /**
      * Indicates whether some other object is "equal to" this one.
+     * 
      * @param obj The reference object with which to compare.
      * @return true if this object is the same as the obj argument; false otherwise.
      */
@@ -99,6 +107,7 @@ public class Point2D<X, Y> {
 
     /**
      * Returns a hash code value for the object.
+     * 
      * @return A hash code value for this object.
      */
     @Override
@@ -112,6 +121,7 @@ public class Point2D<X, Y> {
 
     /**
      * Returns a string representation of this point.
+     * 
      * @return A string representation of this point.
      */
     @Override
@@ -121,6 +131,7 @@ public class Point2D<X, Y> {
 
     /**
      * Creates a copy of this point.
+     * 
      * @return A new Point2D object with the same coordinates as this point.
      */
     public Point2D<X, Y> copy() {
