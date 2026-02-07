@@ -19,7 +19,6 @@ build
 bin/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
