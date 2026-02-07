@@ -10,11 +10,11 @@ public interface LevelData {
      * Returns the set of obstacles present in the level.
      * @return a set of points representing the obstacles.
      */
-    public Set<Point2D<Integer, Integer>> getObstacles();
+    Set<Point2D<Integer, Integer>> getObstacles();
 
     /**
      * Returns the list of collectibles present in the level.
      * @return a list of collectibles.
      */
-    public List<Collectible> getCollectibles();
+    List<Collectible> getCollectibles();
 }
