@@ -5,7 +5,7 @@ import snakerunner.model.Collectible;
 import snakerunner.model.CollectibleType;
 import snakerunner.model.GameModel;
 
-public class Key implements Collectible{
+public class Key implements Collectible {
     private final Point2D<Integer, Integer> position;
 
     public Key(Point2D<Integer, Integer> position){

@@ -8,7 +8,7 @@ import snakerunner.model.GameModel;
 public class Clock implements Collectible{
     private final Point2D<Integer, Integer> position;
 
-    public Clock(Point2D<Integer, Integer> position){
+    public Clock(Point2D<Integer, Integer> position) {
         this.position = position;
     }
 

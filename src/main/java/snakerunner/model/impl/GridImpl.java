@@ -3,7 +3,7 @@ package snakerunner.model.impl;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Grid;
 
-public class GridImpl implements Grid{
+public class GridImpl implements Grid {
     private final int width;
     private final int height;
 
