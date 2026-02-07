@@ -2,6 +2,10 @@ package snakerunner.model;
 
 import snakerunner.commons.Point2D;
 
+/**
+ * Represents a collectible item in the Snake Runner game. 
+ * Collectibles can be consumed by the snake to gain various effects.
+ */
 public interface Collectible {
 
     /**

@@ -4,7 +4,6 @@ C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snaker
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\controller\impl\ControllerImpl.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\core\Game.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\core\GameConfiguration.class
-C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\core\GameLoop.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\core\Main.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\core\StateGame.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\graphics\hud\BaseHUD.class
@@ -41,4 +40,7 @@ C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snaker
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\Level.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\LevelData.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\Obstacle.class
+C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\Snake$1.class
 C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\Snake.class
+C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\SnakeSegment$SegmentType.class
+C:\Users\galli\Desktop\ProgettoSnake\snake-runner\build\classes\java\main\snakerunner\model\SnakeSegment.class

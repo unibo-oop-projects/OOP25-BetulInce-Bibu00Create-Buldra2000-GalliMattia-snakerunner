@@ -5,26 +5,50 @@ import snakerunner.model.Collectible;
 import snakerunner.model.CollectibleType;
 import snakerunner.model.GameModel;
 
-public class Key implements Collectible{
+/**
+ * Represents a key collectible in the Snake Runner game. 
+ * When consumed, it can trigger specific effects such as opening doors.
+ */
+public class Key implements Collectible {
     private final Point2D<Integer, Integer> position;
 
-    public Key(Point2D<Integer, Integer> position){
+    /**
+     * Constructs a Key collectible at the specified position.
+     *
+     * @param position The (x, y) coordinates where the key is located in the game world.
+     */
+    public Key(final Point2D<Integer, Integer> position) {
         this.position = position;
     }
 
+    /** 
+     * Consumes the key, applying its effect to the game model. 
+     * This method can be expanded to include specific logic for what happens when the key is consumed.
+     *
+     * @param model The game model to which the key's effect will be applied.
+     */
     @Override
-    public void consume(GameModel model) {
+    public void consume(final GameModel model) {
         //model.openDoor();
     }
 
+    /** 
+     * Gets the position of the key in the game world.
+     *
+     * @return A Point2D representing the (x, y) coordinates of the key.
+     */
     @Override
     public Point2D<Integer, Integer> getPosition() {
         return position;
     }
 
+    /**
+     * Gets the type of the collectible, which is KEY for this class.
+     * 
+     * @return The CollectibleType of this collectible, which is KEY.
+     */
     @Override
     public CollectibleType getType() {
         return CollectibleType.KEY;
     }
-    
 }
