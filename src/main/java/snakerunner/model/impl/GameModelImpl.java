@@ -38,15 +38,6 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public Set<Point2D<Integer, Integer>> getObstacles(){
-        //Error control in case the current level is still null
-        if (currentLevel != null) {
-            //We get the coordinates
-            return currentLevel.getObstacles();
-        }
-        return Collections.emptySet(); //In order to avoid errors we return an empty set of points.
-    }
-    @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
         //snake.move();
@@ -118,6 +109,16 @@ public class GameModelImpl implements GameModel {
     @Override
     public Level getLevel() {
         return this.currentLevel;
+    }
+
+    @Override
+    public Set<Point2D<Integer, Integer>> getObstacles(){
+        //Error control in case the current level is still null
+        if (currentLevel != null) {
+            //We get the coordinates
+            return currentLevel.getObstacles();
+        }
+        return Collections.emptySet(); //In order to avoid errors we return an empty set of points.
     }
 
     @Override
