@@ -20,10 +20,17 @@ public class GameModelImpl implements GameModel {
     private List<Collectible> collectibles;
     private boolean levelCompleted;
     private int score;
-    private int speed = 150;
+    private int speed;
     private int slowEffectDuration = 0;
 
     public GameModelImpl() {
+        currentLevel = null;
+        //snake = new SnakeImpl(new Point2D<>(5,5), 3);
+        collectibles = Collections.emptyList();
+        levelCompleted = false;
+        score = 0;
+        speed = 150;
+        slowEffectDuration = 0;
     }
 
     @Override
