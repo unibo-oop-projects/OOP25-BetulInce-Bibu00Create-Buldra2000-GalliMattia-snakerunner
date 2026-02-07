@@ -42,7 +42,7 @@ public class ControllerImpl implements Controller {
         this.mainFrame = mainFrame; //view
         this.gameModel = gameModel; //model
         this.state = StateGame.MENU;
-        initGameLoop();
+        initGameLoop(gameModel.getSpeed());
     }
 
     //Creation components
@@ -74,9 +74,8 @@ public class ControllerImpl implements Controller {
         scoreView.setValue(score);
         gameLoopTimer.start();
         mainFrame.showGame();
-        // Implementation to start the game loop
         loadCurrentLevel();
-        mainFrame.startGameLoop(gameModel.getSpeed());
+        initGameLoop(gameModel.getSpeed());
         state = StateGame.RUNNING;
     }
 
@@ -105,14 +104,16 @@ public class ControllerImpl implements Controller {
 
         gameModel.update();
         timeLeft--;
-        mainFrame.setTimerDelay(gameModel.getSpeed());
+
+        // Aggiorna la velocità del timer in base alla velocità attuale del gioco
+        setTimerDelay(gameModel.getSpeed());
 
         if (gameModel.isGameOver()) {
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
         } else if (gameModel.isLevelCompleted()) {
             System.out.println("Controller: Level Completed!");
-            mainFrame.stopGameLoop();
+            gameLoopTimer.stop();
             nextLevel();
         }
 
@@ -214,12 +215,16 @@ public class ControllerImpl implements Controller {
             currentLevel = 1; 
         }
         loadCurrentLevel();
-        mainFrame.startGameLoop(gameModel.getSpeed());
+        //gameloop??
     }
 
-    private void initGameLoop() {
-        gameLoopTimer = new Timer(1000, e -> {
+    private void initGameLoop(int delay) {
+        gameLoopTimer = new Timer(delay, e -> {
             updateGame();
         });
+    }
+
+    private void setTimerDelay(int delay) {
+        gameLoopTimer.setDelay(delay);
     }
 }
