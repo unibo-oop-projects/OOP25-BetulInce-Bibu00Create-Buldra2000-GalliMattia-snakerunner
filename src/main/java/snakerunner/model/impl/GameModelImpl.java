@@ -18,8 +18,10 @@ public class GameModelImpl implements GameModel {
     private static final int INITIAL_SPEED = 150;
     private static final int SLOW_EFFECT_DURATION = 50;
     private static final int SLOW_EFFECT_SPEED = 300;
+    private static final Point2D<Integer, Integer> STARTING_POSITION = new Point2D<>(5, 10);
 
     private Level currentLevel;
+    private LevelData currentLevelData;
     private Snake snake;
     private List<Collectible> collectibles;
     private boolean levelCompleted;
@@ -29,7 +31,7 @@ public class GameModelImpl implements GameModel {
 
     public GameModelImpl() {
         currentLevel = null;
-        snake = new Snake(new Point2D<>(5, 10)); // Starting position of the snake
+        snake = new Snake(STARTING_POSITION); 
         collectibles = Collections.emptyList();
         levelCompleted = false;
         score = 0;
@@ -64,6 +66,9 @@ public class GameModelImpl implements GameModel {
 
         if (collectibles.isEmpty()) {
             levelCompleted = true;
+            System.out.println("Level Completed!");
+            //debug
+            resetLevel();
         }
     
     }
@@ -82,19 +87,12 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void loadLevel(LevelData data) {
-        this.currentLevel = new LevelImpl(data);
+        this.currentLevelData = data;
+        this.currentLevel = new LevelImpl(currentLevelData);
         //this.obstacle = data.getObstacles(); //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
-        this.collectibles = data.getCollectibles();
+        this.collectibles = currentLevelData.getCollectibles();
         //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         this.levelCompleted = false;
-
-        //debugPrintLevel();
-    }
-
-    @Override
-    public void resetLevel() {
-        //this.snake = new SnakeImpl();
-        //this.food = new FoodImpl();
     }
 
     @Override
@@ -148,24 +146,6 @@ public class GameModelImpl implements GameModel {
         return speed;
     }
 
-    /*
-    private void debugPrintLevel() {
-        System.out.println("=== LEVEL DEBUG ===");
-
-        System.out.println("Walls:");
-        for (Point2D<Integer, Integer> p : currentLevel.getObstacles()) {
-            System.out.println("  wall at " + p);
-        }
-
-        System.out.println("Collectibles:");
-        for (Collectible c : collectibles) {
-            System.out.println("  collectible at " + c.getPosition());
-        }
-
-        System.out.println("===================");
-    }
-    */
-
     private void checkCollisions() {
         // Implement collision detection logic here
     }
@@ -185,4 +165,14 @@ public class GameModelImpl implements GameModel {
         }
     }
 
+    private void resetLevel() {
+        this.snake = new Snake(STARTING_POSITION);
+        this.collectibles = Collections.emptyList();
+        this.levelCompleted = false;
+        this.score = 0;
+        this.speed = INITIAL_SPEED;
+        this.slowEffectDuration = 0;
+
+        loadLevel(currentLevelData);
+    }
 }

@@ -23,11 +23,6 @@ public interface GameModel {
     void loadLevel(LevelData data);
 
     /** 
-     * Resets the current level to its initial state. 
-     */
-    void resetLevel();
-
-    /** 
      * Returns the snake in the game. 
      */
     Snake getSnake();
