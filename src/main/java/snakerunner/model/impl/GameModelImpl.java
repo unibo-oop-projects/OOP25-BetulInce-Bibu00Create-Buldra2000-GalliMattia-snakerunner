@@ -29,7 +29,7 @@ public class GameModelImpl implements GameModel {
 
     public GameModelImpl() {
         currentLevel = null;
-        snake = null;
+        snake = new Snake(new Point2D<>(5, 10)); // Starting position of the snake
         collectibles = Collections.emptyList();
         levelCompleted = false;
         score = 0;
@@ -40,7 +40,7 @@ public class GameModelImpl implements GameModel {
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
-        //snake.move();
+        snake.move();
 
         checkCollisions();
         // TODO Auto-generated method stub
@@ -83,8 +83,9 @@ public class GameModelImpl implements GameModel {
     @Override
     public void loadLevel(LevelData data) {
         this.currentLevel = new LevelImpl(data);
+        //this.obstacle = data.getObstacles(); //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
         this.collectibles = data.getCollectibles();
-        //this.snake = new SnakeImpl(new Point2D<>(5,5), 3);
+        //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         this.levelCompleted = false;
 
         //debugPrintLevel();
