@@ -1,7 +1,6 @@
 package snakerunner.graphics.panel;
 
 import snakerunner.controller.Controller;
-import snakerunner.graphics.MainFrame;
 
 public class PanelFactory {
 

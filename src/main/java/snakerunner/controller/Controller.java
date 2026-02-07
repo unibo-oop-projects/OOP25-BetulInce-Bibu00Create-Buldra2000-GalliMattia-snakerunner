@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import snakerunner.commons.Point2D;
 import snakerunner.graphics.MainFrame;
+import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 
 //LinkedBlockingQueue -> thread safe
@@ -35,22 +36,27 @@ public interface Controller {
 
     /**
      * Get obstacles from Model (Controller - Model)
+     * 
      * @return
      */
     Set<Point2D<Integer, Integer>> getObstacles();
 
-    /**
-     * Get Collectibles from Model (Controller  Model)
-     * @return
-     */
-    List<Point2D<Integer, Integer>> getCollectibles();
+    /** 
+     * Get Collectibles from Model (Controller - Model)
+    */
+    List<Collectible> getCollectibles();
 
     /**
      * Resume game
      */
     void resume();
 
-    public MainFrame getView();
+    /**
+     * Get View
+     * 
+     * @return
+     */
+    MainFrame getView();
 
     /**
      * Update gameLoop
@@ -59,6 +65,7 @@ public interface Controller {
 
     /**
      * Load level from file
+     * 
      * @param filepath path file levels
      */
     void loadLevelFromFile(String filepath);

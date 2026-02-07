@@ -27,11 +27,11 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
     protected final int f_height = 50;
     protected final int s_height = 150;
 
-    public BasePanelImpl(){
+    public BasePanelImpl() {
         initPanel();
     }
 
-    private void initPanel(){
+    private void initPanel() {
         setBackground(defaultBackground);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(Box.createVerticalStrut(f_height));
@@ -40,26 +40,26 @@ public abstract class BasePanelImpl extends JPanel implements BasePanel {
     }
 
     //Create the title of the panels
-    protected JLabel createTitle(String text){
-        JLabel title = new JLabel(text);
+    protected JLabel createTitle(final String text) {
+        final JLabel title = new JLabel(text);
         title.setFont(arial);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         return title;
     }
 
-    protected JLabel createLabel(String text){
-        JLabel label = new JLabel(text);
+    protected JLabel createLabel(final String text) {
+        final JLabel label = new JLabel(text);
         return label;
     }
 
     //Rivedere questo metodo
-    protected JButton createButton(String name){
-        JButton button = new JButton(name);
+    protected JButton createButton(final String name) {
+        final JButton button = new JButton(name);
         button.setFocusPainted(false);
         button.setOpaque(true);
         button.setBorderPainted(true);
         button.setContentAreaFilled(false);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setAlignmentX(CENTER_ALIGNMENT);
         return button;
     }
 }

@@ -43,4 +43,21 @@ public interface MainFrame {
      * Show JDialog "You lose!"
      */
     void lose();
+    
+    /**
+     * Start the game loop with a specified delay.
+     * @param delay The delay in milliseconds between each game update.
+     */
+    public void startGameLoop(int delay);
+
+    /**
+     * Stop the game loop.
+     */
+    public void stopGameLoop();
+    
+    /**
+     * Set the delay for the game loop after the snake consume a clock.
+     * @param delay The delay in milliseconds between each game update.
+     */
+    public void setTimerDelay(int delay);
 }

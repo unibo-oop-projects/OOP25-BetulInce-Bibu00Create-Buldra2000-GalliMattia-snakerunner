@@ -1,0 +1,7 @@
+# Livello 3 - SnakeRunner
+
+[Obstacles]
+2,4
+
+[Collectibles]
+2,4,FOOD

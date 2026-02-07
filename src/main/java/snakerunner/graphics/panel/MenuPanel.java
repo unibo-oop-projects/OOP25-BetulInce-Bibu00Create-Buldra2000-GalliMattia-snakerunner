@@ -11,27 +11,21 @@ public class MenuPanel extends BasePanelImpl {
     private static final String START = "Start";
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";
-
-    private Controller controller;
-
+    private final Controller controller;
     private final JButton start;
     private final JButton option;
     private final JButton exit;
 
-    public MenuPanel(Controller controller){
+    public MenuPanel(final Controller controller) {
         super();
         this.controller = controller;
-
         setLayoutPanel();
-
         start = createButton(START);
         option = createButton(OPTION);
         exit = createButton(EXIT);
-
         add(start);
         add(option);
         add(exit);
-
         this.addActionListeners();
     }
 

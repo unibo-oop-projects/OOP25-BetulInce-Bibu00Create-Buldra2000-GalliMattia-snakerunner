@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Set;
+
 import javax.swing.Timer;
+
 import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
 import snakerunner.core.StateGame;
@@ -30,6 +32,8 @@ public class ControllerImpl implements Controller {
     private TimerView timerView;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
+    private int currentLevel = 1; //fixare magic number
+    private static final int MAX_LEVEL = 4; //fixare magic number
 
     private int timeLeft;
 
@@ -40,7 +44,7 @@ public class ControllerImpl implements Controller {
         initGameLoop();
     }
 
-    private void initGameLoop(){
+    private void initGameLoop() {
         gameLoopTimer = new Timer(1000, e -> {
             updateGame();
         });
@@ -61,7 +65,7 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void onOption(){
+    public void onOption() {
         mainFrame.showOption();
     }
 
@@ -72,12 +76,14 @@ public class ControllerImpl implements Controller {
         gameLoopTimer.start();
         mainFrame.showGame();
         // Implementation to start the game loop
+        loadCurrentLevel();
+        mainFrame.startGameLoop(gameModel.getSpeed());
         state = StateGame.RUNNING;
     }
 
     @Override
-    public void pause(){
-        if(state == StateGame.RUNNING){
+    public void pause() {
+        if (state == StateGame.RUNNING) {
             state = StateGame.PAUSED;
             gameLoopTimer.stop();
         }
@@ -87,18 +93,21 @@ public class ControllerImpl implements Controller {
     //tick di gioco 
     @Override
     public void updateGame() {
-        if (state != StateGame.RUNNING){
+        if (state != StateGame.RUNNING) {
             return;
         }
 
         gameModel.update();
-        gameModel.checkCollisions();
         timeLeft--;
+        mainFrame.setTimerDelay(gameModel.getSpeed());
 
         if (gameModel.isGameOver()) {
-            System.out.println("Controller: Game Over!");
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
+        } else if (gameModel.isLevelCompleted()) {
+            System.out.println("Controller: Level Completed!");
+            mainFrame.stopGameLoop();
+            nextLevel();
         }
 
         //view Render
@@ -106,25 +115,22 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public Set<Point2D<Integer, Integer>> getObstacles(){
+    public Set<Point2D<Integer, Integer>> getObstacles() {
         return gameModel.getLevel().getObstacles();
     }
 
     @Override
-    public List<Point2D<Integer, Integer>> getCollectibles(){
-        return gameModel.getCollectibles()
-            .stream()
-            .map(Collectible::getPosition)
-            .toList();
+    public List<Collectible> getCollectibles() {
+        return gameModel.getCollectibles();
     }
 
     @Override
-    public void onBackMenu(){
+    public void onBackMenu() {
         mainFrame.showMenu();
     }
 
     @Override
-    public GameModel getModel(){
+    public GameModel getModel() {
         return gameModel;
     }
 
@@ -132,10 +138,10 @@ public class ControllerImpl implements Controller {
     public MainFrame getView() {
         return mainFrame;
     }
-
+    
     @Override
-    public void loadLevelFromFile(final String filePath) {
-        // Legge il file dal classpath (resources)
+    public void loadLevelFromFile(String filePath) {
+        
         try (InputStream is = LevelLoader.class
                 .getClassLoader()
                 .getResourceAsStream(filePath)) {
@@ -144,11 +150,11 @@ public class ControllerImpl implements Controller {
                 throw new IllegalArgumentException("File livello non trovato: " + filePath);
             }
 
-            List<String> lines = new BufferedReader(new InputStreamReader(is))
+            final List<String> lines = new BufferedReader(new InputStreamReader(is))
                     .lines()
                     .toList();
 
-            LevelData level = LevelLoader.load(lines);
+            final LevelData level = LevelLoader.load(lines);
             gameModel.loadLevel(level);
 
         } catch (IOException e) {
@@ -157,19 +163,34 @@ public class ControllerImpl implements Controller {
     }
     
 
-    private void updateHUD(){
+    private void updateHUD() {
         timerView.setTimeLeft(timeLeft);
     }
 
     @Override
-    public void exit(){
+    public void exit() {
         System.exit(0);
     }
 
     @Override
     public void resume() {
-        if(state == StateGame.PAUSED){
+        if(state == StateGame.PAUSED) {
             state = StateGame.RUNNING;
         }
+        gameLoopTimer.restart();
+    }
+
+    private void loadCurrentLevel() {
+        String filePath = "levels/level" + currentLevel + ".txt";
+        loadLevelFromFile(filePath);
+    }
+
+    private void nextLevel() {
+        currentLevel++;
+        if (currentLevel > MAX_LEVEL) {
+            currentLevel = 1; 
+        }
+        loadCurrentLevel();
+        mainFrame.startGameLoop(gameModel.getSpeed());
     }
 }

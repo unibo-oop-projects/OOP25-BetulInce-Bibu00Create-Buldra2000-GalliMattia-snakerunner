@@ -28,7 +28,7 @@ public class LevelImpl implements Level{
     }
 
     @Override
-    public boolean IsBlocked(Point2D<Integer, Integer> position) {
+    public boolean isBlocked(Point2D<Integer, Integer> position) {
         return !grid.isInsideGrid(position) || obstacles.contains(position);
     }
 }

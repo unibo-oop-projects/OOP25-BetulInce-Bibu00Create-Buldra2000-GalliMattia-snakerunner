@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /*TimerView is a HUD component and is used to show level in GamePanel*/
-public class LevelView extends JPanel{
+public class LevelView extends JPanel {
 
     private static final String LEVEL_TEXT = "Level : %1d";
     private static final int WIDTH = 60;
@@ -17,21 +17,21 @@ public class LevelView extends JPanel{
 
     private int level;
 
-    public LevelView(){
+    public LevelView() {
         setOpaque(false);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 
-    public void setLevel(int level){
+    public void setLevel(final int level) {
         this.level = level;
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
 
-        String levelText = String.format(LEVEL_TEXT, level);
+        final String levelText = String.format(LEVEL_TEXT, level);
 
         g.setColor(Color.BLACK);
         g.drawString(levelText, X, Y);

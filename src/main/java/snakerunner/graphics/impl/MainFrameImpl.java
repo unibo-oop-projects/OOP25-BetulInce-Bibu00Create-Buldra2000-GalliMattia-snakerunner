@@ -5,20 +5,24 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
+import snakerunner.controller.Controller;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.GamePanel;
 import snakerunner.graphics.panel.MenuPanel;
 import snakerunner.graphics.panel.OptionPanel;
-import snakerunner.graphics.panel.PanelFactory;
 
 public class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final String TITLE = "Snake Runner";
     private static final double PROPORTION = 0.5;
+    private Controller controller;
     private MenuPanel menuPanel;
     private GamePanel gamePanel;
     private OptionPanel optionPanel;
+    private Timer timer;
+
 
     public MainFrameImpl() {
         super(TITLE);
@@ -84,5 +88,24 @@ public class MainFrameImpl extends JFrame implements MainFrame {
             "You Lose!",
             "Lose",
             JOptionPane.INFORMATION_MESSAGE
-        );    }
+        );
+    }
+
+    @Override
+    public void startGameLoop(int delay) {
+        timer = new Timer(delay, e -> controller.updateGame()); 
+        timer.start();
+    }
+
+    @Override
+    public void stopGameLoop() {
+    if (timer != null) {
+            timer.stop();
+        }
+    }
+
+    @Override
+    public void setTimerDelay(int delay) {
+        timer.setDelay(delay);
+    }
 }

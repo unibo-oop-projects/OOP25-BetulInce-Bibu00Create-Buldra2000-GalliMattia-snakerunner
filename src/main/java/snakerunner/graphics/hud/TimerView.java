@@ -18,24 +18,24 @@ public class TimerView extends JPanel {
 
     private int timeLeft;
 
-    public TimerView(){
+    public TimerView() {
         setOpaque(false);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
 
-    public void setTimeLeft(int timeLeft){
+    public void setTimeLeft(final int timeLeft) {
         this.timeLeft = timeLeft;
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
 
-        int min = timeLeft / TIME;
-        int sec = timeLeft % TIME;
+        final int min = timeLeft / TIME;
+        final int sec = timeLeft % TIME;
 
-        String timerText = String.format(TIMER_TEXT, min, sec);
+        final String timerText = String.format(TIMER_TEXT, min, sec);
 
         g.setColor(Color.BLACK);
         g.drawString(timerText, X, Y);
