@@ -1,6 +1,10 @@
 package snakerunner.controller;
 
+import java.util.List;
+import java.util.Set;
+import snakerunner.commons.Point2D;
 import snakerunner.graphics.MainFrame;
+import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
 
@@ -9,24 +13,71 @@ import snakerunner.model.LevelData;
 
 public interface Controller {
 
-    public void init();
+    /**
+     * Set Panel
+     */
+    void init();
 
     /**
      * Starts the game loop.
      */
-    public void start();
+    void start();
 
-    public void pause();
+    /**
+     * Show OptionPanel (Controller - View)
+     */
+    void onOption();
 
-    public GameModel getModel();
+    /**
+     * Pause Game (Model - Controller - View)
+     */
+    void pause();
 
-    public MainFrame getView();
+    GameModel getModel();
 
-    public void updateGame();
+    /**
+     * Get obstacles from Model (Controller - Model)
+     * 
+     * @return
+     */
+    Set<Point2D<Integer, Integer>> getObstacles();
 
-    public void setSoundEnable(boolean isEnable);
+    /** 
+     * Get Collectibles from Model (Controller - Model)
+    */
+    List<Collectible> getCollectibles();
 
-    public  void loadLevel(LevelData data);
+    /**
+     * Resume game
+     */
+    void resume();
 
-    public void inputKeyPressed(int keyCode);
+    /**
+     * Get View
+     * 
+     * @return
+     */
+    MainFrame getView();
+
+    /**
+     * Update gameLoop
+     */
+    void updateGame();
+
+    /**
+     * Load level from file
+     * 
+     * @param filepath path file levels
+     */
+    void loadLevelFromFile(String filepath);
+
+    /**
+     * Back to menu (Controller - View)
+     */
+    void onBackMenu();
+
+    /**
+     * Exit to the application
+     */
+    void exit();
 }

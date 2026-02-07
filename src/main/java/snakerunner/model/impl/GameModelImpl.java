@@ -1,12 +1,12 @@
 package snakerunner.model.impl;
 
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
-import snakerunner.commons.Point2D;
-import snakerunner.model.Food;
-import snakerunner.model.FoodEffect;
+import snakerunner.commons.Point2D; //This is not used at the moment we could delete it
+import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelData;
@@ -15,63 +15,55 @@ import snakerunner.model.Position;
 
 public class GameModelImpl implements GameModel {
 
-    //Test
-    private static final FoodEffect FoodEffect = null;
-
     private Level currentLevel;
     private Snake snake;
-    private List<Food> foods;
-    //private LevelManager levelManager;
+    private List<Collectible> collectibles;
+    private boolean levelCompleted;
+    private int score;
+    private int speed = 150;
+    private int slowEffectDuration = 0;
 
     public GameModelImpl() {
-        //initialize the snake
-        this.snake = new Snake();
     }
 
+    @Override
+    public Set<Point2D<Integer, Integer>> getObstacles(){
+        //Error control in case the current level is still null
+        if (currentLevel != null) {
+            //We get the coordinates
+            return currentLevel.getObstacles();
+        }
+        return Collections.emptySet(); //In order to avoid errors we return an empty set of points.
+    }
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
-        if (snake != null) {
-            snake.move();
-        }
-        
-        checkCollisions();
-
         //snake.move();
-        //checkCollisions();
-    }
 
-    @Override 
-    public Position getSnakeHeadPosition(){
-        return (snake != null ) ? snake.getHeadPosition() : null;
-    }
-
-    @Override
-    public void moveSnakeUp(){
-        if (this.snake != null) this.snake.setDirectionUp();
-    }
-
-    @Override
-    public void moveSnakeDown(){
-        if (this.snake != null) this.snake.setDirectionDown();
-
-    }
-    
-    @Override
-    public void moveSnakeLeft(){
-        if (this.snake !=null) this.snake.setDirectionLeft();
-    }
-
-    @Override
-    public void moveSnakeRight(){
-        if (this.snake !=null) this.snake.setDirectionRight();
-    }
-
-
-    @Override
-    public void checkCollisions() {
+        checkCollisions();
         // TODO Auto-generated method stub
+        //Should we check for a collision in case the snake hits itself?
 
+        //Collision with walls
+        //gameOver= true;
+        //Collision with collectibles
+
+        //controllo impatti con ostacoli/porte/corpo del serpente
+        //checkCollisions();
+        //gestione power-up e cibo
+        checkCollectibles();
+
+        if (slowEffectDuration > 0) {
+            slowEffectDuration--;
+            if (slowEffectDuration == 0) {
+                speed = 150; // reset speed after slow effect ends
+            }
+        }
+
+        if (collectibles.isEmpty()) {
+            levelCompleted = true;
+        }
+    
     }
 
     @Override
@@ -89,11 +81,9 @@ public class GameModelImpl implements GameModel {
     @Override
     public void loadLevel(LevelData data) {
         this.currentLevel = new LevelImpl(data);
-        System.out.println("Spawn Snake...");
-        spawnSnake();
-        System.out.println("Spawn Foods...");
-        spawnFoods(data.getFoodPositions());
-
+        this.collectibles = data.getCollectibles();
+        //this.snake = new SnakeImpl(new Point2D<>(5,5), 3);
+        this.levelCompleted = false;
         debugPrintLevel();
     }
 
@@ -104,19 +94,13 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public void nextLevel() {
-        //this.currentLevel = levelManager.nextLevel();
-        // WIN OR DEATH CONDITION
-    }
-
-    @Override
     public Snake getSnake() {
         return this.snake;
     }
 
     @Override
-    public List<Food> getFoods() {
-        return Collections.unmodifiableList(foods);    
+    public List<Collectible> getCollectibles() {
+        return Collections.unmodifiableList(collectibles);    
     }
 
     @Override
@@ -124,16 +108,30 @@ public class GameModelImpl implements GameModel {
         return this.currentLevel;
     }
 
-    private void spawnSnake() {
-        //this.snake = new SnakeImpl();
+    @Override
+    public boolean isLevelCompleted() {
+        return this.levelCompleted;
     }
 
-    private void spawnFoods(List<Point2D<Integer, Integer>> foodPositions) {
-        foods = new LinkedList<>();
-        
-        for (Point2D<Integer, Integer> p : foodPositions) {
-            foods.add(new FoodImpl(FoodEffect, p));
-        }
+    @Override
+    public void addScore(int points) {
+        score += points;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
+    @Override
+    public void applySlowEffect() {
+        speed = 300;
+        slowEffectDuration = 50;
+    }
+
+    @Override
+    public int getSpeed() {
+        return speed;
     }
 
     private void debugPrintLevel() {
@@ -144,11 +142,31 @@ public class GameModelImpl implements GameModel {
             System.out.println("  wall at " + p);
         }
 
-        System.out.println("Fruits:");
-        for (Food f : foods) {
-            System.out.println("  fruit at " + f.getPosition());
+        System.out.println("Collectibles:");
+        for (Collectible c : collectibles) {
+            System.out.println("  collectible at " + c.getPosition());
         }
 
         System.out.println("===================");
     }
+
+    private void checkCollisions() {
+        // Implement collision detection logic here
+    }
+
+    
+    private void checkCollectibles() {
+        Iterator<Collectible> iterator = collectibles.iterator();
+        Point2D<Integer, Integer> snakeHead = snake.getHead();
+
+        while (iterator.hasNext()) {
+            Collectible c = iterator.next();
+
+            if (c.getPosition().equals(snakeHead)) {
+                c.consume(this);
+                iterator.remove();
+            }
+        }
+    }
+
 }

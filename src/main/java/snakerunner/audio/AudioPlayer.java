@@ -4,27 +4,24 @@ import java.io.*;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineEvent.Type;
 
 public class AudioPlayer {
 
     private static final String ERROR = "Error playing sound.";
-    private static final String NOT_FOUND = "Sound not found.";
-    private static final String STREAM = "stream: ";
-
     private static boolean soundEnable = true;
 
     public AudioPlayer(){} //Empty constructor
 
-    public static void setSoundEnabled(boolean enable){
+    public static void setSoundEnabled(final boolean enable) {
         soundEnable = enable;
     }
 
-    public static boolean isSoundEnable() {
+    public static boolean isSoundEnable() { 
         return soundEnable;
     }
 
-    public static void playSound(String fileName){
+    public static void playSound(final String fileName) {
 
         if (!soundEnable) {
             return;
@@ -35,21 +32,16 @@ public class AudioPlayer {
               BufferedInputStream bstream = new BufferedInputStream(sound);
               AudioInputStream audioStream = AudioSystem.getAudioInputStream(bstream);
             ) {
-                System.out.println(STREAM + sound);
-
                 if (sound == null) {
-                    System.out.println(NOT_FOUND);
                     return;
                 }
 
-                System.out.println(STREAM + bstream);
-
-                Clip clip = AudioSystem.getClip();
+                final Clip clip = AudioSystem.getClip();
                 clip.open(audioStream);
                 clip.start();
 
                 clip.addLineListener(event -> {
-                    if (event.getType() == LineEvent.Type.STOP) {
+                    if (event.getType() == Type.STOP) {
                     clip.close();
                     }
                 });

@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /*ScoreView is a HUD component and is used to show score in GamePanel*/
-public class ScoreView extends JPanel{
+public class ScoreView extends JPanel {
 
     private static final int WIDTH = 60;
     private static final int HEIGHT = 30;
@@ -17,21 +17,21 @@ public class ScoreView extends JPanel{
     
     private int score;
 
-    public ScoreView(){
+    public ScoreView() {
         setOpaque(false);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
     }
     
-    public void setScore(int score){
+    public void setScore(int score) {
         this.score = score;
         repaint();
     }
 
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
 
-        String scoreText = String.format(SCORE_TEXT, score);
+        final String scoreText = String.format(SCORE_TEXT, score);
 
         g.setColor(Color.BLACK);
         g.drawString(scoreText, X, Y);

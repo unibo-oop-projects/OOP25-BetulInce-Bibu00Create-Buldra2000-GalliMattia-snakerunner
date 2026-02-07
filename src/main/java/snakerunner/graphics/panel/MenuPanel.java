@@ -3,7 +3,7 @@ package snakerunner.graphics.panel;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-import snakerunner.graphics.MainFrame;
+import snakerunner.controller.Controller;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public class MenuPanel extends BasePanelImpl {
@@ -11,40 +11,22 @@ public class MenuPanel extends BasePanelImpl {
     private static final String START = "Start";
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";
-
-    private MainFrame mainFrame;
-
+    private final Controller controller;
     private final JButton start;
     private final JButton option;
     private final JButton exit;
 
-    public MenuPanel(MainFrame mainFrame){
+    public MenuPanel(final Controller controller) {
         super();
-        this.mainFrame = mainFrame;
-
+        this.controller = controller;
         setLayoutPanel();
-
         start = createButton(START);
         option = createButton(OPTION);
         exit = createButton(EXIT);
-
         add(start);
         add(option);
         add(exit);
-
         this.addActionListeners();
-    }
-
-    private JButton getStartButton() {
-        return start;
-    }
-
-    private JButton getOptionButton() {
-        return option;
-    }
-
-    private JButton getExitButton() {
-        return exit;
     }
 
     @Override
@@ -54,9 +36,11 @@ public class MenuPanel extends BasePanelImpl {
 
     @Override
     public void addActionListeners() {
-        System.out.println("MenuPanel : Adding action listeners to MenuPanel buttons");
-        getStartButton().addActionListener(e -> mainFrame.showGame());
-        getOptionButton().addActionListener(e -> mainFrame.showOption());
-        getExitButton().addActionListener(e -> System.exit(0));
+        start.addActionListener(e -> {
+            controller.loadLevelFromFile("levels/level1.txt");
+            controller.start();
+        });
+        option.addActionListener(e -> controller.onOption());
+        exit.addActionListener(e -> controller.exit());
     }
 }
