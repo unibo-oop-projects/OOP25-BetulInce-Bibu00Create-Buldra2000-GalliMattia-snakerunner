@@ -4,5 +4,4 @@ package snakerunner.graphics.hud;
 public interface BaseHUD {
     
     void setValue(int value);
-
 }

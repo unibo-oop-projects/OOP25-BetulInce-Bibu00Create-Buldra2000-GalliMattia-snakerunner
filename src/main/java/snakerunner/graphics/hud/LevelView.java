@@ -4,10 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
 /*TimerView is a HUD component and is used to show level in GamePanel*/
-public final class LevelView extends JPanel {
+public final class LevelView extends BaseView {
 
     private static final long serialVersionUID = 1L;
     private static final String LEVEL_TEXT = "Level : %1d";
@@ -21,6 +19,12 @@ public final class LevelView extends JPanel {
     public LevelView() {
         setOpaque(false);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+    }
+
+    @Override
+    public void setValue(int value) {
+        this.level = value;
+        repaint();
     }
 
     public void setLevel(final int level) {
@@ -37,5 +41,4 @@ public final class LevelView extends JPanel {
         g.setColor(Color.BLACK);
         g.drawString(levelText, X, Y);
     }
-    
 }

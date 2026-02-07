@@ -7,31 +7,36 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Set;
+
 import javax.swing.Timer;
+
 import snakerunner.commons.Point2D;
 import snakerunner.controller.Controller;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
-import snakerunner.graphics.hud.TimerView;
+import snakerunner.graphics.hud.BaseHUD;
+import snakerunner.graphics.panel.BasePanel;
 import snakerunner.graphics.panel.GamePanel;
-import snakerunner.graphics.panel.MenuPanel;
-import snakerunner.graphics.panel.OptionPanel;
 import snakerunner.graphics.panel.PanelFactory;
 import snakerunner.model.Collectible;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
+import snakerunner.model.Snake;
 import snakerunner.model.impl.LevelLoader;
 
 public class ControllerImpl implements Controller {
 
     private StateGame state;
     private Timer gameLoopTimer;
-    private TimerView timerView;
+    private BaseHUD timerView;
+    private BaseHUD scoreView;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
+    private int currentLevel = 1; //fixare magic number
+    private static final int MAX_LEVEL = 4; //fixare magic number
 
     private int timeLeft;
-    private final int currentLevel = 1;
+    private int score;
 
     public ControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame; //view
@@ -49,15 +54,16 @@ public class ControllerImpl implements Controller {
     //Creation components
     @Override
     public void init() {
-        final MenuPanel menuPanel = PanelFactory.createMenuPanel(this);
-        final OptionPanel optionPanel = PanelFactory.createOptionPanel(this);
-        final GamePanel gamePanel = PanelFactory.createGamePanel(this);
+        final BasePanel menuPanel = PanelFactory.createMenuPanel(this);
+        final BasePanel optionPanel = PanelFactory.createOptionPanel(this);
+        final BasePanel gamePanel = PanelFactory.createGamePanel(this);
 
         mainFrame.setPanels(menuPanel, gamePanel, optionPanel);
         mainFrame.showMenu();
         mainFrame.display();
 
-        timerView = gamePanel.getTimerView();
+        timerView = ((GamePanel)gamePanel).getTimerView();
+        scoreView = ((GamePanel)gamePanel).getScoreView();
         
     }
 
@@ -69,10 +75,12 @@ public class ControllerImpl implements Controller {
     @Override
     public void start() {
         timeLeft = 5;
-        timerView.setTimeLeft(timeLeft);
+        timerView.setValue(timeLeft);
         gameLoopTimer.start();
         mainFrame.showGame();
         // Implementation to start the game loop
+        loadCurrentLevel();
+        mainFrame.startGameLoop(gameModel.getSpeed());
         state = StateGame.RUNNING;
     }
 
@@ -100,24 +108,27 @@ public class ControllerImpl implements Controller {
         }
 
         gameModel.update();
-        gameModel.checkCollisions();
         timeLeft--;
-
-        if(timeLeft == 0) {
-            state = StateGame.GAME_OVER;
-            gameLoopTimer.stop();
-            mainFrame.lose();
-            mainFrame.showMenu();
-        }
+        mainFrame.setTimerDelay(gameModel.getSpeed());
 
         if (gameModel.isGameOver()) {
             state = StateGame.GAME_OVER;
             mainFrame.showMenu();
+        } else if (gameModel.isLevelCompleted()) {
+            System.out.println("Controller: Level Completed!");
+            mainFrame.stopGameLoop();
+            nextLevel();
         }
 
         //view Render
         updateHUD();
     }
+
+    @Override
+    public Snake getSnake(){
+        return gameModel.getSnake();
+    }
+
 
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
@@ -135,6 +146,11 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
+    public int getScore(){
+        return this.score;
+    }
+
+    @Override
     public void onBackMenu() {
         mainFrame.showMenu();
     }
@@ -148,10 +164,10 @@ public class ControllerImpl implements Controller {
     public MainFrame getView() {
         return mainFrame;
     }
-
+    
     @Override
-    public void loadLevelFromFile(final String filePath) {
-        // Legge il file dal classpath (resources)
+    public void loadLevelFromFile(String filePath) {
+        
         try (InputStream is = LevelLoader.class
                 .getClassLoader()
                 .getResourceAsStream(filePath)) {
@@ -174,11 +190,26 @@ public class ControllerImpl implements Controller {
     
 
     private void updateHUD() {
-        timerView.setTimeLeft(timeLeft);
+        timerView.setValue(timeLeft);
+        scoreView.setValue(score);
     }
 
     @Override
     public void exit() {
         System.exit(0);
+    }
+
+    private void loadCurrentLevel() {
+        String filePath = "levels/level" + currentLevel + ".txt";
+        loadLevelFromFile(filePath);
+    }
+
+    private void nextLevel() {
+        currentLevel++;
+        if (currentLevel > MAX_LEVEL) {
+            currentLevel = 1; 
+        }
+        loadCurrentLevel();
+        mainFrame.startGameLoop(gameModel.getSpeed());
     }
 }

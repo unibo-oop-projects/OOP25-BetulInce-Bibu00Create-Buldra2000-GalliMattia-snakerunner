@@ -3,7 +3,7 @@ package snakerunner.model.impl;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.CollectibleType;
-import snakerunner.model.Snake;
+import snakerunner.model.GameModel;
 
 public class Key implements Collectible{
     private final Point2D<Integer, Integer> position;
@@ -13,7 +13,7 @@ public class Key implements Collectible{
     }
 
     @Override
-    public void consume(Snake snake) {
+    public void consume(GameModel model) {
         //model.openDoor();
     }
 

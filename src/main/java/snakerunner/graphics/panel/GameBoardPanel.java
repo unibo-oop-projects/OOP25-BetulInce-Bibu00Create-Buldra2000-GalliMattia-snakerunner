@@ -65,9 +65,29 @@ public final class GameBoardPanel extends JPanel {
      * @param g
      */
     private void drawSnake(final Graphics g) {
-        /**
-         * TODO
-         */
+        var snake = controller.getSnake();
+
+        g.setColor(Color.GREEN);
+
+        if (snake == null) {
+
+            //FAKE-SNAKE
+            for (int i = 0 ; i < 5; i++) {
+                final int x = (5 + i + 3) * CELL;
+                final int y = 5 * CELL;
+                g.fillRect(x, y, CELL, CELL);
+            }
+            return;
+
+        }
+
+        g.setColor(Color.GREEN);
+
+        for (Point2D<Integer, Integer> p : snake.getBody()){
+            final int x = p.getX() * CELL;
+            final int y = p.getY() * CELL;
+            g.fillRect(x, y, CELL, CELL);
+        }
     }
 
     /**

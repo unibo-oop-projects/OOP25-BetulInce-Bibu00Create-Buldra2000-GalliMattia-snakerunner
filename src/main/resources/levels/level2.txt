@@ -1,0 +1,10 @@
+# Livello 2 - SnakeRunner
+
+[Obstacles]
+2,6
+2,4
+
+[Collectibles]
+2,3,FOOD
+4,2,CLOCK
+6,8,KEY

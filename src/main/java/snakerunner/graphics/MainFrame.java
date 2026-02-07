@@ -1,8 +1,6 @@
 package snakerunner.graphics;
 
-import snakerunner.graphics.panel.GamePanel;
-import snakerunner.graphics.panel.MenuPanel;
-import snakerunner.graphics.panel.OptionPanel;
+import snakerunner.graphics.panel.BasePanel;
 
 public interface MainFrame {
 
@@ -27,7 +25,7 @@ public interface MainFrame {
      * @param gamePanel Set GamePanel
      * @param optionPanel Set OptionPanel
      */
-    void setPanels(MenuPanel menuPanel, GamePanel gamePanel, OptionPanel optionPanel);
+    void setPanels(BasePanel menuPanel, BasePanel gamePanel, BasePanel optionPanel);
 
     /**
      * Show OptionPanel
@@ -43,4 +41,21 @@ public interface MainFrame {
      * Show JDialog "You lose!"
      */
     void lose();
+    
+    /**
+     * Start the game loop with a specified delay.
+     * @param delay The delay in milliseconds between each game update.
+     */
+    public void startGameLoop(int delay);
+
+    /**
+     * Stop the game loop.
+     */
+    public void stopGameLoop();
+    
+    /**
+     * Set the delay for the game loop after the snake consume a clock.
+     * @param delay The delay in milliseconds between each game update.
+     */
+    public void setTimerDelay(int delay);
 }

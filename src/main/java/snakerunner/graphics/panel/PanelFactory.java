@@ -6,15 +6,15 @@ public final class PanelFactory {
 
     private PanelFactory(){}
 
-    public static GamePanel createGamePanel(final Controller controller) {
+    public static BasePanel createGamePanel(final Controller controller) {
         return new GamePanel(controller);
     }
 
-    public static MenuPanel createMenuPanel(final Controller controller) {
+    public static BasePanel createMenuPanel(final Controller controller) {
         return new MenuPanel(controller);
     }
 
-    public static OptionPanel createOptionPanel(final Controller controller) {
+    public static BasePanel createOptionPanel(final Controller controller) {
         return new OptionPanel(controller);
     }
 }

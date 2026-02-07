@@ -1,7 +1,5 @@
 package snakerunner.graphics.hud;
 
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 
 /**
@@ -16,8 +14,7 @@ public abstract class BaseView extends JLabel implements BaseHUD {
      * @param width
      * @param height
      */
-    public BaseView(final int width, final int height) {
+    public BaseView() {
         setOpaque(false);
-        setPreferredSize(new Dimension(width, height));
     }
 }
