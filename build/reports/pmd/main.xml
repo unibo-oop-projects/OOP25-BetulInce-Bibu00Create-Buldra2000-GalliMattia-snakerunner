@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.20.0" timestamp="2026-02-07T11:23:53.947">
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\audio\AudioPlayer.java">
+<violation beginline="9" endline="9" begincolumn="8" endcolumn="13" rule="UseUtilityClass" ruleset="Design" package="snakerunner.audio" class="AudioPlayer" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#useutilityclass" priority="3">
+All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+</violation>
+<violation beginline="14" endline="14" begincolumn="12" endcolumn="23" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="snakerunner.audio" class="AudioPlayer" method="AudioPlayer" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="49" endline="49" begincolumn="22" endcolumn="31" rule="AvoidCatchingGenericException" ruleset="Error Prone" package="snakerunner.audio" class="AudioPlayer" method="playSound" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#avoidcatchinggenericexception" priority="3">
+Avoid catching Exception in try-catch block
+</violation>
+<violation beginline="50" endline="50" begincolumn="17" endcolumn="23" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.audio" class="AudioPlayer" method="playSound" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="51" endline="51" begincolumn="17" endcolumn="36" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="snakerunner.audio" class="AudioPlayer" method="playSound" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+Avoid printStackTrace(); use a logger call instead.
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\controller\impl\ControllerImpl.java">
+<violation beginline="28" endline="28" begincolumn="23" endcolumn="32" rule="SingularField" ruleset="Design" package="snakerunner.controller.impl" class="ControllerImpl" variable="menuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'menuPanel' could be replaced by a local variable.
+</violation>
+<violation beginline="29" endline="29" begincolumn="25" endcolumn="36" rule="SingularField" ruleset="Design" package="snakerunner.controller.impl" class="ControllerImpl" variable="optionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'optionPanel' could be replaced by a local variable.
+</violation>
+<violation beginline="30" endline="30" begincolumn="23" endcolumn="32" rule="SingularField" ruleset="Design" package="snakerunner.controller.impl" class="ControllerImpl" variable="gamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'gamePanel' could be replaced by a local variable.
+</violation>
+<violation beginline="108" endline="108" begincolumn="13" endcolumn="19" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.controller.impl" class="ControllerImpl" method="updateGame" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="143" endline="143" begincolumn="42" endcolumn="50" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.controller.impl" class="ControllerImpl" method="loadLevelFromFile" variable="filePath" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'filePath' is not assigned and could be declared final
+</violation>
+<violation beginline="153" endline="153" begincolumn="59" endcolumn="84" rule="RelianceOnDefaultCharset" ruleset="Best Practices" package="snakerunner.controller.impl" class="ControllerImpl" method="loadLevelFromFile" variable="lines" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#relianceondefaultcharset" priority="3">
+Specify a character set instead of relying on the default charset
+</violation>
+<violation beginline="161" endline="161" begincolumn="23" endcolumn="39" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="snakerunner.controller.impl" class="ControllerImpl" method="loadLevelFromFile" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+Avoid throwing raw exception type RuntimeException.
+</violation>
+<violation beginline="184" endline="184" begincolumn="16" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.controller.impl" class="ControllerImpl" method="loadCurrentLevel" variable="filePath" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'filePath' could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\MainFrame.java">
+<violation beginline="30" endline="30" begincolumn="10" endcolumn="19" rule="FinalParameterInAbstractMethod" ruleset="Code Style" package="snakerunner.graphics" class="MainFrame" method="setPanels" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#finalparameterinabstractmethod" priority="1">
+Final parameter in abstract method
+</violation>
+<violation beginline="51" endline="51" begincolumn="17" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics" class="MainFrame" method="startGameLoop" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'startGameLoop': the method is declared in an interface type
+</violation>
+<violation beginline="56" endline="56" begincolumn="17" endcolumn="29" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics" class="MainFrame" method="stopGameLoop" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'stopGameLoop': the method is declared in an interface type
+</violation>
+<violation beginline="62" endline="62" begincolumn="17" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics" class="MainFrame" method="setTimerDelay" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'setTimerDelay': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\BaseHUD.java">
+<violation beginline="3" endline="3" begincolumn="8" endcolumn="17" rule="ImplicitFunctionalInterface" ruleset="Best Practices" package="snakerunner.graphics.hud" class="BaseHUD" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#implicitfunctionalinterface" priority="2">
+Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+</violation>
+<violation beginline="5" endline="5" begincolumn="17" endcolumn="25" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics.hud" class="BaseHUD" method="setValue" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'setValue': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\BaseView.java">
+<violation beginline="10" endline="10" begincolumn="17" endcolumn="22" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.hud" class="BaseView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="17" endline="17" begincolumn="31" endcolumn="36" rule="FormalParameterNamingConventions" ruleset="Code Style" package="snakerunner.graphics.hud" class="BaseView" method="BaseView" variable="WIDTH" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#formalparameternamingconventions" priority="1">
+The final method parameter name 'WIDTH' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="48" endcolumn="54" rule="FormalParameterNamingConventions" ruleset="Code Style" package="snakerunner.graphics.hud" class="BaseView" method="BaseView" variable="HEIGHT" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#formalparameternamingconventions" priority="1">
+The final method parameter name 'HEIGHT' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="BaseView" method="BaseView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="19" endline="19" begincolumn="9" endcolumn="55" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="BaseView" method="BaseView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\LevelView.java">
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LevelView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LevelView" method="LevelView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="22" endline="22" begincolumn="9" endcolumn="55" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LevelView" method="LevelView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\LifeView.java">
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LifeView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LifeView" method="LifeView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="22" endline="22" begincolumn="10" endcolumn="56" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="LifeView" method="LifeView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+</violation>
+<violation beginline="25" endline="25" begincolumn="29" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.hud" class="LifeView" method="setLife" variable="life" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'life' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="44" endcolumn="45" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.hud" class="LifeView" method="paintComponent" variable="g" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'g' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\ScoreView.java">
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.hud" class="ScoreView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="ScoreView" method="ScoreView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="22" endline="22" begincolumn="9" endcolumn="55" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="ScoreView" method="ScoreView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+</violation>
+<violation beginline="25" endline="25" begincolumn="30" endcolumn="35" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.hud" class="ScoreView" method="setScore" variable="score" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'score' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\hud\TimerView.java">
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.hud" class="TimerView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="22" endline="22" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="TimerView" method="TimerView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="23" endline="23" begincolumn="9" endcolumn="55" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.hud" class="TimerView" method="TimerView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setPreferredSize(Dimension) 
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\impl\BasePanelImpl.java">
+<violation beginline="20" endline="20" begincolumn="17" endcolumn="22" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.impl" class="BasePanelImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="27" endline="27" begincolumn="25" endcolumn="33" rule="FinalFieldCouldBeStatic" ruleset="Design" package="snakerunner.graphics.impl" class="BasePanelImpl" variable="f_height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+The final field f_height could be made static
+</violation>
+<violation beginline="27" endline="27" begincolumn="25" endcolumn="33" rule="FieldNamingConventions" ruleset="Code Style" package="snakerunner.graphics.impl" class="BasePanelImpl" variable="f_height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The final field name 'f_height' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="28" endline="28" begincolumn="25" endcolumn="33" rule="FieldNamingConventions" ruleset="Code Style" package="snakerunner.graphics.impl" class="BasePanelImpl" variable="s_height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The final field name 's_height' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="28" endline="28" begincolumn="25" endcolumn="33" rule="FinalFieldCouldBeStatic" ruleset="Design" package="snakerunner.graphics.impl" class="BasePanelImpl" variable="s_height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#finalfieldcouldbestatic" priority="3">
+The final field s_height could be made static
+</violation>
+<violation beginline="31" endline="31" begincolumn="9" endcolumn="20" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.impl" class="BasePanelImpl" method="BasePanelImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+This method may call an overridable method during object construction: JComponent.setBackground(Color) (call stack: [BasePanelImpl.initPanel(), JComponent.setBackground(Color)])
+</violation>
+<violation beginline="46" endline="46" begincolumn="29" endcolumn="38" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="snakerunner.graphics.impl" class="BasePanelImpl" method="createTitle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary qualifier 'Component': 'CENTER_ALIGNMENT' is already in scope because it is inherited by an enclosing type
+</violation>
+<violation beginline="51" endline="51" begincolumn="22" endcolumn="27" rule="VariableCanBeInlined" ruleset="Code Style" package="snakerunner.graphics.impl" class="BasePanelImpl" method="createLabel" variable="label" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#variablecanbeinlined" priority="3">
+Consider simply using the value vs. storing it in local variable 'label'.
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\impl\MainFrameImpl.java">
+<violation beginline="16" endline="16" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.impl" class="MainFrameImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="29" endline="29" begincolumn="9" endcolumn="48" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.impl" class="MainFrameImpl" method="MainFrameImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JFrame.setDefaultCloseOperation(int) 
+</violation>
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="28" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.impl" class="MainFrameImpl" method="MainFrameImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+This method may call an overridable method during object construction: Window.setSize(int, int) (call stack: [MainFrameImpl.setDimensionFrame(), Window.setSize(int, int)])
+</violation>
+<violation beginline="31" endline="31" begincolumn="9" endcolumn="28" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.impl" class="MainFrameImpl" method="MainFrameImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Frame.setResizable(boolean) 
+</violation>
+<violation beginline="40" endline="40" begincolumn="37" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setPanels" variable="menuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'menuPanel' is not assigned and could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="58" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setPanels" variable="gamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'gamePanel' is not assigned and could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="81" endcolumn="92" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setPanels" variable="optionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'optionPanel' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="19" endcolumn="29" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setDimensionFrame" variable="screensize" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'screensize' could be declared final
+</violation>
+<violation beginline="48" endline="48" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setDimensionFrame" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'width' could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="13" endcolumn="19" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setDimensionFrame" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'height' could be declared final
+</violation>
+<violation beginline="95" endline="95" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="startGameLoop" variable="delay" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'delay' is not assigned and could be declared final
+</violation>
+<violation beginline="108" endline="108" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.impl" class="MainFrameImpl" method="setTimerDelay" variable="delay" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'delay' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\BasePanel.java">
+<violation beginline="5" endline="5" begincolumn="26" endcolumn="40" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics.panel" class="BasePanel" method="setLayoutPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifiers 'public abstract' on method 'setLayoutPanel': the method is declared in an interface type
+</violation>
+<violation beginline="7" endline="7" begincolumn="26" endcolumn="44" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.graphics.panel" class="BasePanel" method="addActionListeners" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifiers 'public abstract' on method 'addActionListeners': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\GameBoardPanel.java">
+<violation beginline="20" endline="20" begincolumn="9" endcolumn="24" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GameBoardPanel" method="GameBoardPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setOpaque(boolean) 
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GameBoardPanel" method="GameBoardPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: JComponent.setBackground(Color) 
+</violation>
+<violation beginline="67" endline="67" begincolumn="43" endcolumn="44" rule="UnusedFormalParameter" ruleset="Best Practices" package="snakerunner.graphics.panel" class="GameBoardPanel" method="drawSnake" variable="g" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused method parameters such as 'g'.
+</violation>
+<violation beginline="68" endline="70" begincolumn="9" endcolumn="12" rule="DanglingJavadoc" ruleset="Documentation" package="snakerunner.graphics.panel" class="GameBoardPanel" method="drawSnake" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_documentation.html#danglingjavadoc" priority="3">
+Javadoc comment does not belong to any class, method or field
+</violation>
+<violation beginline="98" endline="118" begincolumn="9" endcolumn="10" rule="ExhaustiveSwitchHasDefault" ruleset="Best Practices" package="snakerunner.graphics.panel" class="GameBoardPanel" method="drawCollectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#exhaustiveswitchhasdefault" priority="3">
+The switch block is exhaustive even without the default case
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\GamePanel.java">
+<violation beginline="14" endline="14" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="20" endline="20" begincolumn="23" endcolumn="32" rule="ImmutableField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="timerView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'timerView' may be declared final
+</violation>
+<violation beginline="21" endline="21" begincolumn="23" endcolumn="32" rule="ImmutableField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="scoreView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'scoreView' may be declared final
+</violation>
+<violation beginline="21" endline="21" begincolumn="23" endcolumn="32" rule="SingularField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="scoreView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'scoreView' could be replaced by a local variable.
+</violation>
+<violation beginline="22" endline="22" begincolumn="23" endcolumn="32" rule="ImmutableField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="levelView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'levelView' may be declared final
+</violation>
+<violation beginline="22" endline="22" begincolumn="23" endcolumn="32" rule="SingularField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="levelView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'levelView' could be replaced by a local variable.
+</violation>
+<violation beginline="23" endline="23" begincolumn="22" endcolumn="30" rule="ImmutableField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="lifeView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'lifeView' may be declared final
+</violation>
+<violation beginline="23" endline="23" begincolumn="22" endcolumn="30" rule="SingularField" ruleset="Design" package="snakerunner.graphics.panel" class="GamePanel" variable="lifeView" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#singularfield" priority="3">
+Perhaps 'lifeView' could be replaced by a local variable.
+</violation>
+<violation beginline="48" endline="48" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: GamePanel.setLayoutPanel() 
+</violation>
+<violation beginline="49" endline="49" begincolumn="17" endcolumn="36" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="50" endline="50" begincolumn="18" endcolumn="38" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="51" endline="51" begincolumn="16" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="56" endline="56" begincolumn="9" endcolumn="40" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component, Object) 
+</violation>
+<violation beginline="57" endline="57" begincolumn="9" endcolumn="49" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component, Object) 
+</violation>
+<violation beginline="58" endline="58" begincolumn="9" endcolumn="39" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component, Object) 
+</violation>
+<violation beginline="59" endline="59" begincolumn="9" endcolumn="39" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component, Object) 
+</violation>
+<violation beginline="60" endline="60" begincolumn="9" endcolumn="40" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component, Object) 
+</violation>
+<violation beginline="71" endline="71" begincolumn="9" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="GamePanel" method="GamePanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: GamePanel.addActionListeners() 
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\MenuPanel.java">
+<violation beginline="9" endline="9" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="22" endline="22" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: MenuPanel.setLayoutPanel() 
+</violation>
+<violation beginline="23" endline="23" begincolumn="17" endcolumn="36" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="24" endline="24" begincolumn="18" endcolumn="38" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="25" endline="25" begincolumn="16" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="26" endline="26" begincolumn="9" endcolumn="19" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="27" endline="27" begincolumn="9" endcolumn="20" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="28" endline="28" begincolumn="9" endcolumn="18" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="29" endline="29" begincolumn="9" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="MenuPanel" method="MenuPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: MenuPanel.addActionListeners() 
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\OptionPanel.java">
+<violation beginline="14" endline="14" begincolumn="8" endcolumn="13" rule="MissingSerialVersionUID" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="25" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: OptionPanel.setLayoutPanel() 
+</violation>
+<violation beginline="32" endline="32" begincolumn="9" endcolumn="24" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+This method may call an overridable method during object construction: Container.add(Component) (call stack: [OptionPanel.setSoundPanel(), Container.add(Component)])
+</violation>
+<violation beginline="33" endline="33" begincolumn="9" endcolumn="38" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="34" endline="34" begincolumn="17" endcolumn="36" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="35" endline="35" begincolumn="16" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: BasePanelImpl.createButton(String) 
+</violation>
+<violation beginline="36" endline="36" begincolumn="9" endcolumn="19" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="37" endline="37" begincolumn="9" endcolumn="18" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Container.add(Component) 
+</violation>
+<violation beginline="38" endline="38" begincolumn="9" endcolumn="34" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" package="snakerunner.graphics.panel" class="OptionPanel" method="OptionPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: OptionPanel.addActionListeners() 
+</violation>
+<violation beginline="41" endline="41" begincolumn="20" endcolumn="33" rule="LinguisticNaming" ruleset="Code Style" package="snakerunner.graphics.panel" class="OptionPanel" method="setSoundPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#linguisticnaming" priority="3">
+Linguistics Antipattern - The setter 'setSoundPanel' should not return any type except void linguistically
+</violation>
+<violation beginline="44" endline="44" begincolumn="34" endcolumn="43" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="snakerunner.graphics.panel" class="OptionPanel" method="setSoundPanel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+Unnecessary qualifier 'Component': 'CENTER_ALIGNMENT' is already in scope because it is inherited by an enclosing type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\graphics\panel\PanelFactory.java">
+<violation beginline="5" endline="5" begincolumn="8" endcolumn="13" rule="UseUtilityClass" ruleset="Design" package="snakerunner.graphics.panel" class="PanelFactory" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#useutilityclass" priority="3">
+All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+</violation>
+<violation beginline="7" endline="7" begincolumn="56" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.panel" class="PanelFactory" method="createGamePanel" variable="controller" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'controller' is not assigned and could be declared final
+</violation>
+<violation beginline="11" endline="11" begincolumn="56" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.panel" class="PanelFactory" method="createMenuPanel" variable="controller" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'controller' is not assigned and could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="60" endcolumn="70" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.graphics.panel" class="PanelFactory" method="createOptionPanel" variable="controller" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'controller' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Collectible.java">
+<violation beginline="12" endline="12" begincolumn="17" endcolumn="24" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Collectible" method="consume" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'consume': the method is declared in an interface type
+</violation>
+<violation beginline="19" endline="19" begincolumn="38" endcolumn="49" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Collectible" method="getPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getPosition': the method is declared in an interface type
+</violation>
+<violation beginline="26" endline="26" begincolumn="28" endcolumn="35" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Collectible" method="getType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getType': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Direction.java">
+<violation beginline="12" endline="12" begincolumn="19" endcolumn="21" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Direction" method="Direction" variable="dx" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dx' is not assigned and could be declared final
+</violation>
+<violation beginline="12" endline="12" begincolumn="27" endcolumn="29" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Direction" method="Direction" variable="dy" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dy' is not assigned and could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="41" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Direction" method="isOpposite" variable="other" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'other' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Entity.java">
+<violation beginline="21" endline="21" begincolumn="22" endcolumn="23" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Entity" method="setX" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="25" endline="25" begincolumn="22" endcolumn="23" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Entity" method="setY" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\GameModel.java">
+<violation beginline="10" endline="10" begincolumn="17" endcolumn="23" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="update" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'update': the method is declared in an interface type
+</violation>
+<violation beginline="15" endline="15" begincolumn="20" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="isGameOver" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'isGameOver': the method is declared in an interface type
+</violation>
+<violation beginline="20" endline="20" begincolumn="17" endcolumn="26" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="loadLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'loadLevel': the method is declared in an interface type
+</violation>
+<violation beginline="25" endline="25" begincolumn="17" endcolumn="27" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="resetLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'resetLevel': the method is declared in an interface type
+</violation>
+<violation beginline="30" endline="30" begincolumn="18" endcolumn="26" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getSnake" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getSnake': the method is declared in an interface type
+</violation>
+<violation beginline="35" endline="35" begincolumn="30" endcolumn="45" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getCollectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getCollectibles': the method is declared in an interface type
+</violation>
+<violation beginline="40" endline="40" begincolumn="18" endcolumn="26" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getLevel': the method is declared in an interface type
+</violation>
+<violation beginline="45" endline="45" begincolumn="72" endcolumn="84" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getObstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getObstacles': the method is declared in an interface type
+</violation>
+<violation beginline="51" endline="51" begincolumn="20" endcolumn="36" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="isLevelCompleted" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'isLevelCompleted': the method is declared in an interface type
+</violation>
+<violation beginline="56" endline="56" begincolumn="17" endcolumn="25" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="addScore" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'addScore': the method is declared in an interface type
+</violation>
+<violation beginline="62" endline="62" begincolumn="16" endcolumn="24" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getScore" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getScore': the method is declared in an interface type
+</violation>
+<violation beginline="67" endline="67" begincolumn="17" endcolumn="32" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="applySlowEffect" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'applySlowEffect': the method is declared in an interface type
+</violation>
+<violation beginline="73" endline="73" begincolumn="16" endcolumn="24" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="GameModel" method="getSpeed" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getSpeed': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Grid.java">
+<violation beginline="5" endline="5" begincolumn="8" endcolumn="17" rule="ImplicitFunctionalInterface" ruleset="Best Practices" package="snakerunner.model" class="Grid" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#implicitfunctionalinterface" priority="2">
+Annotate this interface with @FunctionalInterface or with @SuppressWarnings("PMD.ImplicitFunctionalInterface") to clarify your intent.
+</violation>
+<violation beginline="11" endline="11" begincolumn="20" endcolumn="32" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Grid" method="isInsideGrid" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'isInsideGrid': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Level.java">
+<violation beginline="12" endline="12" begincolumn="17" endcolumn="24" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Level" method="getGrid" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getGrid': the method is declared in an interface type
+</violation>
+<violation beginline="18" endline="18" begincolumn="43" endcolumn="55" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Level" method="getObstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getObstacles': the method is declared in an interface type
+</violation>
+<violation beginline="25" endline="25" begincolumn="21" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Level" method="isBlocked" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'isBlocked': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\LevelData.java">
+<violation beginline="13" endline="13" begincolumn="43" endcolumn="55" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="LevelData" method="getObstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getObstacles': the method is declared in an interface type
+</violation>
+<violation beginline="19" endline="19" begincolumn="30" endcolumn="45" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="LevelData" method="getCollectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getCollectibles': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Obstacle.java">
+<violation beginline="11" endline="11" begincolumn="17" endcolumn="22" rule="ImmutableField" ruleset="Design" package="snakerunner.model" class="Obstacle" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'width' may be declared final
+</violation>
+<violation beginline="12" endline="12" begincolumn="17" endcolumn="23" rule="ImmutableField" ruleset="Design" package="snakerunner.model" class="Obstacle" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'height' may be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="25" endcolumn="26" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="Obstacle" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="32" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="Obstacle" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="39" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="Obstacle" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'width' is not assigned and could be declared final
+</violation>
+<violation beginline="15" endline="15" begincolumn="50" endcolumn="56" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="Obstacle" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'height' is not assigned and could be declared final
+</violation>
+<violation beginline="33" endline="33" begincolumn="30" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="isHit" variable="targetX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'targetX' is not assigned and could be declared final
+</violation>
+<violation beginline="33" endline="33" begincolumn="43" endcolumn="50" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="isHit" variable="targetY" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'targetY' is not assigned and could be declared final
+</violation>
+<violation beginline="42" endline="42" begincolumn="40" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="getOccupiedPositions" variable="positions" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'positions' could be declared final
+</violation>
+<violation beginline="46" endline="46" begincolumn="42" endcolumn="59" rule="UseDiamondOperator" ruleset="Code Style" package="snakerunner.model" class="Obstacle" method="getOccupiedPositions" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#usediamondoperator" priority="3">
+Explicit type arguments can be replaced by a diamond: `new Point2D&lt;&gt;(x + i, y+j)`
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\Snake.java">
+<violation beginline="8" endline="8" begincolumn="17" endcolumn="21" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Snake" method="move" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'move': the method is declared in an interface type
+</violation>
+<violation beginline="10" endline="10" begincolumn="17" endcolumn="29" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Snake" method="setDirection" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'setDirection': the method is declared in an interface type
+</violation>
+<violation beginline="12" endline="12" begincolumn="38" endcolumn="45" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Snake" method="getHead" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getHead': the method is declared in an interface type
+</violation>
+<violation beginline="14" endline="14" begincolumn="44" endcolumn="51" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Snake" method="getBody" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getBody': the method is declared in an interface type
+</violation>
+<violation beginline="16" endline="16" begincolumn="20" endcolumn="41" rule="UnnecessaryModifier" ruleset="Code Style" package="snakerunner.model" class="Snake" method="isCollidingWithItself" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'isCollidingWithItself': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\Clock.java">
+<violation beginline="11" endline="11" begincolumn="44" endcolumn="52" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="Clock" method="Clock" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+<violation beginline="16" endline="16" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="Clock" method="consume" variable="model" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'model' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\FoodImpl.java">
+<violation beginline="9" endline="9" begincolumn="13" endcolumn="18" rule="ModifierOrder" ruleset="Code Style" package="snakerunner.model.impl" class="FoodImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#modifierorder" priority="1">
+Missorted modifiers `final static`.
+</violation>
+<violation beginline="12" endline="12" begincolumn="47" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="FoodImpl" method="FoodImpl" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="FoodImpl" method="consume" variable="model" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'model' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\GameModelImpl.java">
+<violation beginline="23" endline="23" begincolumn="17" endcolumn="35" rule="RedundantFieldInitializer" ruleset="Performance" package="snakerunner.model.impl" class="GameModelImpl" variable="slowEffectDuration" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_performance.html#redundantfieldinitializer" priority="3">
+Avoid using redundant field initializer for 'slowEffectDuration'
+</violation>
+<violation beginline="25" endline="25" begincolumn="12" endcolumn="25" rule="UncommentedEmptyConstructor" ruleset="Documentation" package="snakerunner.model.impl" class="GameModelImpl" method="GameModelImpl" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_documentation.html#uncommentedemptyconstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="81" endline="81" begincolumn="37" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="loadLevel" variable="data" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'data' is not assigned and could be declared final
+</violation>
+<violation beginline="116" endline="116" begincolumn="30" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="addScore" variable="points" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'points' is not assigned and could be declared final
+</violation>
+<violation beginline="137" endline="137" begincolumn="9" endcolumn="15" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="139" endline="139" begincolumn="9" endcolumn="15" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="140" endline="140" begincolumn="40" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'p' could be declared final
+</violation>
+<violation beginline="141" endline="141" begincolumn="13" endcolumn="19" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="144" endline="144" begincolumn="9" endcolumn="15" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="145" endline="145" begincolumn="26" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" variable="c" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'c' could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="13" endcolumn="19" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="149" endline="149" begincolumn="9" endcolumn="15" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="debugPrintLevel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+<violation beginline="158" endline="158" begincolumn="31" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="iterator" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'iterator' could be declared final
+</violation>
+<violation beginline="159" endline="159" begincolumn="35" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="snakeHead" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'snakeHead' could be declared final
+</violation>
+<violation beginline="162" endline="162" begincolumn="25" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="c" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'c' could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\GridImpl.java">
+<violation beginline="10" endline="10" begincolumn="25" endcolumn="30" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="GridImpl" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'width' is not assigned and could be declared final
+</violation>
+<violation beginline="10" endline="10" begincolumn="36" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="GridImpl" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'height' is not assigned and could be declared final
+</violation>
+<violation beginline="16" endline="16" begincolumn="59" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+<violation beginline="17" endline="17" begincolumn="13" endcolumn="14" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'x' could be declared final
+</violation>
+<violation beginline="18" endline="18" begincolumn="13" endcolumn="14" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'y' could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\Key.java">
+<violation beginline="11" endline="11" begincolumn="42" endcolumn="50" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="Key" method="Key" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelDataImpl.java">
+<violation beginline="16" endline="16" begincolumn="57" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelDataImpl" method="LevelDataImpl" variable="obstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'obstacles' is not assigned and could be declared final
+</violation>
+<violation beginline="16" endline="16" begincolumn="86" endcolumn="98" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelDataImpl" method="LevelDataImpl" variable="collectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'collectibles' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelImpl.java">
+<violation beginline="15" endline="15" begincolumn="32" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelImpl" method="LevelImpl" variable="data" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'data' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="56" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelImpl" method="isBlocked" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+</file>
+<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelLoader.java">
+<violation beginline="17" endline="17" begincolumn="47" endcolumn="52" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="lines" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'lines' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="40" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="obstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'obstacles' could be declared final
+</violation>
+<violation beginline="20" endline="20" begincolumn="27" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="collectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'collectibles' could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="21" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="raw" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'raw' could be declared final
+</violation>
+<violation beginline="25" endline="25" begincolumn="20" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="line" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'line' could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="17" endcolumn="53" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="36" endline="36" begincolumn="17" endcolumn="56" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="45" endline="45" begincolumn="22" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="parts" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'parts' could be declared final
+</violation>
+<violation beginline="46" endline="46" begincolumn="17" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'x' could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="17" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'y' could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="39" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'p' could be declared final
+</violation>
+<violation beginline="51" endline="51" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="53" endline="53" begincolumn="24" endcolumn="54" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="54" endline="54" begincolumn="24" endcolumn="28" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'type' could be declared final
+</violation>
+<violation beginline="54" endline="54" begincolumn="31" endcolumn="60" rule="UseLocaleWithCaseConversions" ruleset="Error Prone" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#uselocalewithcaseconversions" priority="3">
+When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+</violation>
+</file>
+</pmd>
