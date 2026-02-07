@@ -8,5 +8,5 @@ public interface Grid {
      * @param position to check.
      * @return true if the position is inside the grid, false otherwise.
      */
-    public boolean isInsideGrid(Point2D<Integer, Integer> position);
+    boolean isInsideGrid(Point2D<Integer, Integer> position);
 }
