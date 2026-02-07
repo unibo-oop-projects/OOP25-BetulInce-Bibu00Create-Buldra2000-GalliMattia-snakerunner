@@ -5,6 +5,9 @@ import java.util.Set;
 
 import snakerunner.commons.Point2D;
 
+/**
+ * The GameModel interface defines the core functionalities of the game.
+ */
 public interface GameModel {
     
     /** 

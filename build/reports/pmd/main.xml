@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.20.0" timestamp="2026-02-07T16:17:02.308">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.20.0" timestamp="2026-02-07T19:23:50.462">
 <file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\audio\AudioPlayer.java">
 <violation beginline="48" endline="48" begincolumn="22" endcolumn="31" rule="AvoidCatchingGenericException" ruleset="Error Prone" package="snakerunner.audio" class="AudioPlayer" method="playSound" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#avoidcatchinggenericexception" priority="3">
 Avoid catching Exception in try-catch block
@@ -232,102 +232,51 @@ The final field scorePoints could be made static
 </violation>
 </file>
 <file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\GameModelImpl.java">
-<violation beginline="23" endline="23" begincolumn="19" endcolumn="24" rule="ImmutableField" ruleset="Design" package="snakerunner.model.impl" class="GameModelImpl" variable="snake" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_design.html#immutablefield" priority="3">
-Field 'snake' may be declared final
+<violation beginline="71" endline="71" begincolumn="13" endcolumn="19" rule="SystemPrintln" ruleset="Best Practices" package="snakerunner.model.impl" class="GameModelImpl" method="update" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
 </violation>
-<violation beginline="84" endline="84" begincolumn="37" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="loadLevel" variable="data" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'data' is not assigned and could be declared final
-</violation>
-<violation beginline="130" endline="130" begincolumn="30" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="addScore" variable="points" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'points' is not assigned and could be declared final
-</violation>
-<violation beginline="174" endline="174" begincolumn="31" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="iterator" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="159" endline="159" begincolumn="31" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="iterator" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'iterator' could be declared final
 </violation>
-<violation beginline="175" endline="175" begincolumn="35" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="snakeHead" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="160" endline="160" begincolumn="35" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="snakeHead" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'snakeHead' could be declared final
 </violation>
-<violation beginline="178" endline="178" begincolumn="25" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="c" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="163" endline="163" begincolumn="25" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GameModelImpl" method="checkCollectibles" variable="c" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'c' could be declared final
 </violation>
 </file>
-<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\GridImpl.java">
-<violation beginline="10" endline="10" begincolumn="25" endcolumn="30" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="GridImpl" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'width' is not assigned and could be declared final
-</violation>
-<violation beginline="10" endline="10" begincolumn="36" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="GridImpl" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'height' is not assigned and could be declared final
-</violation>
-<violation beginline="16" endline="16" begincolumn="59" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'position' is not assigned and could be declared final
-</violation>
-<violation beginline="17" endline="17" begincolumn="13" endcolumn="14" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
-Local variable 'x' could be declared final
-</violation>
-<violation beginline="18" endline="18" begincolumn="13" endcolumn="14" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="GridImpl" method="isInsideGrid" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
-Local variable 'y' could be declared final
-</violation>
-</file>
-<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelDataImpl.java">
-<violation beginline="16" endline="16" begincolumn="57" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelDataImpl" method="LevelDataImpl" variable="obstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'obstacles' is not assigned and could be declared final
-</violation>
-<violation beginline="16" endline="16" begincolumn="86" endcolumn="98" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelDataImpl" method="LevelDataImpl" variable="collectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'collectibles' is not assigned and could be declared final
-</violation>
-</file>
-<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelImpl.java">
-<violation beginline="15" endline="15" begincolumn="32" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelImpl" method="LevelImpl" variable="data" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'data' is not assigned and could be declared final
-</violation>
-<violation beginline="31" endline="31" begincolumn="56" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelImpl" method="isBlocked" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'position' is not assigned and could be declared final
-</violation>
-</file>
 <file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\main\java\snakerunner\model\impl\LevelLoader.java">
-<violation beginline="17" endline="17" begincolumn="47" endcolumn="52" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="lines" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
-Parameter 'lines' is not assigned and could be declared final
-</violation>
-<violation beginline="19" endline="19" begincolumn="40" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="obstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="32" endline="32" begincolumn="40" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="obstacles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'obstacles' could be declared final
 </violation>
-<violation beginline="20" endline="20" begincolumn="27" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="collectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="33" endline="33" begincolumn="27" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="collectibles" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'collectibles' could be declared final
 </violation>
-<violation beginline="24" endline="24" begincolumn="21" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="raw" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
-Local variable 'raw' could be declared final
-</violation>
-<violation beginline="25" endline="25" begincolumn="20" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="line" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="38" endline="38" begincolumn="20" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="line" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'line' could be declared final
 </violation>
-<violation beginline="31" endline="31" begincolumn="17" endcolumn="53" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+<violation beginline="44" endline="44" begincolumn="17" endcolumn="53" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
 Position literals first in String comparisons
 </violation>
-<violation beginline="36" endline="36" begincolumn="17" endcolumn="56" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+<violation beginline="49" endline="49" begincolumn="17" endcolumn="56" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
 Position literals first in String comparisons
 </violation>
-<violation beginline="45" endline="45" begincolumn="22" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="parts" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="58" endline="58" begincolumn="22" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="parts" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'parts' could be declared final
 </violation>
-<violation beginline="46" endline="46" begincolumn="17" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
-Local variable 'x' could be declared final
-</violation>
-<violation beginline="47" endline="47" begincolumn="17" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
-Local variable 'y' could be declared final
-</violation>
-<violation beginline="49" endline="49" begincolumn="39" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="62" endline="62" begincolumn="39" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'p' could be declared final
 </violation>
-<violation beginline="51" endline="51" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+<violation beginline="64" endline="64" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
 Position literals first in String comparisons
 </violation>
-<violation beginline="53" endline="53" begincolumn="24" endcolumn="54" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+<violation beginline="66" endline="66" begincolumn="24" endcolumn="54" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="snakerunner.model.impl" class="LevelLoader" method="load" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
 Position literals first in String comparisons
 </violation>
-<violation beginline="54" endline="54" begincolumn="24" endcolumn="28" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+<violation beginline="67" endline="67" begincolumn="24" endcolumn="28" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
 Local variable 'type' could be declared final
 </violation>
-<violation beginline="54" endline="54" begincolumn="31" endcolumn="60" rule="UseLocaleWithCaseConversions" ruleset="Error Prone" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#uselocalewithcaseconversions" priority="3">
+<violation beginline="67" endline="67" begincolumn="31" endcolumn="60" rule="UseLocaleWithCaseConversions" ruleset="Error Prone" package="snakerunner.model.impl" class="LevelLoader" method="load" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_errorprone.html#uselocalewithcaseconversions" priority="3">
 When doing a String.toLowerCase()/toUpperCase() call, use a Locale
 </violation>
 </file>

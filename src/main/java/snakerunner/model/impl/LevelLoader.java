@@ -10,18 +10,31 @@ import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.LevelData;
 
+/**
+ * The LevelLoader class is responsible for loading level data from a list of strings, 
+ * which can be read from a file.
+ */
 public final class LevelLoader {
 
-    private LevelLoader() {}
+    private LevelLoader() { }
 
-    public static LevelData load(List<String> lines) throws IOException {
+    /**
+     * Loads level data from a list of strings from a file.
+     * 
+     * @param lines the lines read from the level file.
+     * 
+     * @return a LevelData object containing the obstacles and collectibles for the level.
+     * 
+     * @throws IOException if there is an error parsing the level data.
+     */
+    public static LevelData load(final List<String> lines) throws IOException {
         
         Set<Point2D<Integer, Integer>> obstacles = new HashSet<>();
         List<Collectible> collectibles = new ArrayList<>();
 
         String section = null;
 
-        for (String raw : lines) {
+        for (final String raw : lines) {
             String line = raw.trim();
 
             if (line.isEmpty() || line.startsWith("#")) {
@@ -43,8 +56,8 @@ public final class LevelLoader {
             }
 
             String[] parts = line.split(",");
-            int x = Integer.parseInt(parts[0].trim());
-            int y = Integer.parseInt(parts[1].trim());
+            final int x = Integer.parseInt(parts[0].trim());
+            final int y = Integer.parseInt(parts[1].trim());
 
             Point2D<Integer, Integer> p = new Point2D<>(x, y);
 
@@ -64,7 +77,6 @@ public final class LevelLoader {
                 }
             }
         }
-
         return new LevelDataImpl(obstacles, collectibles);
     }
 }

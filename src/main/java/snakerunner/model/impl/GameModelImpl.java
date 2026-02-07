@@ -12,7 +12,9 @@ import snakerunner.model.Level;
 import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
 
-
+/**
+ * The GameModelImpl class implements the GameModel interface and provides the core functionalities of the game.
+ */
 public class GameModelImpl implements GameModel {
 
     private static final int INITIAL_SPEED = 150;
@@ -86,12 +88,14 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public void loadLevel(LevelData data) {
+    public void loadLevel(final LevelData data) {
         this.currentLevelData = data;
         this.currentLevel = new LevelImpl(currentLevelData);
-        //this.obstacle = data.getObstacles(); //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
+        //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
+        //this.obstacle = data.getObstacles(); 
         this.collectibles = currentLevelData.getCollectibles();
-        //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
+        //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
+        //this.snake = data.getSnake(); 
         this.levelCompleted = false;
     }
 
@@ -126,7 +130,7 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public void addScore(int points) {
+    public void addScore(final int points) {
         score += points;
     }
 
@@ -147,7 +151,7 @@ public class GameModelImpl implements GameModel {
     }
 
     private void checkCollisions() {
-        // Implement collision detection logic here
+        //Implement collision detection logic here
     }
 
     
