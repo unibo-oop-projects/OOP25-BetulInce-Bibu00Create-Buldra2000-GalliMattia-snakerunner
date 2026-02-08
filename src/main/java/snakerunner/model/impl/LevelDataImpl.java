@@ -8,14 +8,17 @@ import java.util.Set;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.LevelData;
+import snakerunner.model.Door;
 
 public class LevelDataImpl implements LevelData {
     private final Set<Point2D<Integer, Integer>> obstacles;
     private final List<Collectible> collectibles;
+    private final List<Door> doors;
 
-    public LevelDataImpl(Set<Point2D<Integer, Integer>> obstacles, List<Collectible> collectibles) {
+    public LevelDataImpl(Set<Point2D<Integer, Integer>> obstacles, List<Collectible> collectibles, List<Door> doors) {
         this.obstacles = new HashSet<>(obstacles);
         this.collectibles = new ArrayList<>(collectibles);
+        this.doors = new ArrayList<>(doors);
     }
 
     // ritorna copia per sicurezza e non il set originale
@@ -28,6 +31,12 @@ public class LevelDataImpl implements LevelData {
     @Override
     public List<Collectible> getCollectibles() {
         return new ArrayList<>(collectibles);
+    }
+    
+    // ritorna copia per sicurezza e non la lista originale
+    @Override
+    public List<Door> getDoors() {
+        return new ArrayList<>(doors);
     }
     
 }

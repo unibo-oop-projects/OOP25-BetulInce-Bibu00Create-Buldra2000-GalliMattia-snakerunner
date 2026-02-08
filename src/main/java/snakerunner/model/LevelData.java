@@ -17,4 +17,6 @@ public interface LevelData {
      * @return a list of collectibles.
      */
     List<Collectible> getCollectibles();
+    
+    List<Door> getDoors();
 }

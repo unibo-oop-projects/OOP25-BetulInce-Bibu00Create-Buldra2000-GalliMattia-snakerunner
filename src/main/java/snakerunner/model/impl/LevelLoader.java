@@ -9,6 +9,7 @@ import java.util.Set;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.LevelData;
+import snakerunner.model.Door;
 
 public final class LevelLoader {
 
@@ -18,6 +19,7 @@ public final class LevelLoader {
         
         Set<Point2D<Integer, Integer>> obstacles = new HashSet<>();
         List<Collectible> collectibles = new ArrayList<>();
+        List<Door> doors = new ArrayList<>();
 
         String section = null;
 
@@ -65,6 +67,6 @@ public final class LevelLoader {
             }
         }
 
-        return new LevelDataImpl(obstacles, collectibles);
+        return new LevelDataImpl(obstacles, collectibles,doors);
     }
 }

@@ -13,10 +13,12 @@ public class LevelImpl implements Level{
 
     private final Grid grid;
     private final Set<Point2D<Integer, Integer>> obstacles;
+    private final java.util.List<snakerunner.model.Door> doors;
 
     public LevelImpl(LevelData data) {
         this.grid = new GridImpl(WIDTH, HEIGHT);
         this.obstacles = data.getObstacles();
+        this.doors = data.getDoors();
     }
 
     @Override
@@ -27,7 +29,13 @@ public class LevelImpl implements Level{
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
         return obstacles;
+
     }
+    @Override
+    public java.util.List getDoors() {
+        return doors;
+    }
+
 
     @Override
     public boolean isBlocked(Point2D<Integer, Integer> position) {

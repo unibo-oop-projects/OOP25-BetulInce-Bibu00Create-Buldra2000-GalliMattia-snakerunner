@@ -11,6 +11,7 @@ import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
+import snakerunner.model.Door;
 
 
 public class GameModelImpl implements GameModel {
@@ -26,6 +27,7 @@ public class GameModelImpl implements GameModel {
     private int score;
     private int speed;
     private int slowEffectDuration;
+    private List<Door> doors;
 
     public GameModelImpl() {
         currentLevel = null;
@@ -85,6 +87,7 @@ public class GameModelImpl implements GameModel {
         this.currentLevel = new LevelImpl(data);
         //this.obstacle = data.getObstacles(); //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
         this.collectibles = data.getCollectibles();
+        this.doors = data.getDoors();
         //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         this.levelCompleted = false;
 
@@ -148,6 +151,14 @@ public class GameModelImpl implements GameModel {
         return speed;
     }
 
+    @Override
+    public void openDoor() {
+        for( Door door: doors) { 
+            door.setOpen(true);
+        }
+    }
+
+
     /*
     private void debugPrintLevel() {
         System.out.println("=== LEVEL DEBUG ===");
@@ -168,6 +179,11 @@ public class GameModelImpl implements GameModel {
 
     private void checkCollisions() {
         // Implement collision detection logic here
+        /* 
+        if(snake.isCollidingWithItself()){
+
+        }
+        */
     }
 
     

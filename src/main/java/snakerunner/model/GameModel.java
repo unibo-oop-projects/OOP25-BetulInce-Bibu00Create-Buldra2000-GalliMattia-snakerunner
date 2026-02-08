@@ -73,5 +73,10 @@ public interface GameModel {
      * @return The current speed of the game.
      */
     int getSpeed();
+
+    /**
+     * Open doors
+    */
+    void openDoor();
     
 }
