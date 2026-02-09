@@ -6,5 +6,6 @@ package snakerunner.model;
 public enum CollectibleType {
     FOOD,
     CLOCK,
-    KEY
+    KEY,
+    LIFE_BOOST
 }

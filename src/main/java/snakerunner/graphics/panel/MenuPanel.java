@@ -2,8 +2,7 @@ package snakerunner.graphics.panel;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-
-import snakerunner.controller.Controller;
+import snakerunner.controller.NavigationController;
 import snakerunner.graphics.impl.BasePanelImpl;
 
 public final class MenuPanel extends BasePanelImpl {
@@ -12,14 +11,14 @@ public final class MenuPanel extends BasePanelImpl {
     private static final String START = "Start";
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";
-    private final Controller controller;
+    private final NavigationController navigationController;
     private final JButton start;
     private final JButton option;
     private final JButton exit;
 
-    public MenuPanel(final Controller controller) {
+    public MenuPanel(final NavigationController navigationController) {
         super();
-        this.controller = controller;
+        this.navigationController = navigationController;
         setLayoutPanel();
         start = createButton(START);
         option = createButton(OPTION);
@@ -38,9 +37,9 @@ public final class MenuPanel extends BasePanelImpl {
     @Override
     public void addActionListeners() {
         start.addActionListener(e -> {
-            controller.start();
+            navigationController.startGame();
         });
-        option.addActionListener(e -> controller.onOption());
-        exit.addActionListener(e -> controller.exit());
+        option.addActionListener(e -> navigationController.onOption());
+        exit.addActionListener(e -> navigationController.exit());
     }
 }

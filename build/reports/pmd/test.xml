@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.20.0" timestamp="2026-02-07T16:17:01.869">
-<file name="C:\Users\galli\Desktop\ProgettoSnake\snake-runner\src\test\java\snakerunner\audio\AudioPlayerTest.java">
-<violation beginline="13" endline="13" begincolumn="10" endcolumn="33" rule="MethodNamingConventions" ruleset="Code Style" package="snakerunner.audio" class="AudioPlayerTest" method="SoundEnabledGettersTest" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.20.0/pmd_rules_java_codestyle.html#methodnamingconventions" priority="1">
-The JUnit 5 test method name 'SoundEnabledGettersTest' doesn't match '[a-z][a-zA-Z0-9]*'
-</violation>
-</file>
-</pmd>

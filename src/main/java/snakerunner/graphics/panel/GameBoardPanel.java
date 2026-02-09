@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import snakerunner.commons.Point2D;
-import snakerunner.controller.Controller;
+import snakerunner.controller.GameController;
 import snakerunner.model.Collectible;
 import snakerunner.model.Direction;
 import snakerunner.model.Door;
@@ -22,14 +22,14 @@ public final class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int CELL = 20;
-    private final Controller controller;
+    private final GameController controller;
     private Image foodImage, clockImage, keyImage, obstacleImage;
     private Image snakeHeadUp, snakeHeadDown, snakeHeadLeft, snakeHeadRight;
     private Image snakeTailUp, snakeTailDown, snakeTailLeft, snakeTailRight;
     private Image /*snakeBodyTopLeft, snakeBodyBottomLeft, snakeBodyBottomRight,*/ snakeBodyVertical, snakeBodyHorizontal;
     private Image doorClose, doorOpen;
 
-    public GameBoardPanel(final Controller controller) {
+    public GameBoardPanel(final GameController controller) {
         this.controller = controller;
         setOpaque(true);
         setBackground(Color.GRAY);

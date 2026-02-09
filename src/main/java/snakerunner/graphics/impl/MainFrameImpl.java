@@ -14,6 +14,8 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
     
     private static final long serialVersionUID = 1L;
     private static final String TITLE = "Snake Runner";
+    private static final String WON_MESSAGE = "You Won!";
+    private static final String LOSE_MESSAGE = "You Lose!";
     private static final double PROPORTION = 0.5;
     private BasePanel menuPanel;
     private BasePanel gamePanel;
@@ -69,24 +71,15 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
 
     @Override
     public void won(){
-        JOptionPane.showMessageDialog(
-        this,
-        "You Won!",
-        "Snake Runner",
-        JOptionPane.INFORMATION_MESSAGE
-    );
+        JOptionPane.showMessageDialog(this, WON_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     public void lose() {
-        JOptionPane.showMessageDialog(
-            this, 
-            "You Lose!",
-            "Snake Runner",
-            JOptionPane.INFORMATION_MESSAGE
-        );
+        JOptionPane.showMessageDialog(this, LOSE_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
     }
 
+    @Override
     public void refresh() {
         this.repaint();
     }

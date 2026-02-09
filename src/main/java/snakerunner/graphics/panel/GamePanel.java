@@ -5,7 +5,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import snakerunner.controller.Controller;
+import snakerunner.controller.GameController;
 import snakerunner.graphics.hud.BaseHUD;
 import snakerunner.graphics.hud.LevelView;
 import snakerunner.graphics.hud.LifeView;
@@ -18,12 +18,11 @@ public final class GamePanel extends BasePanelImpl {
     private static final long serialVersionUID = 1L;
     private static final String PAUSE = "Pause";
     private static final String RESUME = "Resume";
-    private static final String BACK = "Back to Menu";
     private final BaseHUD timerView;
     private final BaseHUD scoreView;
     private final BaseHUD levelView;
     private final BaseHUD lifeView;
-    private final Controller controller;
+    private final GameController controller;
     private final JPanel nPanel;
     private final JPanel sPanel;
     private final GameBoardPanel gameBoardPanel;
@@ -31,9 +30,8 @@ public final class GamePanel extends BasePanelImpl {
     private final JPanel wPanel;
     private final JButton pause;
     private final JButton resume;
-    private final JButton back;
 
-    public GamePanel(final Controller controller) {
+    public GamePanel(final GameController controller) {
         super();
         this.controller = controller;
         nPanel = new JPanel();
@@ -48,7 +46,6 @@ public final class GamePanel extends BasePanelImpl {
         setLayoutPanel();
         pause = createButton(PAUSE);
         resume = createButton(RESUME);
-        back = createButton(BACK);
         nPanel.setOpaque(false);
         sPanel.setOpaque(false);
         ePanel.setOpaque(false);
@@ -65,8 +62,6 @@ public final class GamePanel extends BasePanelImpl {
         wPanel.add((JLabel)lifeView);
         sPanel.setLayout(new BoxLayout(sPanel, BoxLayout.X_AXIS));
         nPanel.add((JLabel)scoreView);
-        back.setAlignmentX(LEFT_ALIGNMENT);
-        sPanel.add(back);
         this.addActionListeners();
     }
 
@@ -79,7 +74,6 @@ public final class GamePanel extends BasePanelImpl {
     public void addActionListeners() {
         pause.addActionListener(e -> controller.pause());
         resume.addActionListener(e -> controller.resume());
-        back.addActionListener(e -> controller.onBackMenu());
     }
 
     public void updateTimer(final int timeLeft) {
