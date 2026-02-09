@@ -32,7 +32,7 @@ public class Key implements Collectible {
     @Override
     public void consume(final GameModel model) {
         AudioPlayer.playSound(KEY);
-        //model.openDoor();
+        model.openDoor();
     }
 
     /** 
