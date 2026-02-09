@@ -111,18 +111,24 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
-        //Error control in case the current level is still null
+        /* Error control in case the current level is still null */
         if (currentLevel != null) {
-            //We get the coordinates
+        /* We get the coordinates */
             return currentLevel.getObstacles();
         }
-        return Collections.emptySet(); //In order to avoid errors we return an empty set of points.
+        return Collections.emptySet(); /* In order to avoid errors we return an empty set of points */
     }
 
     @Override
     public boolean isLevelCompleted() {
         return this.levelCompleted;
     }
+
+    @Override
+    public void completeLevel() {
+        this.levelCompleted = true ;
+    }
+
 
     @Override
     public void addScore(final int points) {
@@ -165,7 +171,7 @@ public class GameModelImpl implements GameModel {
     }
 
     private void checkCollisions() {
-        // Implement collision detection logic here
+    /* Collision logic */
         Point2D<Integer,Integer> head= snake.getHead();
         if(snake.isCollidingWithItself()) {
             isGameOver= true;
@@ -176,7 +182,7 @@ public class GameModelImpl implements GameModel {
             isGameOver=true;
             return;
         }
-        if(doors != null) /*If the door is ≠ null */{
+        if(doors != null) /* If the door is ≠ null */{
             for (Door door : doors) {
                 if(!door.isOpen() && door.getPosition().equals(head)) { 
                 isGameOver=true;

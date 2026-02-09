@@ -50,6 +50,8 @@ public interface GameModel {
      */
     boolean isLevelCompleted();
 
+    /* "Flags" the current level as completed */
+    void completeLevel();
     /** Adds points to the player's score. 
      * @param points The number of points to add to the score.
      */

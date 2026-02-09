@@ -19,8 +19,8 @@ public class Flag implements Collectible{
     }
 
     @Override
-    public void consume(final GameModel Model) {
-
+    public void consume(final GameModel model) {
+        model.completeLevel(); /* A level is completed when the flag is consumed */
     }
 
     @Override
