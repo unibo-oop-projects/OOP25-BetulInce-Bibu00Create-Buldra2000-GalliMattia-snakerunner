@@ -11,7 +11,6 @@ import java.util.List;
 import javax.swing.Timer;
 
 import snakerunner.controller.GameController;
-import snakerunner.controller.WorldController;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.hud.BaseHUD;
@@ -202,10 +201,4 @@ public class GameControllerImpl implements GameController {
         loadCurrentLevel();
         gameLoopTimer.start();
     }
-
-    @Override
-    public WorldController getWorldController() {
-    return this.worldController;
-}
-
 }

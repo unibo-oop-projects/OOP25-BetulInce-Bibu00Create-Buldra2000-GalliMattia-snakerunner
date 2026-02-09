@@ -44,6 +44,4 @@ public interface GameController {
     void keyTyped(KeyEvent e);
 
     void keyReleased(KeyEvent e);
-
-    WorldController getWorldController();
 }
