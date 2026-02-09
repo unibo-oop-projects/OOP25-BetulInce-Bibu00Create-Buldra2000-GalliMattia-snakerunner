@@ -26,19 +26,11 @@ public final class AudioPlayer {
             return;
         }
 
-        //Try-with-resources
         try {
-            InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName);
-
-            if (sound == null) {
-                return;
-            }
-
-            byte[] audioData = sound.readAllBytes();
-            sound.close();
-
-            ByteArrayInputStream byteStream = new ByteArrayInputStream(audioData);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(byteStream);
+            final InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName);
+            final byte[] audioData = sound.readAllBytes();
+            final ByteArrayInputStream byteStream = new ByteArrayInputStream(audioData);
+            final AudioInputStream audioStream = AudioSystem.getAudioInputStream(byteStream);
 
             final Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
@@ -55,7 +47,6 @@ public final class AudioPlayer {
                     
                     }
                 });
-
             } catch (Exception e) {
                 e.printStackTrace();
         }
