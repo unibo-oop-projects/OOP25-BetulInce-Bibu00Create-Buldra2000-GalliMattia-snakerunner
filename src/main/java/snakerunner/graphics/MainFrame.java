@@ -4,8 +4,10 @@ import snakerunner.graphics.panel.BasePanel;
 //for the keys
 import java.awt.event.KeyListener;
 
+
 public interface MainFrame {
     //test
+    
     void addKeyListener(KeyListener l);
 
     /**

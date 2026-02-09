@@ -115,11 +115,7 @@ public class GameModelImpl implements GameModel {
         //debugPrintLevel();
     }
 
-    @Override
-    public void resetLevel() {
-        //this.snake = new SnakeImpl();
-        //this.food = new FoodImpl();
-    }
+    
 
     @Override
     public Snake getSnake() {
@@ -182,6 +178,7 @@ public class GameModelImpl implements GameModel {
     @Override
     public void resetLives(){
         this.lives =3;
+        this.score = 0;
         this.levelCompleted = false;
         this.snake = new Snake (new Point2D<Integer,Integer>(5, 10));
 
@@ -229,6 +226,14 @@ public class GameModelImpl implements GameModel {
                 iterator.remove();
             }
         }
+    }
+
+    @Override
+public void resetState() {
+    this.levelCompleted = false;
+    this.slowEffectDuration = 0;
+    this.speed = INITIAL_SPEED;
+    this.snake = new Snake(new Point2D<>(5, 10));
     }
 
 }
