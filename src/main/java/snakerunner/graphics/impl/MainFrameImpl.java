@@ -2,6 +2,7 @@ package snakerunner.graphics.impl;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
 
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.BasePanel;
+
 
 public final class MainFrameImpl extends JFrame implements MainFrame {
     
@@ -84,4 +86,10 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
         this.repaint();
     }
 
+    @Override
+    public void addKeyListener(KeyListener l) {
+    super.addKeyListener(l);
+    }
+ 
+   
 }
