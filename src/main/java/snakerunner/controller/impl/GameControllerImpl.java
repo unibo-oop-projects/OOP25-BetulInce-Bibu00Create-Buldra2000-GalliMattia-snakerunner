@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+
 import javax.swing.Timer;
+
 import snakerunner.controller.GameController;
 import snakerunner.controller.WorldController;
 import snakerunner.core.StateGame;
@@ -20,6 +22,8 @@ import snakerunner.model.impl.LevelLoader;
 
 public class GameControllerImpl implements GameController {
 
+    private static final int MAX_LEVEL = 4; 
+
     private StateGame state;
     private Timer gameLoopTimer;
     private BaseHUD timerView;
@@ -27,8 +31,8 @@ public class GameControllerImpl implements GameController {
     private final MainFrame mainFrame;
     private final GameModel gameModel;
     private WorldController worldController;
-    private int currentLevel = 1; //fixare magic number
-    private static final int MAX_LEVEL = 4; //fixare magic number
+    private int currentLevel = 1; 
+    
 
     private int timeLeft;
 
