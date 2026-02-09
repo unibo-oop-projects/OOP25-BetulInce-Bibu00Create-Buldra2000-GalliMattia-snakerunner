@@ -2,6 +2,7 @@ package snakerunner.controller.impl;
 
 import snakerunner.controller.GameController;
 import snakerunner.controller.NavigationController;
+import snakerunner.controller.WorldController;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.BasePanel;
 import snakerunner.graphics.panel.GamePanel;
@@ -38,10 +39,13 @@ public class NavigationControllerImpl implements NavigationController {
             gameController = new GameControllerImpl(mainFrame, gameModel);
         }
 
+        WorldController wc = new WorldControllerImpl(gameModel);
+
         final BasePanel gamePanel = PanelFactory.createGamePanel(gameController);
         
         if (gamePanel instanceof GamePanel gp) {
-        gameController.setHUD(gp.getTimerView(), gp.getScoreView());
+            gp.setWorldController(wc);
+            gameController.setHUD(gp.getTimerView(), gp.getScoreView());
         }
 
         mainFrame.setPanels(menuPanel, gamePanel, optionPanel);

@@ -6,26 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.Timer;
 
-import snakerunner.commons.Point2D;
 import snakerunner.controller.GameController;
 import snakerunner.core.StateGame;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.hud.BaseHUD;
-import snakerunner.model.Collectible;
 import snakerunner.model.Direction;
-import snakerunner.model.Door;
 import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
-import snakerunner.model.Snake;
 import snakerunner.model.impl.LevelLoader;
 
 public class GameControllerImpl implements GameController {
+
+    private static final int MAX_LEVEL = 4;
+    private static final int INITIAL_LEVEL = 1;
 
     private StateGame state;
     private Timer gameLoopTimer;
@@ -33,26 +30,26 @@ public class GameControllerImpl implements GameController {
     private BaseHUD scoreView;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
-    private int currentLevel = 1; //fixare magic number
-    private static final int MAX_LEVEL = 4; //fixare magic number
+    private int currentLevel = INITIAL_LEVEL; 
+    
 
     private int timeLeft;
 
     public GameControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
-        this.mainFrame = mainFrame; //view
-        this.gameModel = gameModel; //model
+        this.mainFrame = mainFrame; 
+        this.gameModel = gameModel; 
         this.state = StateGame.MENU;
         initGameLoop(gameModel.getSpeed());
     }
 
     //KeyListener
     @Override
-    public void keyPressed(KeyEvent e){
+    public void keyPressed(final KeyEvent e){
         //if the fame is not running we ignore the keys
         if (state !=StateGame.RUNNING){
             return;
         }
-        int key = e.getKeyCode();
+        final int key = e.getKeyCode();
 
         //the keyboard bottoms becomes the snake's direction WASD
         switch (key){
@@ -78,12 +75,12 @@ public class GameControllerImpl implements GameController {
     }
 
     @Override 
-    public void keyTyped(KeyEvent e){
+    public void keyTyped(final KeyEvent e){
 
     }
 
     @Override
-    public void keyReleased(KeyEvent e){
+    public void keyReleased(final KeyEvent e){
 
     }
 
@@ -138,47 +135,9 @@ public class GameControllerImpl implements GameController {
         updateHUD();
         mainFrame.refresh();
     }
-
-    @Override
-    public Snake getSnake(){
-        return gameModel.getSnake();
-    }
-
-
-    @Override
-    public Set<Point2D<Integer, Integer>> getObstacles() {
-        return gameModel.getLevel().getObstacles();
-    }
-
-    @Override
-    public List<Collectible> getCollectibles() {
-        return gameModel.getCollectibles();
-    }
-
-    @Override
-    public List<Door> getDoors() {
-        if (gameModel.getLevel() != null) {
-            return gameModel.getLevel().getDoors();
-        }
-            return Collections.emptyList();
-    }
-
-    @Override
-    public int getLevel() {
-        return this.currentLevel;
-    }
-
-    @Override
-    public int getScore(){
-        return gameModel.getScore();
-    }
-    @Override
-    public Direction getDirection() {
-        return gameModel.getSnake().getCurrentDirection();
-    }
     
     @Override
-    public void loadLevelFromFile(String filePath) {
+    public void loadLevelFromFile(final String filePath) {
         
         try (InputStream is = LevelLoader.class
                 .getClassLoader()
@@ -195,15 +154,9 @@ public class GameControllerImpl implements GameController {
             final LevelData level = LevelLoader.load(lines);
             gameModel.loadLevel(level);
 
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException("Errore caricamento livello", e);
         }
-    }
-    
-    @Override
-    public void setHUD(BaseHUD timerView, BaseHUD scoreView) {
-        this.timerView = timerView;
-        this.scoreView = scoreView;
     }
 
     private void updateHUD() {
@@ -213,7 +166,7 @@ public class GameControllerImpl implements GameController {
 
     private void loadCurrentLevel() {
         gameModel.resetState();
-        String filePath = "levels/level" + currentLevel + ".txt";
+        final String filePath = "levels/level" + currentLevel + ".txt";
         loadLevelFromFile(filePath);
     }
 
@@ -221,18 +174,25 @@ public class GameControllerImpl implements GameController {
         currentLevel++;
         if (currentLevel > MAX_LEVEL) {
             currentLevel = 1; 
+            //show win screen
         }
     }
 
-    private void initGameLoop(int delay) {
+    private void initGameLoop(final int delay) {
         gameLoopTimer = new Timer(delay, e -> {
             updateGame();
         });
     }
 
     // Metodo per aggiornare il delay del timer dopo aver raccolto un orologio
-    private void setTimerDelay(int delay) {
+    private void setTimerDelay(final int delay) {
         gameLoopTimer.setDelay(delay);
+    }
+
+    @Override
+    public void setHUD(final BaseHUD timerView, final BaseHUD scoreView) {
+        this.timerView = timerView;
+        this.scoreView = scoreView;
     }
     
     private void handleLevelCompleted() {

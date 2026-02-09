@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import snakerunner.controller.GameController;
+import snakerunner.controller.WorldController;
 import snakerunner.graphics.hud.BaseHUD;
 import snakerunner.graphics.hud.LevelView;
 import snakerunner.graphics.hud.LifeView;
@@ -23,9 +24,10 @@ public final class GamePanel extends BasePanelImpl {
     private final BaseHUD levelView;
     private final BaseHUD lifeView;
     private final GameController controller;
+    private WorldController worldController;
     private final JPanel nPanel;
     private final JPanel sPanel;
-    private final GameBoardPanel gameBoardPanel;
+    private GameBoardPanel gameBoardPanel;
     private final JPanel ePanel;
     private final JPanel wPanel;
     private final JButton pause;
@@ -36,7 +38,6 @@ public final class GamePanel extends BasePanelImpl {
         this.controller = controller;
         nPanel = new JPanel();
         sPanel = new JPanel();
-        gameBoardPanel = new GameBoardPanel(controller);
         ePanel = new JPanel();
         wPanel = new JPanel();
         timerView = new TimerView();
@@ -51,7 +52,6 @@ public final class GamePanel extends BasePanelImpl {
         ePanel.setOpaque(false);
         wPanel.setOpaque(false);
         add(nPanel, BorderLayout.NORTH);
-        add(gameBoardPanel, BorderLayout.CENTER);
         add(ePanel, BorderLayout.EAST);
         add(wPanel, BorderLayout.WEST);
         add(sPanel, BorderLayout.SOUTH);
@@ -64,6 +64,20 @@ public final class GamePanel extends BasePanelImpl {
         nPanel.add((JLabel)scoreView);
         this.addActionListeners();
     }
+
+    public void setWorldController(WorldController worldController) {
+    this.worldController = worldController;
+    
+    if (gameBoardPanel == null) {
+        gameBoardPanel = PanelFactory.createGameBoardPanel(worldController);
+        add(gameBoardPanel, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }
+    
+    revalidate();
+    repaint();
+}
 
     @Override
     public void setLayoutPanel() {

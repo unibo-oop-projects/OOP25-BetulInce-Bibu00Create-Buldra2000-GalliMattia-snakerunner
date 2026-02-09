@@ -1,5 +1,6 @@
 package snakerunner.model.impl;
 
+import snakerunner.audio.AudioPlayer;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.CollectibleType;
@@ -14,6 +15,7 @@ public class LifeBoost implements Collectible {
 
     @Override
     public void consume(GameModel model) {
+        AudioPlayer.playSound("lifeup.wav");
         //model.addLife(); //TODO implementare addLife() in GameModelImpl
     }
 

@@ -154,7 +154,7 @@ public class GameModelImpl implements GameModel {
 
     @Override
     public void openDoor() {
-        for( Door door: doors) { 
+        for( Door door : doors) { 
             door.setOpen(true);
         }
     }
@@ -167,17 +167,18 @@ public class GameModelImpl implements GameModel {
         this.score = 0;
         this.speed = INITIAL_SPEED;
         this.slowEffectDuration = 0;
+        this.isGameOver = false;
     }
 
     private void checkCollisions() {
         // Implement collision detection logic here
         Point2D<Integer,Integer> head= snake.getHead();
-        if(snake.isCollidingWithItself()){
+        if(snake.isCollidingWithItself()) {
             isGameOver= true;
             return;
         }
 
-        if(currentLevel.isBlocked(head)){
+        if(currentLevel.isBlocked(head) ){
             isGameOver=true;
             return;
         }
