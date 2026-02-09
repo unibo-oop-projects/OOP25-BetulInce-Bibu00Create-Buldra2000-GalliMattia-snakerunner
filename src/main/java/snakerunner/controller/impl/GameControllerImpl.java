@@ -27,14 +27,17 @@ import snakerunner.model.impl.LevelLoader;
 
 public class GameControllerImpl implements GameController {
 
+    private static final int MAX_LEVEL = 4;
+    private static final int INITIAL_LEVEL = 1;
+
     private StateGame state;
     private Timer gameLoopTimer;
     private BaseHUD timerView;
     private BaseHUD scoreView;
     private final MainFrame mainFrame;
     private final GameModel gameModel;
-    private int currentLevel = 1; //fixare magic number
-    private static final int MAX_LEVEL = 4; //fixare magic number
+    private int currentLevel = INITIAL_LEVEL; 
+    
 
     private int timeLeft;
 
