@@ -8,8 +8,8 @@ import java.util.Set;
 
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
-import snakerunner.model.LevelData;
 import snakerunner.model.Door;
+import snakerunner.model.LevelData;
 
 /**
  * The LevelLoader class is responsible for loading level data from a list of strings, 
@@ -79,6 +79,8 @@ public final class LevelLoader {
                     case "CLOCK" -> collectibles.add(new Clock(p));
                     
                     case "KEY" -> collectibles.add(new Key(p));
+
+                    case "LIFE_BOOST" -> collectibles.add(new LifeBoost(p));
                         
                     default -> throw new IOException("Unknown collectible type: " + type);
                 }

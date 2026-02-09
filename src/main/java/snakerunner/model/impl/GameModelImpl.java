@@ -97,6 +97,7 @@ public class GameModelImpl implements GameModel {
         this.collectibles = currentLevelData.getCollectibles();
         //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         //this.snake = data.getSnake(); 
+        this.doors = currentLevel.getDoors();
         this.levelCompleted = false;
     }
 
@@ -116,7 +117,7 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
-    public Set<Point2D<Integer, Integer>> getObstacles(){
+    public Set<Point2D<Integer, Integer>> getObstacles() {
         //Error control in case the current level is still null
         if (currentLevel != null) {
             //We get the coordinates
@@ -175,6 +176,20 @@ public class GameModelImpl implements GameModel {
             isGameOver= true;
             return;
         }
+
+        if(currentLevel.isBlocked(head)){
+            isGameOver=true;
+            return;
+        }
+        if(doors != null) /*If the door is ≠ null */{
+            for (Door door : doors) {
+                if(!door.isOpen() && door.getPosition().equals(head)) { 
+                isGameOver=true;
+                return;
+                }
+            }
+        }
+
     }
 
     
