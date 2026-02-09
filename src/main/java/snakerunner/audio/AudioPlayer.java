@@ -27,21 +27,32 @@ public final class AudioPlayer {
         }
 
         //Try-with-resources
-        try ( InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName);
-              BufferedInputStream bstream = new BufferedInputStream(sound);
-              AudioInputStream audioStream = AudioSystem.getAudioInputStream(bstream);
-            ) {
-                if (sound == null) {
-                    return;
-                }
+        try {
+            InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName);
 
-                final Clip clip = AudioSystem.getClip();
-                clip.open(audioStream);
-                clip.start();
+            if (sound == null) {
+                return;
+            }
 
-                clip.addLineListener(event -> {
-                    if (event.getType() == Type.STOP) {
+            byte[] audioData = sound.readAllBytes();
+            sound.close();
+
+            ByteArrayInputStream byteStream = new ByteArrayInputStream(audioData);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(byteStream);
+
+            final Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+
+            clip.addLineListener(event -> {
+               if (event.getType() == Type.STOP) {
                     clip.close();
+                    try {
+                        audioStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    
                     }
                 });
 

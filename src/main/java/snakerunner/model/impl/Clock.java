@@ -1,5 +1,6 @@
 package snakerunner.model.impl;
 
+import snakerunner.audio.AudioPlayer;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
 import snakerunner.model.CollectibleType;
@@ -9,6 +10,7 @@ import snakerunner.model.GameModel;
  * Class representing a clock collectible that slows down the snake's speed when consumed.
  */
 public class Clock implements Collectible {
+    private static final String CLOCK = "clock.wav";
     private final Point2D<Integer, Integer> position;
 
     /**
@@ -28,6 +30,7 @@ public class Clock implements Collectible {
      */
     @Override
     public void consume(final GameModel model) {
+        AudioPlayer.playSound(CLOCK);
         model.applySlowEffect();
     }
 
