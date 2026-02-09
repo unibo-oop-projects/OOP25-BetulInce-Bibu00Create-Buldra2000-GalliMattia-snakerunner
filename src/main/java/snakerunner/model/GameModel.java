@@ -5,6 +5,9 @@ import java.util.Set;
 
 import snakerunner.commons.Point2D;
 
+/**
+ * The GameModel interface defines the core functionalities of the game.
+ */
 public interface GameModel {
     
     /** 
@@ -21,11 +24,6 @@ public interface GameModel {
      * Loads a level from the given data. 
      */
     void loadLevel(LevelData data);
-
-    /** 
-     * Resets the current level to its initial state. 
-     */
-    void resetLevel();
 
     /** 
      * Returns the snake in the game. 

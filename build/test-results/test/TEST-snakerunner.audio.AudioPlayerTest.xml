@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="snakerunner.audio.AudioPlayerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-02-07T15:16:58.243Z" hostname="DESKTOP-BIUIOV7" time="0.474">
+<testsuite name="snakerunner.audio.AudioPlayerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-02-07T18:23:49.002Z" hostname="DESKTOP-BIUIOV7" time="0.476">
   <properties/>
-  <testcase name="playSoundTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.263"/>
-  <testcase name="playSoundExeptionTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.035"/>
-  <testcase name="playSoundMultipleTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.095"/>
-  <testcase name="SoundEnabledGettersTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.004"/>
+  <testcase name="playSoundTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.363"/>
+  <testcase name="playSoundExeptionTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.043"/>
+  <testcase name="playSoundMultipleTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.014"/>
+  <testcase name="SoundEnabledGettersTest()" classname="snakerunner.audio.AudioPlayerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[java.io.IOException: Stream closed
 	at java.base/java.io.BufferedInputStream.getInIfOpen(BufferedInputStream.java:169)
