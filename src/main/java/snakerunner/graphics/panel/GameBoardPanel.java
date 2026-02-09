@@ -27,6 +27,7 @@ public final class GameBoardPanel extends JPanel {
     private Image snakeHeadUp, snakeHeadDown, snakeHeadLeft, snakeHeadRight;
     private Image snakeTailUp, snakeTailDown, snakeTailLeft, snakeTailRight;
     private Image /*snakeBodyTopLeft, snakeBodyBottomLeft, snakeBodyBottomRight,*/ snakeBodyVertical, snakeBodyHorizontal;
+    private Image doorClose, doorOpen;
 
     public GameBoardPanel(final Controller controller) {
         this.controller = controller;
@@ -51,6 +52,8 @@ public final class GameBoardPanel extends JPanel {
     }
 
     private void loadImages() {
+        doorClose = loadImage("images/door_close.png");
+        doorOpen = loadImage("images/door_open.png");
         foodImage = loadImage("images/food.png");
         clockImage = loadImage("images/clock.png");
         keyImage = loadImage("images/key.png");
@@ -60,14 +63,14 @@ public final class GameBoardPanel extends JPanel {
         snakeHeadLeft = loadImage("images/head_left.png");
         snakeHeadRight = loadImage("images/head_right.png");
         snakeTailUp = loadImage("images/tail_up.png");
-        snakeTailDown = snakeHeadLeft = loadImage("images/tail_down.png");
-        snakeTailLeft = snakeHeadLeft = loadImage("images/tail_left.png");
-        snakeTailRight = snakeHeadLeft = loadImage("images/tail_right.png");
-        //snakeBodyTopLeft = snakeHeadLeft = loadImage("images/body_topleft.png");
-        //snakeBodyBottomLeft = snakeHeadLeft = loadImage("images/body_bottomleft.png");
-        //snakeBodyBottomRight = snakeHeadLeft = loadImage("images/body_bottomright.png");
-        snakeBodyVertical = snakeHeadLeft = loadImage("images/body_vertical.png");
-        snakeBodyHorizontal = snakeHeadLeft = loadImage("images/body_horizontal.png");
+        snakeTailDown = loadImage("images/tail_down.png");
+        snakeTailLeft = loadImage("images/tail_left.png");
+        snakeTailRight = loadImage("images/tail_right.png");
+        //snakeBodyTopLeft = loadImage("images/body_topleft.png");
+        //snakeBodyBottomLeft = loadImage("images/body_bottomleft.png");
+        //snakeBodyBottomRight = loadImage("images/body_bottomright.png");
+        snakeBodyVertical = loadImage("images/body_vertical.png");
+        snakeBodyHorizontal = loadImage("images/body_horizontal.png");
     }
 
     private Image loadImage(String path) {
@@ -114,29 +117,29 @@ public final class GameBoardPanel extends JPanel {
      * @param g
      */
     private void drawSnake(final Graphics g) {
-        Snake snake = controller.getSnake();
+        final Snake snake = controller.getSnake();
 
         if (snake == null || snake.getFullBody().isEmpty()) {
             return;
         }
 
-        List<SnakeSegment> body = snake.getFullBody();
+        final List<SnakeSegment> body = snake.getFullBody();
 
         for (int i = 0; i < body.size(); i++) {
-            SnakeSegment segment = body.get(i);
-            Point2D<Integer, Integer> pos = segment.pos;
-            int x = pos.getX() * CELL;
-            int y = pos.getY() * CELL;
+            final SnakeSegment segment = body.get(i);
+            final Point2D<Integer, Integer> pos = segment.pos;
+            final int x = pos.getX() * CELL;
+            final int y = pos.getY() * CELL;
 
-            Image segmentImage;
+            final Image segmentImage;
 
             if (i == 0) {
                 segmentImage = getHeadImage(controller.getDirection());
             } else if (i == body.size() - 1) {
-                Direction tailDirection = getDirection(body.get(i - 1).pos, pos);
+                final Direction tailDirection = getDirection(body.get(i - 1).pos, pos);
                 segmentImage = getTailImage(tailDirection);
             } else {
-                Point2D<Integer, Integer> prevPos = body.get(i - 1).pos;
+                final Point2D<Integer, Integer> prevPos = body.get(i - 1).pos;
                 segmentImage = getBodyImage(prevPos, pos);
             }
 
@@ -147,7 +150,7 @@ public final class GameBoardPanel extends JPanel {
     /**
      * Get head image based on direction
      */
-    private Image getHeadImage(Direction direction) {
+    private Image getHeadImage(final Direction direction) {
         return switch (direction) {
             case UP -> snakeHeadUp;
             case DOWN -> snakeHeadDown;
@@ -160,7 +163,7 @@ public final class GameBoardPanel extends JPanel {
     /**
      * Get tail image based on direction
      */
-    private Image getTailImage(Direction direction) {
+    private Image getTailImage(final Direction direction) {
         return switch (direction) {
             case UP -> snakeTailUp;
             case DOWN -> snakeTailDown;
@@ -171,42 +174,37 @@ public final class GameBoardPanel extends JPanel {
     }
 
     /**
-     * Get body image (simplified version - only vertical/horizontal)
+     * Get body image (only vertical/horizontal)
      */
-    private Image getBodyImage(Point2D<Integer, Integer> prev, 
-                               Point2D<Integer, Integer> current) {
+    private Image getBodyImage(final Point2D<Integer, Integer> prev, final Point2D<Integer, Integer> current) {
         
-        int dx = current.getX() - prev.getX();
-        int dy = current.getY() - prev.getY();
+        final int dx = current.getX() - prev.getX();
+        final int dy = current.getY() - prev.getY();
 
-        // Verticale se si muove su/giù
         if (dx == 0) {
             return snakeBodyVertical;
         }
         
-        // Orizzontale se si muove sinistra/destra
         if (dy == 0) {
             return snakeBodyHorizontal;
         }
 
-        // Default
         return snakeBodyHorizontal;
     }
 
     /**
      * Calculate direction from one point to another
      */
-    private Direction getDirection(Point2D<Integer, Integer> from, 
-                                    Point2D<Integer, Integer> to) {
-        int dx = to.getX() - from.getX();
-        int dy = to.getY() - from.getY();
+    private Direction getDirection(final Point2D<Integer, Integer> from, final Point2D<Integer, Integer> to) {
+        final int dx = to.getX() - from.getX();
+        final int dy = to.getY() - from.getY();
 
         if (dx > 0) return Direction.RIGHT;
         if (dx < 0) return Direction.LEFT;
         if (dy > 0) return Direction.DOWN;
         if (dy < 0) return Direction.UP;
 
-        return Direction.RIGHT; // Default
+        return Direction.RIGHT;
     }
 
     /**
@@ -248,9 +246,7 @@ public final class GameBoardPanel extends JPanel {
     }
 
     private void drawDoors(final Graphics g) {
-        List<Door> doors = controller.getDoors();
-
-        g.setColor(Color.MAGENTA);
+        final List<Door> doors = controller.getDoors();
 
         if (doors == null) {
             return;
@@ -261,7 +257,11 @@ public final class GameBoardPanel extends JPanel {
             final int x = p.getX() * CELL;
             final int y = p.getY() * CELL;
 
-            g.fillRect(x, y, CELL, CELL);
+            final Image doorImage = door.isOpen() ? doorOpen : doorClose;
+
+            if (doorImage != null) {
+                g.drawImage(doorImage, x, y, CELL, CELL, this);
+            }
 
         }
     }

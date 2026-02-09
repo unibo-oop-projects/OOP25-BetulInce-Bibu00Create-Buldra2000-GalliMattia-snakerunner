@@ -40,6 +40,11 @@ public final class LevelLoader {
                 continue;
             }
 
+            if (line.equalsIgnoreCase("[Doors]")) { //TEMPORARY FIX, USE TO TEST gameBoardPanel drawDoors()
+                section = "doors";
+                continue;
+            }
+
             if (section == null) {
                 continue; 
             }
@@ -64,6 +69,8 @@ public final class LevelLoader {
                         
                     default -> throw new IOException("Unknown collectible type: " + type);
                 }
+            } else if (section.equals("doors")) { //TEMPORARY FIX, USE TO TEST gameBoardPanel drawDoors()
+                doors.add(new Door(x, y));
             }
         }
 
