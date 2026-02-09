@@ -1,5 +1,6 @@
 package snakerunner.controller;
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Set;
 
@@ -85,4 +86,10 @@ public interface GameController {
      * @param filepath path file levels
      */
     void loadLevelFromFile(String filepath);
+
+    void keyPressed(KeyEvent e);
+
+    void keyTyped(KeyEvent e);
+
+    void keyReleased(KeyEvent e);
 }

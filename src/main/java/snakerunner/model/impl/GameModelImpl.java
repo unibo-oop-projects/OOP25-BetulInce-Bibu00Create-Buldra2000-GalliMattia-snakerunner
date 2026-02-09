@@ -24,6 +24,7 @@ public class GameModelImpl implements GameModel {
     private Snake snake;
     private List<Collectible> collectibles;
     private boolean levelCompleted;
+    private boolean isGameOver;
     private int score;
     private int speed;
     private int slowEffectDuration;
@@ -37,11 +38,15 @@ public class GameModelImpl implements GameModel {
         score = 0;
         speed = INITIAL_SPEED;
         slowEffectDuration = 0;
+        isGameOver = false;
     }
 
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
+        if (isGameOver) {
+            return;
+        }
         snake.move();
 
         checkCollisions();
@@ -79,7 +84,7 @@ public class GameModelImpl implements GameModel {
             return false;
         }
         */
-       return false;
+       return isGameOver;
     }
 
     @Override
@@ -90,6 +95,7 @@ public class GameModelImpl implements GameModel {
         this.doors = data.getDoors();
         //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         this.levelCompleted = false;
+        this.isGameOver = false;
 
         //debugPrintLevel();
     }
@@ -98,6 +104,7 @@ public class GameModelImpl implements GameModel {
     public void resetLevel() {
         //this.snake = new SnakeImpl();
         //this.food = new FoodImpl();
+        this.isGameOver = false;
     }
 
     @Override
@@ -179,11 +186,11 @@ public class GameModelImpl implements GameModel {
 
     private void checkCollisions() {
         // Implement collision detection logic here
-        /* 
+        Point2D<Integer,Integer> head= snake.getHead();
         if(snake.isCollidingWithItself()){
-
+            isGameOver= true;
+            return;
         }
-        */
     }
 
     

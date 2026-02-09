@@ -1,6 +1,9 @@
-package snakerunner.audio;
+package snakerunner.test.audio;
 
 import org.junit.jupiter.api.Test;
+
+import snakerunner.audio.AudioPlayer;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AudioPlayerTest {
