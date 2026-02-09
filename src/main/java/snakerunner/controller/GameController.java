@@ -28,8 +28,6 @@ public interface GameController {
      */
     void pause();
 
-    GameModel getModel();
-
     /**
      * Get Snake
      * @return

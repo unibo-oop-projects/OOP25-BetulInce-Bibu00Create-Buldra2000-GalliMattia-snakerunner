@@ -177,11 +177,6 @@ public class GameControllerImpl implements GameController {
     public Direction getDirection() {
         return gameModel.getSnake().getCurrentDirection();
     }
-
-    @Override
-    public GameModel getModel() {
-        return gameModel;
-    }
     
     @Override
     public void loadLevelFromFile(String filePath) {
