@@ -2,6 +2,7 @@ package snakerunner.graphics.impl;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -78,13 +79,15 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
 
     @Override
     public void won() {
-        JOptionPane.showMessageDialog(this, WON_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
+        var url = getClass().getResource("/images/snake.png");
+        JOptionPane.showMessageDialog(this, WON_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(url));
         showMenu();
     }
 
     @Override
     public void lose() {
-        JOptionPane.showMessageDialog(this, LOSE_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
+       var url = getClass().getResource("/images/snake.png");
+        JOptionPane.showMessageDialog(this, LOSE_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(url));
         showMenu();
     }
 
