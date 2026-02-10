@@ -1,7 +1,8 @@
 package snakerunner.graphics.panel;
 
 import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
+
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,7 +25,6 @@ public final class GamePanel extends BasePanelImpl {
     private final BaseHUD levelView;
     private final BaseHUD lifeView;
     private final GameController controller;
-    private WorldController worldController;
     private final JPanel nPanel;
     private final JPanel sPanel;
     private GameBoardPanel gameBoardPanel;
@@ -56,28 +56,25 @@ public final class GamePanel extends BasePanelImpl {
         add(wPanel, BorderLayout.WEST);
         add(sPanel, BorderLayout.SOUTH);
         nPanel.add((JLabel)timerView);
-        nPanel.add((JLabel)levelView);
         ePanel.add(pause);
         ePanel.add(resume);
         wPanel.add((JLabel)lifeView);
-        sPanel.setLayout(new BoxLayout(sPanel, BoxLayout.X_AXIS));
+        sPanel.add(Box.createVerticalGlue());
+        nPanel.add((JLabel)levelView);
         nPanel.add((JLabel)scoreView);
         this.addActionListeners();
     }
 
     public void setWorldController(WorldController worldController) {
-    this.worldController = worldController;
     
-    if (gameBoardPanel == null) {
-        gameBoardPanel = PanelFactory.createGameBoardPanel(worldController);
-        add(gameBoardPanel, BorderLayout.CENTER);
+        if (gameBoardPanel == null) {
+            gameBoardPanel = PanelFactory.createGameBoardPanel(worldController);
+            add(gameBoardPanel, BorderLayout.CENTER);
+        }
+    
         revalidate();
         repaint();
     }
-    
-    revalidate();
-    repaint();
-}
 
     @Override
     public void setLayoutPanel() {
@@ -92,21 +89,22 @@ public final class GamePanel extends BasePanelImpl {
 
     public void updateTimer(final int timeLeft) {
         //timerView.setValue(timeLeft);
-        
         repaint();
-
     }
-    //Commented because it was causing merge conflicts
-    /*public void updateObstacles(java.util.Set<snakerunner.commons.Point2D<Integer, Integer>> obstacles){
-        gameBoardPanel.setObstacles(obstacles);
-        repaint();
-    }*/
 
     public BaseHUD getTimerView() {
         return timerView;
     }
 
-    public BaseHUD getScoreView(){
+    public BaseHUD getScoreView() {
         return scoreView;
+    }
+
+    public BaseHUD getLevelView() {
+        return levelView;
+    }
+
+    public BaseHUD getLifeView() {
+        return lifeView;
     }
 }

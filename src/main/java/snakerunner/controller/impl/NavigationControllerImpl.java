@@ -13,8 +13,8 @@ import java.awt.event.KeyListener;
 
 public class NavigationControllerImpl implements NavigationController, KeyListener {
     
-    private MainFrame mainFrame;
-    private GameModel gameModel;
+    private final MainFrame mainFrame;
+    private final GameModel gameModel;
     private GameController gameController;
     private BasePanel menuPanel;
     private BasePanel optionPanel;
@@ -34,7 +34,7 @@ public class NavigationControllerImpl implements NavigationController, KeyListen
         mainFrame.addKeyListener(this);
 
         if (mainFrame instanceof javax.swing.JFrame) {
-        javax.swing.JFrame frame = (javax.swing.JFrame) mainFrame;
+        final javax.swing.JFrame frame = (javax.swing.JFrame) mainFrame;
         frame.setFocusable(true);
         frame.requestFocusInWindow();
     }
@@ -45,17 +45,17 @@ public class NavigationControllerImpl implements NavigationController, KeyListen
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(final KeyEvent e) {
         // Non necessario qui
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(final KeyEvent e) {
         // Non necessario qui, la logica è in GameControllerImpl
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(final KeyEvent e) {
         // Non necessario qui
     }
 
@@ -69,13 +69,13 @@ public class NavigationControllerImpl implements NavigationController, KeyListen
 
         mainFrame.addKeyListener((KeyListener) gameController);
 
-        WorldController wc = new WorldControllerImpl(gameModel);
+        final WorldController wc = new WorldControllerImpl(gameModel);
 
         final BasePanel gamePanel = PanelFactory.createGamePanel(gameController);
         
-        if (gamePanel instanceof GamePanel gp) {
+        if (gamePanel instanceof final GamePanel gp) {
             gp.setWorldController(wc);
-            gameController.setHUD(gp.getTimerView(), gp.getScoreView());
+            gameController.setHUD(gp.getTimerView(), gp.getScoreView(), gp.getLevelView(), gp.getLifeView());
         }
 
         mainFrame.setPanels(menuPanel, gamePanel, optionPanel);

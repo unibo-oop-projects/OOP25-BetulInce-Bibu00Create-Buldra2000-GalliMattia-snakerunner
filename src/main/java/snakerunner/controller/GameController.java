@@ -20,7 +20,7 @@ public interface GameController {
      */
     void pause();
 
-    void setHUD(final BaseHUD timerView, final BaseHUD scoreView);
+    void setHUD(final BaseHUD timerView, final BaseHUD scoreView, final BaseHUD levelView, final BaseHUD lifeView);
 
     /**
      * Resume game.

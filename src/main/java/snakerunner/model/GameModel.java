@@ -40,7 +40,6 @@ public interface GameModel {
      */
     Level getLevel();
 
-
     //Adding obstacles
     Set<Point2D<Integer, Integer>> getObstacles();
     
@@ -62,6 +61,12 @@ public interface GameModel {
      * @return The current score.
      */
     int getScore();
+
+    /**
+     * Returns the current lives.
+     * @return The current lives.
+     */
+    int getLives();
     
     /** 
      * Applies the slow effect to the game after the snake consumes a clock.

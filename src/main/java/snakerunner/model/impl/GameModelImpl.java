@@ -7,11 +7,11 @@ import java.util.Set;
 
 import snakerunner.commons.Point2D; 
 import snakerunner.model.Collectible;
+import snakerunner.model.Door;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
-import snakerunner.model.Door;
 
 
 public class GameModelImpl implements GameModel {
@@ -20,6 +20,8 @@ public class GameModelImpl implements GameModel {
     private static final int SLOW_EFFECT_DURATION = 50;
     private static final int SLOW_EFFECT_SPEED = 300;
     private static final int INITIAL_LIVES = 3;
+    private static final Point2D<Integer, Integer> STARTING_POSITION = new Point2D<>(5, 10);
+    private boolean isGameOver;
 
     private Level currentLevel;
     private Snake snake;
@@ -33,7 +35,7 @@ public class GameModelImpl implements GameModel {
 
     public GameModelImpl() {
         currentLevel = null;
-        snake = new Snake(new Point2D<>(5, 10)); // Starting position of the snake
+        snake = new Snake(STARTING_POSITION); // Starting position of the snake
         collectibles = Collections.emptyList();
         levelCompleted = false;
         score = 0;
@@ -89,8 +91,7 @@ public class GameModelImpl implements GameModel {
         }
         if (collectibles.isEmpty()) {
             levelCompleted = true;
-        }
-    
+        }    
     }
 
     @Override
@@ -121,11 +122,6 @@ public class GameModelImpl implements GameModel {
     @Override
     public List<Collectible> getCollectibles() {
         return Collections.unmodifiableList(collectibles);    
-    }
-
-    @Override
-    public Level getLevel() {
-        return this.currentLevel;
     }
 
     @Override
@@ -160,6 +156,17 @@ public class GameModelImpl implements GameModel {
     }
 
     @Override
+    public int getLives() {
+        return lives;
+    }
+
+    @Override
+    public Level getLevel() {
+        return this.currentLevel;
+    }
+
+
+    @Override
     public void applySlowEffect() {
         speed = SLOW_EFFECT_SPEED;
         slowEffectDuration = SLOW_EFFECT_DURATION;
@@ -189,25 +196,6 @@ public class GameModelImpl implements GameModel {
         this.isGameOver = false;
         this.lives =3;
     }
-
-
-    /*
-    private void debugPrintLevel() {
-        System.out.println("=== LEVEL DEBUG ===");
-
-        System.out.println("Walls:");
-        for (Point2D<Integer, Integer> p : currentLevel.getObstacles()) {
-            System.out.println("  wall at " + p);
-        }
-
-        System.out.println("Collectibles:");
-        for (Collectible c : collectibles) {
-            System.out.println("  collectible at " + c.getPosition());
-        }
-
-        System.out.println("===================");
-    }
-    */
 
     private void checkCollisions() {
     /* Collision logic */
@@ -255,5 +243,10 @@ public class GameModelImpl implements GameModel {
         this.isGameOver = false;
         this.speed = INITIAL_SPEED;
         this.slowEffectDuration = 0;
+    }
+
+    @Override
+    public void resetLives() {
+        //TODO
     }
 }

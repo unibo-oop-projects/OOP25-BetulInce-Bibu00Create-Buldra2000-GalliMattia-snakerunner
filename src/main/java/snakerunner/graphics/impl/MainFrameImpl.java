@@ -74,11 +74,13 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
     @Override
     public void won(){
         JOptionPane.showMessageDialog(this, WON_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
+        showMenu();
     }
 
     @Override
     public void lose() {
         JOptionPane.showMessageDialog(this, LOSE_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE);
+        showMenu();
     }
 
     @Override

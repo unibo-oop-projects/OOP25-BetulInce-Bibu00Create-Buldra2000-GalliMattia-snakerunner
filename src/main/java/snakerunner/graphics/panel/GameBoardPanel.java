@@ -6,10 +6,8 @@ import java.awt.Image;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
 import snakerunner.commons.Point2D;
 import snakerunner.controller.WorldController;
 import snakerunner.model.Collectible;
@@ -22,11 +20,11 @@ public final class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int CELL = 20;
-    private WorldController worldController;
+    private final WorldController worldController;
     private Image foodImage, clockImage, keyImage, obstacleImage, mushroomImage;
     private Image snakeHeadUp, snakeHeadDown, snakeHeadLeft, snakeHeadRight;
     private Image snakeTailUp, snakeTailDown, snakeTailLeft, snakeTailRight;
-    private Image /*snakeBodyTopLeft, snakeBodyBottomLeft, snakeBodyBottomRight,*/ snakeBodyVertical, snakeBodyHorizontal;
+    private Image snakeBodyVertical, snakeBodyHorizontal;
     private Image doorClose, doorOpen;
 
     public GameBoardPanel(final WorldController worldController) {
@@ -69,9 +67,6 @@ public final class GameBoardPanel extends JPanel {
         snakeTailDown = loadImage("images/tail_down.png");
         snakeTailLeft = loadImage("images/tail_left.png");
         snakeTailRight = loadImage("images/tail_right.png");
-        //snakeBodyTopLeft = loadImage("images/body_topleft.png");
-        //snakeBodyBottomLeft = loadImage("images/body_bottomleft.png");
-        //snakeBodyBottomRight = loadImage("images/body_bottomright.png");
         snakeBodyVertical = loadImage("images/body_vertical.png");
         snakeBodyHorizontal = loadImage("images/body_horizontal.png");
     }
@@ -220,8 +215,6 @@ public final class GameBoardPanel extends JPanel {
         for (final Point2D<Integer, Integer> p : worldController.getObstacles()) {
             final int x = p.getX() * CELL;
             final int y = p.getY() * CELL;
-
-            //g.fillRect(x * CELL, y * CELL, CELL, CELL);
             g.drawImage(obstacleImage, x, y, CELL, CELL, this);
         }
     }
