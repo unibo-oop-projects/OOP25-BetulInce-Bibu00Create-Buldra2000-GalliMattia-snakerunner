@@ -1,6 +1,7 @@
 package snakerunner.controller.impl;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +20,7 @@ import snakerunner.model.GameModel;
 import snakerunner.model.LevelData;
 import snakerunner.model.impl.LevelLoader;
 
-public class GameControllerImpl implements GameController {
+public class GameControllerImpl implements GameController, KeyListener {
 
     private static final int MAX_LEVEL = 4;
     private static final int INITIAL_LEVEL = 1;
@@ -42,6 +43,8 @@ public class GameControllerImpl implements GameController {
         initGameLoop(gameModel.getSpeed());
     }
 
+    //Creation components
+    
     //KeyListener
     @Override
     public void keyPressed(final KeyEvent e){
@@ -51,7 +54,7 @@ public class GameControllerImpl implements GameController {
         }
         final int key = e.getKeyCode();
 
-        //the keyboard bottoms becomes the snake's direction WASD
+        //the keyboard bottoms becomes the snake's direction 
         switch (key){
             case KeyEvent.VK_UP:
                 gameModel.getSnake().setDirection(Direction.UP);
@@ -86,8 +89,12 @@ public class GameControllerImpl implements GameController {
 
     @Override
     public void start() {
+        gameModel.resetLives();
         timeLeft = 5;
         loadCurrentLevel();
+        if (mainFrame instanceof javax.swing.JFrame) {
+        ((javax.swing.JFrame) mainFrame).requestFocusInWindow();
+    }
         timerView.setValue(timeLeft);
         scoreView.setValue(gameModel.getScore());
         gameLoopTimer.start();
@@ -107,6 +114,10 @@ public class GameControllerImpl implements GameController {
         if (state == StateGame.PAUSED) {
             state = StateGame.RUNNING;
             gameLoopTimer.restart();
+
+            if (mainFrame instanceof javax.swing.JFrame) {
+            ((javax.swing.JFrame) mainFrame).requestFocusInWindow();
+            }  
         }
     }
 
@@ -199,6 +210,9 @@ public class GameControllerImpl implements GameController {
         gameLoopTimer.stop();
         nextLevel();
         loadCurrentLevel();
+        if (mainFrame instanceof javax.swing.JFrame) {
+        ((javax.swing.JFrame) mainFrame).requestFocusInWindow();
+    }
         gameLoopTimer.start();
     }
 }

@@ -124,7 +124,7 @@ public class Snake  {
                 body.set(i, new SnakeSegment(curr, SnakeSegment.SegmentType.HEAD, currentDirection,null, toTail));
 
             }
-            //second case : it's the head 
+            //second case : it's the tail
             else if (i == body.size() - 1 ){
                 Direction toHead = getRelativeDirection(curr,body.get(i-1).pos);
                 body.set(i, new SnakeSegment(curr, SnakeSegment.SegmentType.TAIL,null, toHead, null));

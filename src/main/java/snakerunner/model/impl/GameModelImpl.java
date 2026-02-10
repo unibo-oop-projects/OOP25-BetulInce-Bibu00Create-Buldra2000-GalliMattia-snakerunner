@@ -5,52 +5,66 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import snakerunner.commons.Point2D; //This is not used at the moment we could delete it
+import snakerunner.commons.Point2D; 
 import snakerunner.model.Collectible;
-import snakerunner.model.Door;
 import snakerunner.model.GameModel;
 import snakerunner.model.Level;
 import snakerunner.model.LevelData;
 import snakerunner.model.Snake;
+import snakerunner.model.Door;
 
-/**
- * The GameModelImpl class implements the GameModel interface and provides the core functionalities of the game.
- */
+
 public class GameModelImpl implements GameModel {
 
     private static final int INITIAL_SPEED = 150;
     private static final int SLOW_EFFECT_DURATION = 50;
     private static final int SLOW_EFFECT_SPEED = 300;
-    private static final Point2D<Integer, Integer> STARTING_POSITION = new Point2D<>(5, 10);
+    private static final int INITIAL_LIVES = 3;
 
     private Level currentLevel;
-    private LevelData currentLevelData;
     private Snake snake;
     private List<Collectible> collectibles;
     private boolean levelCompleted;
-    private boolean isGameOver;
     private int score;
     private int speed;
+    private int lives;
     private int slowEffectDuration;
     private List<Door> doors;
 
     public GameModelImpl() {
         currentLevel = null;
-        snake = new Snake(STARTING_POSITION); 
+        snake = new Snake(new Point2D<>(5, 10)); // Starting position of the snake
         collectibles = Collections.emptyList();
         levelCompleted = false;
         score = 0;
         speed = INITIAL_SPEED;
+        lives = INITIAL_LIVES; 
         slowEffectDuration = 0;
-        isGameOver = false;
     }
 
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
+        if (isGameOver() || levelCompleted)
+            return;
+        
         snake.move();
 
-        checkCollisions();
+        //Check fatal collision
+        Point2D<Integer,Integer> head = snake.getHead();
+        if (getObstacles().contains(head) || snake.isCollidingWithItself()){
+
+            this.lives--; //remove of life
+
+            if (this.lives > 0){
+                //the snake respawns
+                this.snake= new Snake (new Point2D<>(5,10));
+            }else {
+                return;
+            }
+
+        }
+
         // TODO Auto-generated method stub
         //Should we check for a collision in case the snake hits itself?
 
@@ -63,36 +77,41 @@ public class GameModelImpl implements GameModel {
         //gestione power-up e cibo
         checkCollectibles();
 
-        checkSlowEffect();
+        if (slowEffectDuration > 0) {
+            slowEffectDuration--;
+            if (slowEffectDuration == 0) {
+                speed = INITIAL_SPEED; // reset speed after slow effect ends
+            }
+        }
 
         if (isGameOver) {
             resetAfterGameOver();
         }
         if (collectibles.isEmpty()) {
             levelCompleted = true;
-            //debug
-            //resetLevel();
         }
     
     }
 
     @Override
     public boolean isGameOver() {
-       return isGameOver;
+       return this.lives <=0;
+
     }
 
     @Override
-    public void loadLevel(final LevelData data) {
-        this.currentLevelData = data;
-        this.currentLevel = new LevelImpl(currentLevelData);
-        //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
-        //this.obstacle = data.getObstacles(); 
-        this.collectibles = currentLevelData.getCollectibles();
-        //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
-        //this.snake = data.getSnake(); 
-        this.doors = currentLevel.getDoors();
+    public void loadLevel(LevelData data) {
+        this.currentLevel = new LevelImpl(data);
+        //this.obstacle = data.getObstacles(); //TODO: decide if we want to set the obstacles from the level data or always use the ones defined in the level implementation
+        this.collectibles = data.getCollectibles();
+        this.doors = data.getDoors();
+        //this.snake = data.getSnake(); //TODO: decide if we want to set the snake position from the level data or always start in a fixed position
         this.levelCompleted = false;
+
+        //debugPrintLevel();
     }
+
+    
 
     @Override
     public Snake getSnake() {
@@ -168,7 +187,27 @@ public class GameModelImpl implements GameModel {
         this.speed = INITIAL_SPEED;
         this.slowEffectDuration = 0;
         this.isGameOver = false;
+        this.lives =3;
     }
+
+
+    /*
+    private void debugPrintLevel() {
+        System.out.println("=== LEVEL DEBUG ===");
+
+        System.out.println("Walls:");
+        for (Point2D<Integer, Integer> p : currentLevel.getObstacles()) {
+            System.out.println("  wall at " + p);
+        }
+
+        System.out.println("Collectibles:");
+        for (Collectible c : collectibles) {
+            System.out.println("  collectible at " + c.getPosition());
+        }
+
+        System.out.println("===================");
+    }
+    */
 
     private void checkCollisions() {
     /* Collision logic */
@@ -193,6 +232,7 @@ public class GameModelImpl implements GameModel {
 
     }
 
+
     
     private void checkCollectibles() {
         Iterator<Collectible> iterator = collectibles.iterator();
@@ -208,14 +248,7 @@ public class GameModelImpl implements GameModel {
         }
     }
 
-    private void checkSlowEffect() {
-        if (slowEffectDuration > 0) {
-            slowEffectDuration--;
-            if (slowEffectDuration == 0) {
-                speed = INITIAL_SPEED; // reset speed after slow effect ends
-            }
-        }
-    }
+    
 
     private void resetAfterGameOver() {
         this.snake = new Snake(STARTING_POSITION);
