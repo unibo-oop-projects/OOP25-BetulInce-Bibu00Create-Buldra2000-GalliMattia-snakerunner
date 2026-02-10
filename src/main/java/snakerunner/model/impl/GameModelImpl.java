@@ -57,29 +57,7 @@ public final class GameModelImpl implements GameModel {
         }
 
         snake.move();
-        /*  
-        //Check fatal collision
-        final Point2D<Integer, Integer> head = snake.getHead();
-        if (getObstacles().contains(head) || snake.isCollidingWithItself()) {
-
-            this.lives--; //remove of life
-
-            if (this.lives > 0) {
-                //the snake respawns
-                this.snake = new Snake(STARTING_POSITION);
-            } else {
-                return;
-            }
-
-        }*/
-
-        // TODO Auto-generated method stub
-        //Should we check for a collision in case the snake hits itself?
-
-        //Collision with walls
-        //gameOver= true;
-        //Collision with collectibles
-
+      
         //controllo impatti con ostacoli/porte/corpo del serpente
         checkCollisions();
         //gestione power-up e cibo
@@ -204,13 +182,13 @@ public final class GameModelImpl implements GameModel {
 
     private void checkCollisions() {
     /* Collision logic */
-       final Point2D<Integer,Integer> head= snake.getHead();
+       final Point2D<Integer, Integer> head = snake.getHead();
         if(snake.isCollidingWithItself()) {
             handleCollision();
             return;
         }
 
-        if(currentLevel.isBlocked(head) ){
+        if(currentLevel.isBlocked(head)) {
             handleCollision();
             return;
         }

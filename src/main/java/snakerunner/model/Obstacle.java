@@ -56,7 +56,7 @@ public class Obstacle extends Entity {
     public boolean isHit(final int targetX, final int targetY) {
      return targetX >= this.x 
             && targetX < this.x + this.width 
-           /* Checking if x is between the beginning and the end of the obstacle */
+            /* Checking if x is between the beginning and the end of the obstacle */
             && targetY >= this.y 
             && targetY < this.y + this.height; /* Checking if the y is between the beginning and the end of the obstacle */
     }
