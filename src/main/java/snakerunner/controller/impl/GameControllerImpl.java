@@ -101,7 +101,7 @@ public final class GameControllerImpl implements GameController, KeyListener {
     @Override
     public void start() {
         gameModel.resetLives();
-        timeLeft = 100;
+        timeLeft = 500;
         loadCurrentLevel();
         if (mainFrame instanceof javax.swing.JFrame) {
         ((javax.swing.JFrame) mainFrame).requestFocusInWindow();

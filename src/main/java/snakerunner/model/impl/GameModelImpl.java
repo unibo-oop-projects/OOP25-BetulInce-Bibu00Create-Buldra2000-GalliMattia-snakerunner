@@ -24,7 +24,7 @@ public final class GameModelImpl implements GameModel {
     private static final int SLOW_EFFECT_DURATION = 50;
     private static final int SLOW_EFFECT_SPEED = 300;
     private static final int INITIAL_LIVES = 3;
-    private static final Point2D<Integer, Integer> STARTING_POSITION = new Point2D<>(5, 10);
+    private static final Point2D<Integer, Integer> STARTING_POSITION = new Point2D<>(2, 10);
     private boolean isGameOver;
 
     private Level currentLevel;
