@@ -13,8 +13,8 @@ import snakerunner.model.LevelData;
  * Implementation of the Level interface representing a level in the game.
  */
 public final class LevelImpl implements Level {
-    private static final int WIDTH = 35;
-    private static final int HEIGHT = 23;
+    private static final int WIDTH = 37;
+    private static final int HEIGHT = 29;
 
     private final Grid grid;
     private final Set<Point2D<Integer, Integer>> obstacles;

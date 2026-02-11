@@ -22,6 +22,8 @@ import snakerunner.model.SnakeSegment;
 public final class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
+    private static final int GRID_COLS = 37;
+    private static final int GRID_ROWS = 29;
     private static final int CELL = 15;
     private final WorldController worldController;
     private Image foodImage;
@@ -119,11 +121,8 @@ public final class GameBoardPanel extends JPanel {
     private void drawGrid(final Graphics g) {
         g.setColor(Color.BLACK);
 
-        final int panelWidth = getWidth();
-        final int panelHeight = getHeight();
-
-        final int cols = panelWidth / CELL;
-        final int rows = panelHeight / CELL;
+        final int cols = GRID_COLS;
+        final int rows = GRID_ROWS;
 
         final int gridWidth = cols * CELL;
         final int gridHeight = rows * CELL;
