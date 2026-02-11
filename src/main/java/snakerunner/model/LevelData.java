@@ -36,4 +36,5 @@ public interface LevelData {
      * @return the victory condition for the level.
      */
     VictoryCondition getVictoryCondition();
+
 }
