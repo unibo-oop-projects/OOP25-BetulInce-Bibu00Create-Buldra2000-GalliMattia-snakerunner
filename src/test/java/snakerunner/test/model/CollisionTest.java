@@ -1,12 +1,10 @@
 package snakerunner.test.model;
 import snakerunner.model.impl.GameModelImpl;
 import snakerunner.commons.Point2D;
-import snakerunner.model.Obstacle;
 import snakerunner.model.Collectible;
 import snakerunner.model.LevelData;
 import snakerunner.model.VictoryCondition;
 import snakerunner.model.Direction;
-import snakerunner.model.Snake;
 import snakerunner.model.impl.Key;
 import snakerunner.model.Door;
 import org.junit.jupiter.api.Test;
@@ -36,7 +34,7 @@ class CollisionTest {
 
     @Test
     /*Walls */
-    void WallCollision() {
+    void wallCollision() {
         /*We add an obstacle to 6,10. Since the snake is moving towards right it should hit */
         levelData.addObstacle(6,10);
         gameModel.loadLevel(levelData); /* Empty level */
@@ -52,7 +50,7 @@ class CollisionTest {
 
     @Test
     /*Snake itself */
-    void SelfCollision() {
+    void selfCollision() {
         gameModel.loadLevel(levelData); /*Empty level */
 
         /*Snake moves into a circle to collide with itself*/
@@ -74,7 +72,7 @@ class CollisionTest {
 
     @Test
     /*Doors */
-    void DoorCollision() {
+    void doorCollision() {
         /* Case door closed */
         levelData.addDoor(6,10);
         gameModel.loadLevel(levelData); /*Empty level */
@@ -98,7 +96,7 @@ class CollisionTest {
 
       @Test
       /*Key that opens a door */
-        void KeyOpensDoor() {
+        void keyOpensDoor() {
             
             levelData.addKey(6,10);
             levelData.addDoor(7,10);
@@ -120,9 +118,9 @@ class CollisionTest {
         /* Mocking for testing */
     static class TestLevelData implements LevelData {
         
-        private Set <Point2D<Integer,Integer>> obstacles= new HashSet<>();
-        private List <Collectible> collectibles= new ArrayList<>();
-        private List <Door> doors= new ArrayList<>();
+        private final Set <Point2D<Integer,Integer>> obstacles= new HashSet<>();
+        private final List <Collectible> collectibles= new ArrayList<>();
+        private final List <Door> doors= new ArrayList<>();
 
 
     @Override
@@ -145,14 +143,14 @@ class CollisionTest {
         return VictoryCondition.COLLECT_ALL_FOOD;
     }
 
-    public void addDoor(int x, int y) {
+    public void addDoor(final int x, final int y) {
         doors.add(new Door(x,y));
     }
 
-    public void addObstacle(int x, int y) {
+    public void addObstacle(final int x, final int y) {
         obstacles.add(new Point2D<>(x,y));
     }
-    public void addKey(int x, int y) {
+    public void addKey(final int x, final int y) {
         collectibles.add(new Key(new Point2D<>(x,y)));
     }
 

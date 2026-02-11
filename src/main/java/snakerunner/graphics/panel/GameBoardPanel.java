@@ -287,10 +287,10 @@ public final class GameBoardPanel extends JPanel {
             case KEY -> g.drawImage(keyImage, x, y, CELL, CELL, this);
             case LIFE_BOOST -> g.drawImage(mushroomImage, x, y, CELL, CELL, this);
             case FLAG -> g.drawImage(flagImage, x, y, CELL, CELL, this);
-            default -> {
-                g.setColor(Color.YELLOW);
-                g.fillOval(x, y, CELL, CELL);
-            }
+            // default -> {
+            //     g.setColor(Color.YELLOW);
+            //     g.fillOval(x, y, CELL, CELL);
+            // }
         }
        }
     }

@@ -18,7 +18,7 @@ public final class LevelImpl implements Level {
 
     private final Grid grid;
     private final Set<Point2D<Integer, Integer>> obstacles;
-    private final java.util.List<snakerunner.model.Door> doors;
+    private final List<Door> doors;
 
     /**
      * Constructs a LevelImpl with the specified level data.
