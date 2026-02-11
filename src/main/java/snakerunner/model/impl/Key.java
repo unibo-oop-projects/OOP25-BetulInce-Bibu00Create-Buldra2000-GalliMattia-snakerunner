@@ -11,7 +11,7 @@ import snakerunner.model.GameModel;
  * When consumed, it can trigger specific effects such as opening doors.
  */
 public class Key implements Collectible {
-    private static final String KEY_SOUND = "key.wav";
+    private static final String KEY_SOUND = "sounds/key.wav";
     private final Point2D<Integer, Integer> position;
 
     /**

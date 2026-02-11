@@ -11,9 +11,9 @@ public final class LevelView extends AbstractBaseView {
 
     private static final long serialVersionUID = 1L;
     private static final String LEVEL_TEXT = "Level : %1d";
-    private static final int WIDTH = 60;
+    private static final int WIDTH = 80;
     private static final int HEIGHT = 30;
-    private static final int X = 5;
+    private static final int X = 15;
     private static final int Y = 15;
 
     private int level;

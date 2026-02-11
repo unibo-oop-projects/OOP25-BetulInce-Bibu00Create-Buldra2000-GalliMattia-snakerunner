@@ -62,11 +62,12 @@ public final class GamePanel extends AbstractBasePanel {
         add(wPanel, BorderLayout.WEST);
         add(sPanel, BorderLayout.SOUTH);
         nPanel.add((JLabel) timerView);
+        nPanel.add(Box.createHorizontalStrut(20));
         ePanel.add(pause);
         ePanel.add(resume);
         wPanel.add((JLabel) lifeView);
-        sPanel.add(Box.createVerticalGlue());
         nPanel.add((JLabel) levelView);
+        nPanel.add(Box.createHorizontalStrut(25));
         nPanel.add((JLabel) scoreView);
         this.addActionListeners();
     }
