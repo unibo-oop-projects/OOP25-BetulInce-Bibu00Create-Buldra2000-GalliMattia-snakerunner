@@ -13,7 +13,7 @@ public final class LifeView extends AbstractBaseView {
     private static final String LIFE_TEXT = "Life : %1d";
     private static final int X = 5;
     private static final int Y = 15;
-    private static final int WIDTH = 60;
+    private static final int WIDTH = 80;
     private static final int HEIGHT = 30;
 
     private int life;

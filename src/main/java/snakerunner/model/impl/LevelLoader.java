@@ -82,6 +82,8 @@ public final class LevelLoader {
 
                     case "LIFE_BOOST" -> collectibles.add(new LifeBoost(p));
 
+                    case "FLAG" -> collectibles.add(new Flag(p));
+
                     default -> throw new IOException("Unknown collectible type: " + type);
                 }
             } else if (section.equals("doors")) { //TEMPORARY FIX, USE TO TEST gameBoardPanel drawDoors()

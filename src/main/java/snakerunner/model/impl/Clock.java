@@ -10,7 +10,7 @@ import snakerunner.model.GameModel;
  * Class representing a clock collectible that slows down the snake's speed when consumed.
  */
 public class Clock implements Collectible {
-    private static final String CLOCK = "clock.wav";
+    private static final String CLOCK = "sounds/clock.wav";
     private final Point2D<Integer, Integer> position;
 
     /**

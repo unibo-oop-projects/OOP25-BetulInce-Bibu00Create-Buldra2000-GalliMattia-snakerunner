@@ -19,6 +19,7 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
     private static final String WON_MESSAGE = "You Won!";
     private static final String LOSE_MESSAGE = "You Lose!";
     private static final String LEVEL_COMPLETE = "Level Complete! Get ready for the next level!";
+    private static final String SNAKE = "/images/snake.png";
     private static final double PROPORTION = 0.5;
     private BasePanel menuPanel;
     private BasePanel gamePanel;
@@ -79,21 +80,22 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
 
     @Override
     public void won() {
-        var url = getClass().getResource("/images/snake.png");
+        final var url = getClass().getResource(SNAKE);
         JOptionPane.showMessageDialog(this, WON_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(url));
         showMenu();
     }
 
     @Override
     public void lose() {
-       var url = getClass().getResource("/images/snake.png");
+        final var url = getClass().getResource(SNAKE);
         JOptionPane.showMessageDialog(this, LOSE_MESSAGE, TITLE, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(url));
         showMenu();
     }
 
     @Override
     public void levelComplete() {
-        JOptionPane.showMessageDialog(this, LEVEL_COMPLETE, TITLE, JOptionPane.INFORMATION_MESSAGE);
+        final var url = getClass().getResource(SNAKE);
+        JOptionPane.showMessageDialog(this, LEVEL_COMPLETE, TITLE, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(url));
     }
 
     @Override
