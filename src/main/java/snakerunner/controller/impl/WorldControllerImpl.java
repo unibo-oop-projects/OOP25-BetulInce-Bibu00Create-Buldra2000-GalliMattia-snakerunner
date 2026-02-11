@@ -57,5 +57,16 @@ public class WorldControllerImpl implements WorldController {
     public Direction getDirection() {
         return gameModel.getSnake().getCurrentDirection();
     }
-    
+
+    @Override
+    public int getGridWidth() {
+        return gameModel.getLevel().getGrid().getWidth();
+    }
+
+    @Override
+    public int getGridHeight() {
+        return gameModel.getLevel().getGrid().getHeight();
+    }
+
+
 }

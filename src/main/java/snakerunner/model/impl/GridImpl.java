@@ -34,4 +34,14 @@ public class GridImpl implements Grid {
 
         return x >= 0 && x < width && y >= 0 && y < height;
     }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
 }

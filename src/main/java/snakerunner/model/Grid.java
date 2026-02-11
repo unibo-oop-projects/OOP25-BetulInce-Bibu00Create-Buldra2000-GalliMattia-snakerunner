@@ -13,4 +13,9 @@ public interface Grid {
      * @return true if the position is inside the grid, false otherwise.
      */
     boolean isInsideGrid(Point2D<Integer, Integer> position);
+
+    int getWidth();
+
+    int getHeight();
+
 }

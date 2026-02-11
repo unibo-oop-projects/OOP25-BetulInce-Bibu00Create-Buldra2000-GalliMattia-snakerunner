@@ -38,6 +38,10 @@ public interface WorldController {
      */
     List<Door> getDoors();
 
+    int getGridWidth();
+
+    int getGridHeight();
+
     /**
      * Get Level from Model (Controller - Model)
      * @return
