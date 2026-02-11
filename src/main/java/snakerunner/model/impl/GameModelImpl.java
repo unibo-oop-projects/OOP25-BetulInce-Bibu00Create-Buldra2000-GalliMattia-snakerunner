@@ -53,6 +53,10 @@ public final class GameModelImpl implements GameModel {
         slowEffectDuration = 0;
     }
 
+    /**
+     * Updates the game state by moving the snake, checking for collisions and collectibles,
+     * and managing the slow effect duration.
+     */
     @Override
     public void update() {
         // Every game update logic goes here and updates the game state accordingly.
@@ -61,31 +65,37 @@ public final class GameModelImpl implements GameModel {
         }
 
         snake.move();
-      
-        //controllo impatti con ostacoli/porte/corpo del serpente
+
         checkCollisions();
-        //gestione power-up e cibo
         checkCollectibles();
 
+        //after every update, we check if 
+        // the slow effect is active and decrease its duration
         if (slowEffectDuration > 0) {
             slowEffectDuration--;
             if (slowEffectDuration == 0) {
-                speed = INITIAL_SPEED; // reset speed after slow effect ends
+                speed = INITIAL_SPEED; 
             }
         }
 
         if (isGameOver) {
             resetAfterGameOver();
         }
-        
     }
 
+    /**
+     * Checks if the game is over based on the player's lives.
+     */
     @Override
     public boolean isGameOver() {
        return this.lives <= 0;
 
     }
 
+    /**
+     * Loads a new level into the game model using the provided LevelData,
+     *  initializing the level state,
+     */
     @Override
     public void loadLevel(final LevelData data) {
         this.currentLevel = new LevelImpl(data);
@@ -95,16 +105,25 @@ public final class GameModelImpl implements GameModel {
         this.victoryCondition = data.getVictoryCondition();
     }
 
+    /**
+     * Returns the current state of the snake, including its position and body segments.
+     */
     @Override
     public Snake getSnake() {
         return this.snake;
     }
 
+    /**
+     * Returns an unmodifiable list of collectibles currently present in the level.
+     */
     @Override
     public List<Collectible> getCollectibles() {
         return Collections.unmodifiableList(collectibles);
     }
 
+    /**
+     * Returns a set of points representing the positions of obstacles in the current level.
+     */
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
         /* Error control in case the current level is still null */
@@ -115,48 +134,78 @@ public final class GameModelImpl implements GameModel {
         return Collections.emptySet(); /* In order to avoid errors we return an empty set of points */
     }
 
+    /**  
+     * Checks if the current level has been completed 
+     * based on the victory condition and game state.
+     */
     @Override
     public boolean isLevelCompleted() {
         return this.levelCompleted;
     }
 
+    /**
+     * Marks the current level as completed, 
+     * allowing the game to transition to the next level or end state.
+     */
     @Override
     public void completeLevel() {
         this.levelCompleted = true;
     }
 
-
+    /**
+     * Adds points to the player's score based 
+     * on the type of collectible consumed or other game events.
+     */
     @Override
     public void addScore(final int points) {
         score += points;
     }
 
+    /**
+     * Returns the player's current score.
+     */
     @Override
     public int getScore() {
         return score;
     }
 
+    /**
+     * Returns the number of lives the player has remaining.
+     */
     @Override
     public int getLives() {
         return lives;
     }
 
+    /**
+     * Returns the current level object.
+     */
     @Override
     public Level getLevel() {
         return this.currentLevel;
     }
 
+    /**
+     * Applies a slow effect to the snake, 
+     * reducing its speed for a certain duration of updates.
+     */
     @Override
     public void applySlowEffect() {
         speed = SLOW_EFFECT_SPEED;
         slowEffectDuration = SLOW_EFFECT_DURATION;
     }
 
+    /**
+     * Returns the current speed of the snake.
+     */
     @Override
     public int getSpeed() {
         return speed;
     }
 
+    /**
+     * Opens all doors in the current level, allowing the snake to pass through them.
+     */
     @Override
     public void openDoor() {
         for (final Door door : doors) {
@@ -164,6 +213,9 @@ public final class GameModelImpl implements GameModel {
         }
     }
 
+    /**
+     * Resets the game state to its initial conditions.
+     */
     @Override
     public void resetState() {
         this.snake = new Snake(STARTING_POSITION);
