@@ -1,8 +1,10 @@
 package snakerunner.model.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import snakerunner.commons.Point2D;
+import snakerunner.model.Door;
 import snakerunner.model.Grid;
 import snakerunner.model.Level;
 import snakerunner.model.LevelData;
@@ -50,7 +52,7 @@ public final class LevelImpl implements Level {
     }
 
     @Override
-    public java.util.List getDoors() {
+    public List<Door> getDoors() {
         return doors;
     }
 
