@@ -1,18 +1,19 @@
 package snakerunner.graphics.panel;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
+
 import snakerunner.controller.GameController;
 import snakerunner.controller.WorldController;
 import snakerunner.graphics.hud.BaseHUD;
 import snakerunner.graphics.hud.HUDFactory;
 import snakerunner.graphics.impl.AbstractBasePanel;
-
-import javax.swing.KeyStroke;
-import javax.swing.AbstractAction;
-import java.awt.event.ActionEvent;
 
 /**
  * GamePanel define the GameView when the user click "start".
@@ -105,6 +106,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return TimerView.
      */
+    @SuppressWarnings("EI_EXPOSE_REP")
     public BaseHUD getTimerView() {
         return timerView;
     }
@@ -114,6 +116,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return ScoreView.
      */
+    @SuppressWarnings("EI_EXPOSE_REP")
     public BaseHUD getScoreView() {
         return scoreView;
     }
@@ -132,6 +135,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return LifeView.
      */
+    @SuppressWarnings("EI_EXPOSE_REP")
     public BaseHUD getLifeView() {
         return lifeView;
     }

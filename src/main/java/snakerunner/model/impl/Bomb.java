@@ -19,7 +19,7 @@ public class Bomb implements Collectible {
      * @param position The game model to which the bomb's effect will be applied.
      */
     public Bomb(final Point2D<Integer, Integer> position) {
-        this.position = position;
+        this.position = new Point2D<>(position.getX(), position.getY());
     }
 
     /**
@@ -38,7 +38,7 @@ public class Bomb implements Collectible {
      */
     @Override
     public Point2D<Integer, Integer> getPosition() {
-        return position;
+        return new Point2D<>(position.getX(), position.getY());
     }
 
     /**

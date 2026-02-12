@@ -1,5 +1,7 @@
 package snakerunner.model.impl;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -49,12 +51,12 @@ public final class LevelImpl implements Level {
      */
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
-        return obstacles;
+        return new HashSet<>(obstacles);
     }
 
     @Override
     public List<Door> getDoors() {
-        return doors;
+        return new ArrayList<>(doors);
     }
 
     /**

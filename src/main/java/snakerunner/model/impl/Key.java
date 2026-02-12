@@ -20,7 +20,7 @@ public class Key implements Collectible {
      * @param position The (x, y) coordinates where the key is located in the game world.
      */
     public Key(final Point2D<Integer, Integer> position) {
-        this.position = position;
+        this.position = new Point2D<>(position.getX(), position.getY());
     }
 
     /** 
@@ -42,7 +42,7 @@ public class Key implements Collectible {
      */
     @Override
     public Point2D<Integer, Integer> getPosition() {
-        return position;
+        return new Point2D<>(position.getX(), position.getY());
     }
 
     /**

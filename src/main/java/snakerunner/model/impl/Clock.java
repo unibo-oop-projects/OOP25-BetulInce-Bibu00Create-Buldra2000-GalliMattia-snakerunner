@@ -20,7 +20,7 @@ public class Clock implements Collectible {
      */
     public Clock(final Point2D<Integer, Integer> position) {
 
-        this.position = position;
+        this.position = new Point2D<>(position.getX(), position.getY());
     }
 
     /**
@@ -41,7 +41,7 @@ public class Clock implements Collectible {
      */
     @Override
     public Point2D<Integer, Integer> getPosition() {
-        return position;
+        return new Point2D<>(position.getX(), position.getY());
     }
 
     /**

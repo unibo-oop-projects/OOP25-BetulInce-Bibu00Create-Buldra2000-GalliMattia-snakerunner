@@ -38,7 +38,7 @@ public final class SnakeSegment {
     public SnakeSegment(final Point2D<Integer, Integer> pos, final SegmentType type,
                         final Direction facing, final Direction toHead, final Direction toTail) {
 
-        this.pos = pos;
+        this.pos = new Point2D<>(pos.getX(), pos.getY());
         this.type = type;
         this.facing = facing;
         this.toHead = toHead;
@@ -51,7 +51,7 @@ public final class SnakeSegment {
      * @return the position of this snake segment.
      */
     public Point2D<Integer, Integer> getPos() {
-        return pos;
+        return new Point2D<>(pos.getX(), pos.getY());
     }
 
     /**

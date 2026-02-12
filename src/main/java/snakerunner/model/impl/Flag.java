@@ -20,7 +20,7 @@ public final class Flag implements Collectible {
      * @param position The (x, y) coordinates where the flag is located in the game world.
      */
     public Flag(final Point2D<Integer, Integer> position) {
-        this.position = position;
+        this.position = new Point2D<>(position.getX(), position.getY());
     }
 
     @Override
@@ -37,6 +37,6 @@ public final class Flag implements Collectible {
 
     @Override
     public Point2D<Integer, Integer> getPosition() {
-        return position;
+        return new Point2D<>(position.getX(), position.getY());
     }
 }

@@ -22,7 +22,7 @@ public class FoodImpl implements Collectible {
      * @param position The position of the food item in the game world.
      */
     public FoodImpl(final Point2D<Integer, Integer> position) {
-        this.position = position;
+        this.position = new Point2D<>(position.getX(), position.getY());
     }
 
     /**
@@ -43,7 +43,7 @@ public class FoodImpl implements Collectible {
      */
     @Override
     public Point2D<Integer, Integer> getPosition() {
-        return position;
+        return new Point2D<>(position.getX(), position.getY());
     }
 
     /**
