@@ -44,7 +44,7 @@ public class Entity {
      * 
      * @param x set X-coordinate.
      */
-    public void setX(final int x) {
+    public final void setX(final int x) {
         this.x = x;
     }
 
@@ -53,7 +53,7 @@ public class Entity {
      * 
      * @param y set Y-coordinate.
      */
-    public void setY(final int y) {
+    public final void setY(final int y) {
         this.y = y;
     }
 }
