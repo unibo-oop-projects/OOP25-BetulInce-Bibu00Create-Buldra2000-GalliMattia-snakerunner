@@ -24,28 +24,45 @@ Verifies collisions between:
 class CollisionTest {
     private GameModelImpl gameModel;
     private TestLevelData levelData;
+    
 
- /*This is a setup that "cleans" the game before every test*/
+ /*
+ *This is a setup that "cleans" the game before every test
+ */
     @BeforeEach
     void setUp() {
         gameModel = new GameModelImpl(); 
         levelData = new TestLevelData(); /* New Level  */
+        levelData.addFood(30,20);
     }
 
     @Test
-    /*Walls */
+    /*Walls
+    *Checks collisions with walls (obstacles)
+    */
     void wallCollision() {
-        /*We add an obstacle to 6,10. Since the snake is moving towards right it should hit */
-        levelData.addObstacle(6,10);
+
+        /*We add an obstacle to 3,10. Since the snake is moving towards right it should hit */
+        levelData.addObstacle(3,10);
         gameModel.loadLevel(levelData); /* Empty level */
 
-    /*Initial state: game should be running */
-        assertFalse(gameModel.isGameOver(), "Game shouldn't be over initally");
-        gameModel.update();
-    /*When the snake runs into a wall it triggers Game over */
-        assertTrue(gameModel.isGameOver(), "Snake should die when it hits a wall");
+    assertEquals(3, gameModel.getLives());
+    final Point2D<Integer, Integer> startPos = gameModel.getSnake().getHead();
 
-
+    /* First collision */
+    gameModel.update();
+    assertEquals(2, gameModel.getLives(),"Lives should be 2 after 1st collision");
+    assertEquals(startPos, gameModel.getSnake().getHead(),"Snake should reset to start");
+    
+    /* Second collision */
+    gameModel.update();
+    assertEquals(1, gameModel.getLives(),"Lives should be 1 after 2nd collision");
+    assertEquals(startPos, gameModel.getSnake().getHead(),"Snake should reset to start");
+    
+    /* Third collision */
+    gameModel.update();
+    assertEquals(0, gameModel.getLives(),"Lives should be 0 after 3rd collision");
+    assertTrue(gameModel.isGameOver()," Game should be over");
     }
 
     @Test
@@ -53,63 +70,73 @@ class CollisionTest {
     void selfCollision() {
         gameModel.loadLevel(levelData); /*Empty level */
 
+        assertEquals(new Point2D<>(2, 10), gameModel.getSnake().getHead());
+
         /*Snake moves into a circle to collide with itself*/
         gameModel.getSnake().setDirection(Direction.RIGHT);
         gameModel.update();
+        assertEquals(new Point2D<>(3, 10), gameModel.getSnake().getHead());
 
         gameModel.getSnake().setDirection(Direction.DOWN);
         gameModel.update();
+        assertEquals(new Point2D<>(3, 11), gameModel.getSnake().getHead());
 
         gameModel.getSnake().setDirection(Direction.LEFT);
         gameModel.update();
+        assertEquals(new Point2D<>(2, 11), gameModel.getSnake().getHead());
 
         gameModel.getSnake().setDirection(Direction.UP);
         gameModel.update();
+        assertEquals(new Point2D<>(2, 10), gameModel.getSnake().getHead());
 
-    assertTrue(gameModel.isGameOver(), "Snake should die when it hits itself");
 
+        assertEquals(2, gameModel.getLives(), "Lives should decrease after self-collision. Lives: " + gameModel.getLives());
+        assertEquals(new Point2D<>(2, 10), gameModel.getSnake().getHead());
     }
 
     @Test
     /*Doors */
     void doorCollision() {
         /* Case door closed */
-        levelData.addDoor(6,10);
+        levelData.addDoor(3,10);
         gameModel.loadLevel(levelData); /*Empty level */
 
         assertFalse(levelData.getDoors().get(0).isOpen());
         gameModel.update();
 
-        assertTrue(gameModel.isGameOver(), "Snake should die when hitting a closed door");
-        
+        assertEquals(2, gameModel.getLives(), "Snake should lose life when it hits a closed door ");
+        assertFalse(gameModel.isGameOver());
+
         /* Case door open */
         setUp(); 
-        levelData.addDoor(6,10);
+        levelData.addDoor(3,10);
         gameModel.loadLevel(levelData); /*Empty level */
         /* Opening a door */
         gameModel.openDoor();
         assertTrue(levelData.getDoors().get(0).isOpen());
 
         gameModel.update();
-        assertFalse(gameModel.isGameOver(), "Snake should pass through an open door");
+        assertEquals(3, gameModel.getLives(), "Snake should not lose life");
     }
 
       @Test
       /*Key that opens a door */
         void keyOpensDoor() {
             
-            levelData.addKey(6,10);
-            levelData.addDoor(7,10);
+            levelData.addKey(3,10);
+            levelData.addDoor(4,10);
             gameModel.loadLevel(levelData); /*Empty level */
             
             /*Initally the door is closed */
-            assertFalse(levelData.getDoors().get(0).isOpen(), "Initially door should be closed");
+            assertFalse(levelData.getDoors().get(0).isOpen());
             gameModel.update(); /*We update and the snake collects the key */
-            assertTrue(gameModel.getCollectibles().isEmpty(), "Key should be collected");
+
+            assertTrue(gameModel.getCollectibles().size() == 1, "Key should be collected");
             assertTrue(levelData.getDoors().get(0).isOpen(), "Door should be open once the key is collected");
             gameModel.update(); 
 
-            assertFalse(gameModel.isGameOver(), "Snake should pass through an open door");
+            assertEquals(3, gameModel.getLives(), "Snake should pass through the door");
+            assertFalse(gameModel.isGameOver());
 
         }
 
@@ -150,9 +177,12 @@ class CollisionTest {
     public void addObstacle(final int x, final int y) {
         obstacles.add(new Point2D<>(x,y));
     }
+
     public void addKey(final int x, final int y) {
         collectibles.add(new Key(new Point2D<>(x,y)));
     }
-
+    public void addFood(final int x, final int y) {
+        collectibles.add(new snakerunner.model.impl.FoodImpl(new Point2D<>(x,y)));
+    }
     }
 }
