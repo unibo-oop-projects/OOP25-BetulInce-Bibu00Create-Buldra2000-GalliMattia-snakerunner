@@ -51,6 +51,11 @@ public interface WorldController {
      */
     Direction getDirection();
 
+    /**
+     * Get Level.
+     * 
+     * @return level.
+     */
     Level getLevel();
 
 }

@@ -1,8 +1,6 @@
 package snakerunner.graphics.panel;
 
 import java.awt.BorderLayout;
-
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,7 +33,7 @@ public final class GamePanel extends AbstractBasePanel {
 
     /**
      * GamePanel Constructor.
-     * 
+     *
      * @param controller GameController.
      */
     public GamePanel(final GameController controller) {
@@ -62,19 +60,19 @@ public final class GamePanel extends AbstractBasePanel {
         add(wPanel, BorderLayout.WEST);
         add(sPanel, BorderLayout.SOUTH);
         nPanel.add((JLabel) timerView);
-        nPanel.add(Box.createHorizontalStrut(20));
+        //nPanel.add(Box.createHorizontalStrut(20));
         ePanel.add(pause);
         ePanel.add(resume);
         wPanel.add((JLabel) lifeView);
         nPanel.add((JLabel) levelView);
-        nPanel.add(Box.createHorizontalStrut(25));
+        //nPanel.add(Box.createHorizontalStrut(25));
         nPanel.add((JLabel) scoreView);
         this.addActionListeners();
     }
 
     /**
      * Sets the worldController and initialize the gameBoardPanel.
-     * 
+     *
      * @param worldController the worldController for game state.
      */
     public void setWorldController(final WorldController worldController) {
@@ -101,7 +99,7 @@ public final class GamePanel extends AbstractBasePanel {
 
     /**
      * Getter for TimerView.
-     * 
+     *
      * @return TimerView.
      */
     public BaseHUD getTimerView() {
@@ -110,7 +108,7 @@ public final class GamePanel extends AbstractBasePanel {
 
     /**
      * Getter for ScoreView.
-     * 
+     *
      * @return ScoreView.
      */
     public BaseHUD getScoreView() {
@@ -119,7 +117,7 @@ public final class GamePanel extends AbstractBasePanel {
 
     /**
      * Getter for LevelView.
-     * 
+     *
      * @return LevelView.
      */
     public BaseHUD getLevelView() {
@@ -128,7 +126,7 @@ public final class GamePanel extends AbstractBasePanel {
 
     /**
      * Getter for LifeView.
-     * 
+     *
      * @return LifeView.
      */
     public BaseHUD getLifeView() {

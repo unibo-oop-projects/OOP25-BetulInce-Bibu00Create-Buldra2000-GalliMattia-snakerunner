@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import snakerunner.controller.NavigationController;
 import snakerunner.graphics.impl.AbstractBasePanel;
 
+/**
+ * TutorialPanel define TutorialView.
+ */
 public final class TutorialPanel extends AbstractBasePanel {
 
     private static final long serialVersionUID = 1L;
@@ -24,12 +27,17 @@ public final class TutorialPanel extends AbstractBasePanel {
     private final JLabel description;
     private final JButton back;
 
-    public TutorialPanel(final NavigationController navigationController){
+    /**
+     * Constructor TutorialPanel.
+     * 
+     * @param navigationController NavigationController.
+     */
+    public TutorialPanel(final NavigationController navigationController) {
         super();
         this.navigationController = navigationController;
         command = new JLabel(COMMAND);
         description = new JLabel(DESCRIPTION);
-        description.setFont(new Font("Monospaced", Font.PLAIN,SIZE_DESC));
+        description.setFont(new Font("Monospaced", Font.PLAIN, SIZE_DESC));
         command.setFont(new Font("Arial", Font.BOLD, SIZE_COMM));
         back = createButton(BACK);
         initPanel();
@@ -53,5 +61,5 @@ public final class TutorialPanel extends AbstractBasePanel {
     public void addActionListeners() {
        back.addActionListener(e -> navigationController.onBackMenu());
     }
-    
+
 }

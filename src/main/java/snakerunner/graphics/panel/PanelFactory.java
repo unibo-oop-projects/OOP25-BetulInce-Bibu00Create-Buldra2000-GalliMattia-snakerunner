@@ -41,6 +41,12 @@ public final class PanelFactory {
         return new OptionPanel(navigationController);
     }
 
+    /**
+     * Create a new TutorialPanel.
+     * 
+     * @param navigationController NavigationController.
+     * @return new TutorialPanel.
+     */
     public static BasePanel createTutorialPanel(final NavigationController navigationController) {
         return new TutorialPanel(navigationController);
     }

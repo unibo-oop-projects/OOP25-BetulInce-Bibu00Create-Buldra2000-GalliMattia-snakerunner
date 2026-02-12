@@ -13,17 +13,20 @@ public class Bomb implements Collectible {
 
     private final Point2D<Integer, Integer> position;
 
+    /**
+     * Consumes the bomb collectible, applying its effect to the game model.
+     * 
+     * @param position The game model to which the bomb's effect will be applied.
+     */
     public Bomb(final Point2D<Integer, Integer> position) {
         this.position = position;
     }
 
     /**
      * Constructor for the Bomb collectible.
-     * 
-     * @param position the position of the bomb on the grid.
      */
     @Override
-    public void consume(GameModel model) {
+    public void consume(final GameModel model) {
         AudioPlayer.playSound("sounds/bomb.wav");
         model.killSnake();
     }
@@ -47,5 +50,5 @@ public class Bomb implements Collectible {
     public CollectibleType getType() {
         return CollectibleType.BOMB;
     }
-    
+
 }
