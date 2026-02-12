@@ -1,7 +1,9 @@
 package snakerunner.graphics.hud;
 
 /**
- * HUDFactory create BaseHUD.
+ * Factory class for creating HUD components displayed during gameplay.
+ * Provides static factory methods that return {@link BaseHUD} instances
+ * for timer, score, level, and lives visualization.
  */
 public final class HUDFactory {
 

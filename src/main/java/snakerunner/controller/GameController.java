@@ -3,17 +3,20 @@ package snakerunner.controller;
 import snakerunner.graphics.hud.BaseHUD;
 
 /**
- * GameController for the game sequences.
+ * Managing the game sessione lifecycle,
+ * including starting, pausing, resuming, updating game loop,
+ * loading level and configuring HUD components.
  */
 public interface GameController {
 
     /**
-     * Starts the game loop.
+     * Starts the game session, inizializing the timer, loading current level,
+     * and starting game loop.
      */
     void start();
 
     /**
-     * Pause Game (Model - Controller - View).
+     * Pause the game if it's currently running, stop the gameloop timer.
      */
     void pause();
 
@@ -33,7 +36,8 @@ public interface GameController {
     void resume();
 
     /**
-     * Update gameLoop.
+     * Advances the game by one tick: updates the model,
+     * decrements the timer, checks for game over and refreshes the view.
      */
     void updateGame();
 

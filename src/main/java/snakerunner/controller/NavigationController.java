@@ -7,7 +7,7 @@ import snakerunner.graphics.MainFrame;
  */
 public interface NavigationController {
     /**
-     * Initialize the application and set up view state (Controller - View).
+     * Initializes the application and set up view state (Controller - View).
      */
     void init();
 
@@ -22,12 +22,12 @@ public interface NavigationController {
     void onBackMenu();
 
     /**
-     * start game.
+     * Starts a new game session and transitions to the game view.
      */
     void startGame();
 
     /**
-     * Show Tutorial.
+     * Navigates to the Tutorial panel.
      */
     void onTutorial();
 
@@ -37,7 +37,7 @@ public interface NavigationController {
     void exit();
 
     /**
-     * Return view.
+     * Return main application frame.
      * 
      * @return return the mainFrame.
      */

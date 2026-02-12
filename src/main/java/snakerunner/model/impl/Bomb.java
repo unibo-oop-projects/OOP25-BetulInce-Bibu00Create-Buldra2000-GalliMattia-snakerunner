@@ -50,5 +50,4 @@ public class Bomb implements Collectible {
     public CollectibleType getType() {
         return CollectibleType.BOMB;
     }
-
 }
