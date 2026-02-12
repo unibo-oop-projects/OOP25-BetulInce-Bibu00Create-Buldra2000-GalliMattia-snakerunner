@@ -1,4 +1,5 @@
 package snakerunner.test.model;
+
 import snakerunner.model.impl.GameModelImpl;
 import snakerunner.commons.Point2D;
 import snakerunner.model.Collectible;
@@ -9,10 +10,13 @@ import snakerunner.model.impl.Key;
 import snakerunner.model.Door;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
-
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 /*
 Verifies collisions between:
 *Snake and an obstacle(walls)
@@ -22,18 +26,20 @@ Verifies collisions between:
 */
 
 class CollisionTest {
+    private static final int FOOD_X = 30;
+    private static final int FOOD_Y = 20;
+    private static final int TEST_Y = 11;
     private GameModelImpl gameModel;
     private TestLevelData levelData;
-    
+    /*
+    *This is a setup that "cleans" the game before every test
+    */
 
- /*
- *This is a setup that "cleans" the game before every test
- */
     @BeforeEach
     void setUp() {
         gameModel = new GameModelImpl(); 
         levelData = new TestLevelData(); /* New Level  */
-        levelData.addFood(30,20);
+        levelData.addFood(FOOD_X, FOOD_Y);
     }
 
     @Test
@@ -43,7 +49,7 @@ class CollisionTest {
     void wallCollision() {
 
         /*We add an obstacle to 3,10. Since the snake is moving towards right it should hit */
-        levelData.addObstacle(3,10);
+        levelData.addObstacle(3, 10);
         gameModel.loadLevel(levelData); /* Empty level */
 
     assertEquals(3, gameModel.getLives());
@@ -51,18 +57,16 @@ class CollisionTest {
 
     /* First collision */
     gameModel.update();
-    assertEquals(2, gameModel.getLives(),"Lives should be 2 after 1st collision");
-    assertEquals(startPos, gameModel.getSnake().getHead(),"Snake should reset to start");
-    
+    assertEquals(2, gameModel.getLives(), "Lives should be 2 after 1st collision");
+    assertEquals(startPos, gameModel.getSnake().getHead(), "Snake should reset to start");
     /* Second collision */
     gameModel.update();
-    assertEquals(1, gameModel.getLives(),"Lives should be 1 after 2nd collision");
-    assertEquals(startPos, gameModel.getSnake().getHead(),"Snake should reset to start");
-    
+    assertEquals(1, gameModel.getLives(), "Lives should be 1 after 2nd collision");
+    assertEquals(startPos, gameModel.getSnake().getHead(), "Snake should reset to start");
     /* Third collision */
     gameModel.update();
-    assertEquals(0, gameModel.getLives(),"Lives should be 0 after 3rd collision");
-    assertTrue(gameModel.isGameOver()," Game should be over");
+    assertEquals(0, gameModel.getLives(), "Lives should be 0 after 3rd collision");
+    assertTrue(gameModel.isGameOver(), " Game should be over");
     }
 
     @Test
@@ -79,16 +83,15 @@ class CollisionTest {
 
         gameModel.getSnake().setDirection(Direction.DOWN);
         gameModel.update();
-        assertEquals(new Point2D<>(3, 11), gameModel.getSnake().getHead());
+        assertEquals(new Point2D<>(3, TEST_Y), gameModel.getSnake().getHead());
 
         gameModel.getSnake().setDirection(Direction.LEFT);
         gameModel.update();
-        assertEquals(new Point2D<>(2, 11), gameModel.getSnake().getHead());
+        assertEquals(new Point2D<>(2, TEST_Y), gameModel.getSnake().getHead());
 
         gameModel.getSnake().setDirection(Direction.UP);
         gameModel.update();
         assertEquals(new Point2D<>(2, 10), gameModel.getSnake().getHead());
-
 
         assertEquals(2, gameModel.getLives(), "Lives should decrease after self-collision. Lives: " + gameModel.getLives());
         assertEquals(new Point2D<>(2, 10), gameModel.getSnake().getHead());
@@ -98,7 +101,7 @@ class CollisionTest {
     /*Doors */
     void doorCollision() {
         /* Case door closed */
-        levelData.addDoor(3,10);
+        levelData.addDoor(3, 10);
         gameModel.loadLevel(levelData); /*Empty level */
 
         assertFalse(levelData.getDoors().get(0).isOpen());
@@ -109,7 +112,7 @@ class CollisionTest {
 
         /* Case door open */
         setUp(); 
-        levelData.addDoor(3,10);
+        levelData.addDoor(3, 10);
         gameModel.loadLevel(levelData); /*Empty level */
         /* Opening a door */
         gameModel.openDoor();
@@ -120,13 +123,11 @@ class CollisionTest {
     }
 
       @Test
-      /*Key that opens a door */
+        /*Key that opens a door */
         void keyOpensDoor() {
-            
-            levelData.addKey(3,10);
-            levelData.addDoor(4,10);
+            levelData.addKey(3, 10);
+            levelData.addDoor(4, 10);
             gameModel.loadLevel(levelData); /*Empty level */
-            
             /*Initally the door is closed */
             assertFalse(levelData.getDoors().get(0).isOpen());
             gameModel.update(); /*We update and the snake collects the key */
@@ -139,16 +140,12 @@ class CollisionTest {
             assertFalse(gameModel.isGameOver());
 
         }
+    /* Mocking for testing */
 
-
-
-        /* Mocking for testing */
     static class TestLevelData implements LevelData {
-        
-        private final Set <Point2D<Integer,Integer>> obstacles= new HashSet<>();
-        private final List <Collectible> collectibles= new ArrayList<>();
-        private final List <Door> doors= new ArrayList<>();
-
+        private final Set<Point2D<Integer, Integer>> obstacles = new HashSet<>();
+        private final List<Collectible> collectibles = new ArrayList<>();
+        private final List<Door> doors = new ArrayList<>();
 
     @Override
     public Set<Point2D<Integer, Integer>> getObstacles() {
@@ -171,18 +168,19 @@ class CollisionTest {
     }
 
     public void addDoor(final int x, final int y) {
-        doors.add(new Door(x,y));
+        doors.add(new Door(x, y));
     }
 
     public void addObstacle(final int x, final int y) {
-        obstacles.add(new Point2D<>(x,y));
+        obstacles.add(new Point2D<>(x, y));
     }
 
     public void addKey(final int x, final int y) {
-        collectibles.add(new Key(new Point2D<>(x,y)));
+        collectibles.add(new Key(new Point2D<>(x, y)));
     }
+
     public void addFood(final int x, final int y) {
-        collectibles.add(new snakerunner.model.impl.FoodImpl(new Point2D<>(x,y)));
+        collectibles.add(new snakerunner.model.impl.FoodImpl(new Point2D<>(x, y)));
     }
     }
 }

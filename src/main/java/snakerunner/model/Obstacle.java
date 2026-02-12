@@ -22,8 +22,8 @@ public class Obstacle extends Entity {
      * @param height the height of the obstacle in grid units.
      */
     public Obstacle(final int x, final int y, final int width, final int height) {
-        this.x = x;
-        this.y = y;
+        setX(x); 
+        setY(y);
         this.width = width;
         this.height = height;
     }
@@ -54,11 +54,11 @@ public class Obstacle extends Entity {
      * @return true if the target point is within the obstacle's boundaries, false otherwise.
      */
     public boolean isHit(final int targetX, final int targetY) {
-     return targetX >= this.x 
-            && targetX < this.x + this.width 
+     return targetX >= getX()
+            && targetX < getX() + this.width 
             /* Checking if x is between the beginning and the end of the obstacle */
-            && targetY >= this.y 
-            && targetY < this.y + this.height; /* Checking if the y is between the beginning and the end of the obstacle */
+            && targetY >= getY()
+            && targetY < getY() + this.height; /* Checking if the y is between the beginning and the end of the obstacle */
     }
 
     /**
@@ -71,7 +71,7 @@ public class Obstacle extends Entity {
         for (int i = 0; i < width; i++) { /* iterates through width and then height*/
             for (int j = 0; j < height; j++) {
                 /* adds a new "point" to the set for every cell that's occupied */
-                positions.add(new Point2D<>(x + i, y + j));
+                positions.add(new Point2D<>(getX() + i, getY() + j));
             }
         }
         return positions;

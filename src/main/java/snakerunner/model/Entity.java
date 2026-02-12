@@ -4,8 +4,15 @@ package snakerunner.model;
  * The Entity class represents a generic entity in the Snake Runner game.
  */
 public class Entity {
-    protected int x;
-    protected int y;
+    /*
+    * X-coordinate of the entity.
+    */
+    private int x;
+
+    /*
+    * Y-coordinate of the entity
+    */
+    private int y;
 
     /**
      * generate the entity.
