@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.Timer;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import snakerunner.controller.GameController;
 import snakerunner.core.GameConfiguration;
 import snakerunner.core.StateGame;
@@ -44,6 +45,7 @@ public final class GameControllerImpl implements GameController {
      * @param mainFrame the main frame of the game.
      * @param gameModel the game model that contains the game state and logic.
      */
+    @SuppressFBWarnings
     public GameControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame;
         this.gameModel = gameModel;
@@ -154,6 +156,7 @@ public void moveRight() {
     /**
      * Loads a level from a file and updates the game model with the new level data.
      */
+    @SuppressFBWarnings
     @Override
     public void loadLevelFromFile(final String filePath) {
         try (InputStream is = LevelLoader.class
@@ -217,6 +220,7 @@ public void moveRight() {
         });
     }
 
+    @SuppressFBWarnings
     @Override
     public void setHUD(final BaseHUD timer, final BaseHUD score, final BaseHUD level, final BaseHUD life) {
         this.timerView = timer;

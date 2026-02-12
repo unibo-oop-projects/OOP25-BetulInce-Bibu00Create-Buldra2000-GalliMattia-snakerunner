@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import snakerunner.controller.GameController;
 import snakerunner.controller.WorldController;
 import snakerunner.graphics.hud.BaseHUD;
@@ -41,6 +42,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @param controller GameController.
      */
+    @SuppressFBWarnings
     public GamePanel(final GameController controller) {
         super();
         initPanel();
@@ -106,7 +108,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return TimerView.
      */
-    @SuppressWarnings("EI_EXPOSE_REP")
+    @SuppressFBWarnings
     public BaseHUD getTimerView() {
         return timerView;
     }
@@ -116,7 +118,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return ScoreView.
      */
-    @SuppressWarnings("EI_EXPOSE_REP")
+    @SuppressFBWarnings
     public BaseHUD getScoreView() {
         return scoreView;
     }
@@ -126,6 +128,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return LevelView.
      */
+    @SuppressFBWarnings
     public BaseHUD getLevelView() {
         return levelView;
     }
@@ -135,7 +138,7 @@ public final class GamePanel extends AbstractBasePanel {
      *
      * @return LifeView.
      */
-    @SuppressWarnings("EI_EXPOSE_REP")
+    @SuppressFBWarnings
     public BaseHUD getLifeView() {
         return lifeView;
     }

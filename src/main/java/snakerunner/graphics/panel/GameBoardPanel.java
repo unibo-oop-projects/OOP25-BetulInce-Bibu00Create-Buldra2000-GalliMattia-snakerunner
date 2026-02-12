@@ -24,7 +24,7 @@ import snakerunner.model.SnakeSegment;
 public final class GameBoardPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private final WorldController worldController;
+    private final transient WorldController worldController;
     private transient Image foodImage;
     private transient Image keyImage;
     private transient Image obstacleImage;

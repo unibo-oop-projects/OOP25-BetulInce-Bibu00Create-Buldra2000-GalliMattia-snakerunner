@@ -15,7 +15,7 @@ public final class MenuPanel extends AbstractBasePanel {
     private static final String START = "Start";
     private static final String OPTION = "Option";
     private static final String EXIT = "Exit";
-    private transient final NavigationController navigationController;
+    private final transient NavigationController navigationController;
     private final JButton start;
     private final JButton option;
     private final JButton exit;

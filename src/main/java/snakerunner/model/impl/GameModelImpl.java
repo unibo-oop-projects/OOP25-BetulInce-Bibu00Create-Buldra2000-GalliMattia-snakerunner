@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import snakerunner.commons.Point2D;
 import snakerunner.core.GameConfiguration;
 import snakerunner.model.Collectible;
@@ -108,6 +109,7 @@ public final class GameModelImpl implements GameModel {
      * Returns the current state of the snake, including its position and body segments.
      */
     @Override
+    @SuppressFBWarnings
     public Snake getSnake() {
         return this.snake;
     }

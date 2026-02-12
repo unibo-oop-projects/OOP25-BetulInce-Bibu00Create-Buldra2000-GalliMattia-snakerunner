@@ -47,33 +47,36 @@ public final class AudioPlayer {
      * @param fileName the name of the sound file to play.
      */
     public static void playSound(final String fileName) {
-
-        if (!soundEnable) {
-            return;
+    if (!soundEnable) {
+        return;
+    }
+    try {
+        final byte[] audioData;
+        try (InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName)) {
+            if (sound == null) {
+                LOGGER.log(Level.WARNING, "Sound file not found: {0}", fileName);
+                return;
+            }
+            audioData = sound.readAllBytes();
         }
 
-        try {
-            final InputStream sound = AudioPlayer.class.getResourceAsStream("/" + fileName);
-            final byte[] audioData = sound.readAllBytes();
-            final ByteArrayInputStream byteStream = new ByteArrayInputStream(audioData);
-            final AudioInputStream audioStream = AudioSystem.getAudioInputStream(byteStream);
+        final ByteArrayInputStream byteStream = new ByteArrayInputStream(audioData);
 
+        try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(byteStream)) {
             final Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
 
             clip.addLineListener(event -> {
-               if (event.getType() == Type.STOP) {
+                if (event.getType() == Type.STOP) {
                     clip.close();
-                    try {
-                        audioStream.close();
-                    } catch (final IOException e) {
-                        LOGGER.log(Level.WARNING, "Error closing audio stream", e);
-                    }
                 }
-                });
-            } catch (final IOException | UnsupportedAudioFileException | LineUnavailableException e) {
-                LOGGER.log(Level.SEVERE, "Error playing sound" + fileName, e);
+            });
         }
+
+    } catch (final IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+        LOGGER.log(Level.SEVERE, "Error playing sound: {0}", fileName);
+        LOGGER.log(Level.SEVERE, "Exception: ", e);
     }
+}
 }

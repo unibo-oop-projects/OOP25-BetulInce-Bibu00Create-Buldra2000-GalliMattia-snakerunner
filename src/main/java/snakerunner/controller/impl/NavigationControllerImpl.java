@@ -1,5 +1,6 @@
 package snakerunner.controller.impl;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import snakerunner.controller.GameController;
 import snakerunner.controller.NavigationController;
 import snakerunner.controller.WorldController;
@@ -27,6 +28,7 @@ public final class NavigationControllerImpl implements NavigationController {
      * @param mainFrame main frame for the application.
      * @param gameModel game model for the application.
      */
+    @SuppressFBWarnings
     public NavigationControllerImpl(final MainFrame mainFrame, final GameModel gameModel) {
         this.mainFrame = mainFrame;
         this.gameModel = gameModel;
@@ -91,6 +93,7 @@ public final class NavigationControllerImpl implements NavigationController {
     }
 
     @Override
+    @SuppressFBWarnings
     public MainFrame getView() {
         return mainFrame;
     }

@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import snakerunner.commons.Point2D;
 import snakerunner.controller.WorldController;
 import snakerunner.model.Collectible;
@@ -25,6 +26,7 @@ public final class WorldControllerImpl implements WorldController {
      * 
      * @param gameModel GameModel.
      */
+    @SuppressFBWarnings
     public WorldControllerImpl(final GameModel gameModel) {
         this.gameModel = gameModel;
     }

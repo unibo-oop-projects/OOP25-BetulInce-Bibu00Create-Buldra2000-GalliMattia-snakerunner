@@ -23,7 +23,7 @@ public final class TutorialPanel extends AbstractBasePanel {
     private static final Integer VALUE_STRUT = GameConfiguration.VALUE_STRUT;
     private static final Integer SIZE_DESC = GameConfiguration.SIZE_DESC;
     private static final Integer SIZE_COMM = GameConfiguration.SIZE_COMM;
-    private transient final NavigationController navigationController;
+    private final transient NavigationController navigationController;
     private final JLabel command;
     private final JLabel description;
     private final JButton back;

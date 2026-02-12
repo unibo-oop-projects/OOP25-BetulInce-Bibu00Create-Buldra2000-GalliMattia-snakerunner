@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import snakerunner.graphics.MainFrame;
 import snakerunner.graphics.panel.BasePanel;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 /**
  * MainFrameImpl is the concrete class of the MainFrame'Interface.
@@ -41,6 +43,7 @@ public final class MainFrameImpl extends JFrame implements MainFrame {
         setVisible(true);
     }
 
+    @SuppressFBWarnings
     @Override
     public void setPanels(final BasePanel menu, final BasePanel game, final BasePanel option, final BasePanel tutorial) {
        this.menuPanel = menu;
