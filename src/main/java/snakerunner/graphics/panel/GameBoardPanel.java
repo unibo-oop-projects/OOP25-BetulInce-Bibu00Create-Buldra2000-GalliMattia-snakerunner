@@ -116,24 +116,22 @@ public final class GameBoardPanel extends JPanel {
      * @param g Graphics g.
      */
     private void drawGrid(final Graphics g) {
-        g.setColor(Color.BLACK);
+    g.setColor(Color.BLACK);
 
-        final int cellSize = getCellSize();
+    final int cellSize = getCellSize();
+    final int cols = worldController.getLevel().getGrid().getWidth();
+    final int rows = worldController.getLevel().getGrid().getHeight();
+    final int gridWidth = cols * cellSize;
+    final int gridHeight = rows * cellSize;
 
-        final int cols = worldController.getLevel().getGrid().getWidth();
-        final int rows = worldController.getLevel().getGrid().getHeight();
-
-        final int gridWidth = cols * cellSize;
-        final int gridHeight = rows * cellSize;
-
-        for (int x = 0; x <= getWidth(); x++) {
-            g.drawLine(x * cellSize, 0, x * cellSize, gridHeight);
-        }
-
-        for (int y = 0; y <= getHeight(); y++) {
-            g.drawLine(0, y * cellSize, gridWidth, y * cellSize);
-        }
+    for (int x = 0; x <= cols; x++) {
+        g.drawLine(x * cellSize, 0, x * cellSize, gridHeight);
     }
+
+    for (int y = 0; y <= rows; y++) {
+        g.drawLine(0, y * cellSize, gridWidth, y * cellSize);
+    }
+}
 
     private int getCellSize() {
         final int cols = worldController.getLevel().getGrid().getWidth();

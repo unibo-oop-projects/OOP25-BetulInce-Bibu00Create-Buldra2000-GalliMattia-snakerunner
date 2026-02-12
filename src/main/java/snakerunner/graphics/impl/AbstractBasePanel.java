@@ -21,7 +21,6 @@ public abstract class AbstractBasePanel extends JPanel implements BasePanel {
     private static final String TITLE = "Snake Runner";
     private static final int S_HEIGHT = 150;
     private static final int F_HEIGHT = 50;
-    private final Color defaultBackground = new Color(100, 238, 100);
     private final Font arial = new Font("Arial", Font.BOLD, 32);
 
     /**
@@ -35,7 +34,7 @@ public abstract class AbstractBasePanel extends JPanel implements BasePanel {
      * Initialize the panels with common layout and styling.
      */
     protected final void initPanel() {
-        setBackground(defaultBackground);
+        setBackground(Color.GRAY);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(Box.createVerticalStrut(F_HEIGHT));
         add(createTitle(TITLE));
